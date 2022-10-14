@@ -1,0 +1,10 @@
+.default-review-star-container {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.tiny-review-star-container {
+  display: flex;
+  gap: 2px;
+}

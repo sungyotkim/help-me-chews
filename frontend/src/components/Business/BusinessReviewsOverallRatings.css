@@ -1,0 +1,138 @@
+.business-review-rating-container {
+  width: 747px;
+  height: 180px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.business-overall-rating-container {
+  width: 176px;
+  height: 180px;
+  box-sizing: border-box;
+  padding-top: 40px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+}
+
+.review-total-count {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 24px;
+  color: rgb(110, 112, 114);
+}
+
+.buisness-review-breakdown-container {
+  width: 506px;
+  height: 180px;
+}
+
+.review-counter-display-container {
+  width: 506px;
+  height: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.display-star-container {
+  width: 84px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.display-bar-container {
+  width: 422px;
+  height: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background-color: rgb(240, 240, 240);
+  cursor: pointer;
+}
+
+.food-five-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: rgb(251, 80, 60);
+}
+
+.food-four-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: rgb(255, 100, 61);
+}
+
+.food-three-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: rgb(255, 135, 66);
+}
+
+.food-two-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: rgb(255, 173, 72);
+}
+
+.food-one-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: rgb(255, 204, 75);
+}
+
+.service-five-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: #1f2868;
+}
+
+.service-four-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: #244a80;
+}
+
+.service-three-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: #377a98;
+}
+
+.service-two-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: #4eadaf;
+}
+
+.service-one-star-bar {
+  height: 10px;
+  width: 0;
+  border-radius: 5px;
+  background-color: #69c6af;
+}
+
+.business-review-rating-container-2 {
+  width: 747px;
+  height: 180px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: content-box;
+  padding-top: 16px;
+  border-top: 1px solid #ebebeb;
+  margin-top: 16px;
+}

@@ -1,0 +1,87 @@
+.next-review-grid-item {
+  height: 100%;
+  min-height: 200px;
+  border: 1px solid #ebebeb;
+  display: flex;
+  border-radius: 4px;
+}
+
+.next-review-grid-item-photo-container {
+  width: 200px;
+  box-sizing: border-box;
+  max-height: 206px;
+}
+
+.next-review-grid-item-photo-container > img {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  object-fit: cover;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+.next-review-grid-item-text-container {
+  min-width: 0;
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 8px 0 16px;
+  margin-bottom: 8px;
+}
+
+.next-review-item-name {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  color: rgba(45, 46, 47, 1);
+  text-align: center;
+  box-sizing: border-box;
+  margin-top: 20px;
+  max-width: 250px;
+  width: calc(100% - 30px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+  text-align: left;
+}
+
+.hide-next-review-suggestion-btn {
+  fill: rgba(110, 112, 114, 1);
+  position: absolute;
+  top: 25px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.do-you-recommend-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 330px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 24px;
+  color: rgba(45, 46, 47, 1);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.next-review-star-container {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.next-review-star-container > div {
+  cursor: pointer;
+}

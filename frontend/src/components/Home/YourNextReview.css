@@ -1,0 +1,86 @@
+.next-review-main-container {
+  /* min-height: 902px; */
+  min-height: 396px;
+  width: 100%;
+}
+
+.next-review-page-wrapper {
+  /* min-height: 854px; */
+  min-height: 347px;
+  width: 100%;
+  max-width: 1144px;
+  margin: auto;
+  padding: 0 40px;
+}
+
+.next-review-top-header {
+  height: 36px;
+  margin: 49px 0 48px;
+  box-sizing: border-box;
+}
+
+.next-review-title {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  color: rgba(45, 46, 47, 1);
+  text-align: center;
+}
+
+.next-review-bottom {
+  padding-bottom: 32px;
+}
+
+.next-review-bottom-alt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 48px 0;
+  height: 263px;
+  box-sizing: border-box;
+}
+
+.next-review-bottom-alt > img {
+  width: 133px;
+  height: 120px;
+}
+.next-review-bottom-alt > div {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: rgba(45, 46, 47, 1);
+  text-align: center;
+}
+
+.next-review-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 32px;
+}
+
+.next-review-see-more-footer {
+  margin-top: 32px;
+  box-sizing: border-box;
+  height: 24px;
+  fill: rgba(2, 122, 151, 1);
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.show-more-suggestions-text {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: rgba(2, 122, 151, 1);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0;
+}

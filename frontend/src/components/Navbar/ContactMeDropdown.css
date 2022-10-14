@@ -1,0 +1,92 @@
+.contact-me-dropdown {
+  width: 134px;
+  height: 58px;
+  display: flex;
+  padding: 16px 16px 20px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+
+.contact-me-dropdown-revealed {
+  width: 240px;
+  height: 80px;
+  background-color: #fff;
+  position: relative;
+  border-color: #ebebeb;
+  box-shadow: 0 0 18px #00000026;
+  padding: 20px 12px;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  z-index: 999;
+  display: flex;
+}
+
+.contact-me-left-dropdown {
+  padding-right: 4px;
+  width: 108px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-me-right-dropdown {
+  padding-left: 4px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-me-left-dropdown-option {
+  display: flex;
+  flex-flow: row nowrap;
+  cursor: pointer;
+  padding: 8px;
+  height: 40px;
+  gap: 12px;
+  border-radius: 4px;
+}
+
+.contact-me-left-dropdown-option:hover {
+  background-color: #ebebeb;
+}
+
+.contact-me-left-dropdown-option > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-me-left-dropdown-option > div {
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.contact-me-right-dropdown-option {
+  display: flex;
+  flex-flow: row nowrap;
+  cursor: pointer;
+  padding: 8px;
+  height: 40px;
+  gap: 12px;
+  border-radius: 4px;
+}
+
+.contact-me-right-dropdown-option:hover {
+  background-color: #ebebeb;
+}
+
+.contact-me-right-dropdown-option > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-me-right-dropdown-option > div {
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: black;
+}

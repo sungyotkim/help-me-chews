@@ -1,0 +1,137 @@
+.header-messages-container {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-right: 8px;
+  position: relative;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header-messages-container:hover {
+  background-color: #ffffff4d;
+}
+
+.header-messages-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notifications-badge {
+  position: absolute;
+  right: 3px;
+  top: 2px;
+  background-color: rgba(224, 7, 7, 1);
+  border-radius: 8px;
+  height: 16px;
+  min-width: 16px;
+  line-height: 16px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 1);
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+.header-notifications-container {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-sizing: border-box;
+  position: relative;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.header-notifications-container:hover {
+  background-color: #ffffff4d;
+}
+
+.header-notifications-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.header-profile-container {
+  height: 48px;
+  width: 52px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding-top: 3px;
+  position: relative;
+}
+
+.header-profile-icon {
+  height: 36px;
+  width: 36px;
+  cursor: pointer;
+}
+
+.hidden-profile-menu {
+  position: absolute;
+  right: -12px;
+  top: 42px;
+  z-index: 100;
+  width: 226px;
+  height: 193px;
+  padding: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 18px #00000026;
+  border-color: #ebebeb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hidden-profile-menu-top {
+  width: 100%;
+  height: 120px;
+}
+
+.profile-menu-item-container {
+  height: 40px;
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  gap: 12px;
+  align-items: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.profile-menu-item-container:hover {
+  background-color: #ebebeb;
+  color: #2d2e2f;
+}
+
+.profile-menu-text {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgba(45, 46, 47, 1);
+}
+
+.hidden-profile-menu-bottom {
+  width: 226px;
+  height: 40px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #ebebeb;
+}

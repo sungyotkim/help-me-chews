@@ -1,0 +1,418 @@
+.search-page-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.main-search-results-container {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  position: relative;
+}
+
+.search-results-container-left-outer {
+  width: 1216px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 0 40px 40px;
+  display: flex;
+  border-top: 1px solid #ebebeb;
+  position: relative;
+}
+
+.search-results-filter-outer-container {
+  width: 208px;
+  height: 797px;
+  padding-top: 32px;
+  margin-right: 40px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+  text-align: left;
+  box-sizing: border-box;
+  position: sticky;
+  top: 140px;
+}
+
+.search-results-filter-contaienr-with-filters {
+  display: flex;
+  flex-direction: column;
+  width: 208px;
+  height: fit-content;
+}
+
+.search-results-filter-header-container-with-filters {
+  height: 20px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+}
+
+.search-results-current-filters-container {
+  min-height: 17px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 16px;
+  color: rgb(110, 112, 114);
+}
+
+.clear-all-current-filters-btn {
+  height: 20px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(2, 122, 151);
+  cursor: pointer;
+}
+
+.clear-all-current-filters-btn:hover {
+  text-decoration: underline;
+}
+
+.search-results-filter-header-container {
+  font-size: 16px;
+  line-height: 24px;
+  width: 200px;
+  height: 24px;
+}
+
+.search-results-filter-price-container {
+  width: 208px;
+  height: 72px;
+  padding: 16px 0;
+  border-bottom: 1px solid #ebebeb;
+  box-sizing: border-box;
+}
+
+.search-results-filter-price-inner-container {
+  border-radius: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 4px;
+  padding: 6px 4px;
+  box-sizing: border-box;
+  height: 31px;
+}
+
+.search-results-filter-price-option {
+  width: 50px;
+  height: 31px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0;
+  padding: 6px 0;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
+.price-option-hovered {
+  background-color: #ebebeb;
+  transition: ease-in-out 0.2s;
+}
+
+.price-option-selected {
+  background-color: #ebebeb;
+  color: #027a97;
+  transition: ease-in-out 0.2s;
+}
+
+.search-results-filter-suggested-container {
+  width: 208px;
+  height: 111px;
+  padding: 16px 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.search-results-filter-suggested-container-title {
+  height: 28px;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.search-results-filter-suggested-container-item {
+  height: 25px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+  font-weight: 400;
+  display: flex;
+  cursor: pointer;
+  width: 208px;
+}
+
+.search-results-filter-features-container {
+  width: 208px;
+  height: 111px;
+  padding: 16px 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.search-results-filter-features-container-title {
+  height: 28px;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.search-results-filter-features-container-item {
+  height: 25px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+  font-weight: 400;
+  display: flex;
+  cursor: pointer;
+  width: 208px;
+}
+
+.search-results-filter-distance-container {
+  width: 208px;
+  height: 195px;
+  box-sizing: border-box;
+  padding: 16px 0;
+}
+
+.search-results-filter-distance-container-title {
+  height: 28px;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.search-results-filter-distance-container-item {
+  width: 208px;
+  display: flex;
+  cursor: pointer;
+  height: 27px;
+  padding-top: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+  font-weight: 400;
+}
+
+.search-results-result-outer-container {
+  width: 888px;
+  height: auto;
+  padding-top: 24px;
+}
+
+.search-path-container {
+  width: 888px;
+  height: 17.42px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 16px;
+  color: rgb(110, 112, 114);
+}
+
+.search-header-container {
+  display: flex;
+  width: 888px;
+  height: 38px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-title {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 32px;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  color: rgb(45, 46, 47);
+}
+
+.search-sort-container {
+  display: flex;
+  gap: 4px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+}
+
+.search-sort-dropdown-selection {
+  font-weight: 700;
+}
+
+.search-sponsored-results-container {
+  width: 888px;
+  height: 32px;
+  margin-top: 24px;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #ebebeb;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  color: rgb(45, 46, 47);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.search-results-result-inner-container {
+  width: 888px;
+  height: 100%;
+}
+
+.search-results-result-inner-header-container {
+  width: 888px;
+  height: 24px;
+  margin: 16px 0 8px 0;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  color: rgb(45, 46, 47);
+}
+
+.search-results-container-right-outer {
+  width: 687px;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  position: relative;
+}
+
+.search-results-container-right-inner {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  min-height: 300px;
+  max-height: 842px;
+  position: sticky;
+  top: 130px;
+}
+
+.square-check-box-container {
+  border-radius: 4px;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: -2px;
+  left: -2px;
+  margin-right: 3px;
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.square-check-box-hovered {
+  background-color: #ebebeb;
+  transition: ease-in-out 0.2s;
+}
+
+.square-check-boxes {
+  height: 19px;
+  width: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #c8c9ca;
+  border-radius: 4px;
+  transition: ease-in-out 0.2s;
+}
+
+.square-check-box-checked {
+  background-color: #027a97;
+  transition: ease-in-out 0.2s;
+}
+
+.square-check-boxes > input {
+  margin: 0;
+  transition: ease-in-out 2s;
+}
+
+.search-distance-input-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-distance-input-btn > label {
+  width: 208px;
+  height: 23px;
+  padding-top: 4px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.search-distance-input-btn > label > input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: #c8c9ca;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #c8c9ca;
+  border-radius: 50%;
+  display: grid;
+  place-content: center;
+}
+
+.search-distance-input-btn > label > input[type="radio"]::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  background-color: #027a97;
+  border: 1px solid #027a97;
+}
+
+.search-distance-input-btn > label > input[type="radio"]:checked {
+  border: 1px solid #027a97;
+}
+
+.search-distance-input-btn > label > input[type="radio"]:checked::before {
+  transform: scale(1);
+}

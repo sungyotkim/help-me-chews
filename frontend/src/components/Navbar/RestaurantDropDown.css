@@ -1,0 +1,107 @@
+.restaurants-dropdown-container {
+  width: 138px;
+  position: relative;
+}
+
+.restaurants-dropdown {
+  width: 138px;
+  height: 58px;
+  display: flex;
+  padding: 16px 16px 20px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-span {
+  position: relative;
+  top: 1px;
+}
+
+.restaurants-dropdown-revealed {
+  width: 254.5px;
+  height: 160px;
+  background-color: #fff;
+  position: relative;
+  border-color: #ebebeb;
+  box-shadow: 0 0 18px #00000026;
+  padding: 20px 12px;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  z-index: 999;
+  display: flex;
+}
+
+.restaurants-left-dropdown {
+  padding-right: 4px;
+  width: 111.25px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.restaurants-right-dropdown {
+  padding-left: 4px;
+  width: 143.25px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.restaurants-left-dropdown-option {
+  display: flex;
+  flex-flow: row nowrap;
+  cursor: pointer;
+  padding: 8px;
+  height: 40px;
+  gap: 12px;
+  position: relative;
+  border-radius: 4px;
+}
+
+.restaurants-left-dropdown-option:hover {
+  background-color: #ebebeb;
+}
+
+.restaurants-left-dropdown-option > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.restaurants-left-dropdown-option > div {
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.restaurants-right-dropdown-option {
+  display: flex;
+  flex-flow: row nowrap;
+  cursor: pointer;
+  padding: 8px;
+  height: 40px;
+  gap: 12px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.restaurants-right-dropdown-option:hover {
+  background-color: #ebebeb;
+}
+
+.restaurants-right-dropdown-option > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.restaurants-right-dropdown-option > div {
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: black;
+}

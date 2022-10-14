@@ -1,0 +1,8 @@
+{
+  "short_name": "Help Me Chews",
+  "name": "Help Me Chews Fullstack Project",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

@@ -1,0 +1,229 @@
+.search-result-item-container {
+  width: 888px;
+  height: 271px;
+  padding: 24px;
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+}
+
+.search-result-item-container:hover {
+  box-shadow: 0 0 10px #0000001a;
+}
+
+.result-item-left-container {
+  width: 244px;
+  height: 223px;
+}
+
+.result-image-container {
+  width: 220px;
+  height: 220px;
+}
+
+.result-image-container > img {
+  width: 220px;
+  height: 220px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.result-item-right-container {
+  width: 596px;
+  height: 223px;
+}
+
+.result-item-title-container {
+  height: 28px;
+  display: flex;
+  gap: 5px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0px;
+  line-height: 28px;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  color: rgb(45, 46, 47);
+}
+
+.result-item-name:hover {
+  text-decoration: underline;
+}
+
+.result-item-reviews-container {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+  align-items: center;
+  height: 25px;
+  position: relative;
+}
+
+.tiny-review-star-container {
+  height: 20px;
+}
+
+.result-item-reviews-star-count {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+  position: relative;
+  top: -2px;
+  left: 2px;
+}
+
+.result-item-reviews-review-count {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(110, 112, 114);
+  position: relative;
+  top: -2px;
+}
+
+.result-item-category-price-location-container {
+  display: flex;
+  margin-top: 8px;
+  height: 25px;
+  gap: 7px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(110, 112, 114);
+}
+
+.result-item-category {
+  width: fit-content;
+  height: 20px;
+  padding: 4px;
+  box-sizing: border-box;
+  background-color: rgb(240, 240, 240);
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 12px;
+  color: rgb(110, 112, 114);
+  border-radius: 4px;
+}
+
+.result-item-price {
+  font-size: 15px;
+  letter-spacing: -1px;
+  position: relative;
+  left: 1px;
+}
+
+.result-item-location {
+  position: relative;
+  top: 1px;
+}
+
+.result-item-hours-container {
+  display: flex;
+  height: 20px;
+  margin-top: 8px;
+  width: 596px;
+  gap: 5px;
+}
+
+.hours-open-container {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(0, 128, 85);
+  text-align: left;
+}
+
+.hours-closed-container {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(224, 7, 7);
+}
+
+.hours-open-closed-until {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+  text-align: left;
+}
+
+.result-item-sample-review-container {
+  width: 596px;
+  height: 40px;
+  margin-top: 8px;
+  display: flex;
+  position: relative;
+}
+
+.sample-review-icon {
+  width: 22px;
+  height: 40px;
+  position: relative;
+  top: 3px;
+}
+
+.sample-review-snippet-container {
+  width: 574px;
+  height: 40px;
+}
+
+.sample-review-snippet {
+  height: 40px;
+  display: inline;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(110, 112, 114);
+}
+
+.sample-review-see-more {
+  font-weight: 700;
+  color: rgb(2, 122, 151);
+}
+
+.sample-review-see-more:hover {
+  text-decoration: underline;
+}
+
+.result-item-features-container {
+  display: flex;
+  flex-direction: row;
+  width: 460px;
+  height: 40px;
+  padding: 9.25px 0;
+  box-sizing: border-box;
+}
+
+.transaction-item-container {
+  display: flex;
+  width: fit-content;
+  height: 17.5px;
+  margin: 4px 16px 0 0;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 16px;
+  color: rgb(45, 46, 47);
+  gap: 2px;
+}

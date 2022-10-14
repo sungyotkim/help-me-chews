@@ -1,0 +1,50 @@
+.login-btn {
+  display: flex;
+  width: 82px;
+  height: 40px;
+  color: rgba(255, 255, 255, 1);
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(200, 201, 202);
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-left: 2px;
+  cursor: pointer;
+  transition: all 0.8s;
+  background-color: transparent;
+}
+
+.login-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#login-btn-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  font-family: "Poppins", sans-serif;
+}
+
+.signup-btn {
+  display: flex;
+  width: 92px;
+  height: 40px;
+  color: rgba(255, 255, 255, 1);
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(225, 7, 7, 1);
+  border-radius: 4px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+#signup-btn-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  font-family: "Poppins", sans-serif;
+}

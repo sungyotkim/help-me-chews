@@ -1,0 +1,87 @@
+.business-reviews-sorting-options-container {
+  width: 747px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.review-search-bar {
+  width: 238px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  padding-left: 8px;
+  position: relative;
+}
+
+.review-search-bar > input {
+  margin: 0;
+  padding: 13px 64px 13px 16px;
+  height: 14px;
+  border-radius: 4px;
+  border: 1px solid rgba(45, 46, 47, 0.3);
+  width: 150px;
+  box-sizing: content-box;
+}
+
+.review-search-bar > input:focus {
+  box-shadow: inset 0 0 0 2px #027a97;
+}
+
+.review-search-bar-text {
+  position: absolute;
+  top: 11px;
+  left: 24px;
+  bottom: 13px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: #2d2e2f;
+  height: 19px;
+  transform: translateY(0px);
+  transform-origin: left top;
+  transition: transform, width, background-color, color;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.review-search-bar-focused {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  transform: translateY(-22px);
+  transform-origin: left top;
+  transition: transform, width, background-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  color: #027a97;
+  background-color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 16px;
+  width: 95px;
+  display: flex;
+  justify-content: center;
+}
+
+.review-search-icon {
+  width: 56px;
+  height: 40px;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+  fill: rgb(45, 46, 47);
+  display: flex;
+  align-items: center;
+  transition: all 0.8s;
+  position: absolute;
+  right: 0;
+}
+
+.review-search-icon:hover {
+  background-color: rgba(0, 0, 0, 0.12);
+}
