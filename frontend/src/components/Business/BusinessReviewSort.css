@@ -7,6 +7,145 @@
   transition: box-shadow 0.2s ease-in-out;
 }
 
+.sorting-btns-container {
+  width: 400px;
+  height: 40px;
+  display: flex;
+  color: rgb(45, 46, 47);
+  font-size: 12px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 16px;
+  position: relative;
+}
+
+.help-sort {
+  width: 128px;
+  height: 40px;
+  position: relative;
+}
+
+.help-sort-btn {
+  width: 120px;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  margin: 4px;
+  border: 1px solid rgb(200, 201, 202);
+  border-radius: 16px;
+  transition: all 0.4s;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.help-sort-btn:hover {
+  background-color: rgb(226, 226, 230);
+}
+
+.help-sort-dropdown {
+  width: 139px;
+  height: 212px;
+  box-sizing: border-box;
+  padding: 16px;
+  color: rgb(45, 46, 47);
+  font-size: 14px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 18px #00000026;
+  position: relative;
+  z-index: 10;
+}
+
+.help-sort-dropdown > div {
+  width: 110px;
+  height: 36px;
+  box-sizing: border-box;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  cursor: pointer;
+}
+
+.help-sort-dropdown > div:hover {
+  background-color: rgb(226, 226, 230);
+}
+
+.active-help-sort {
+  background-color: #ebfbff;
+  font-weight: 600;
+}
+
+.filter-by-rating-sort {
+  width: 138px;
+  height: 40px;
+  position: relative;
+}
+
+.filter-by-rating-sort-btn {
+  width: 132px;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 6px 12px;
+  margin: 4px;
+  border: 1px solid rgb(200, 201, 202);
+  border-radius: 16px;
+  transition: all 0.4s;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.filter-by-rating-sort-btn:hover {
+  background-color: rgb(226, 226, 230);
+}
+
+.rating-sort-dropdown {
+  width: 112px;
+  height: 248px;
+  box-sizing: border-box;
+  padding: 16px;
+  color: rgb(45, 46, 47);
+  font-size: 14px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 18px #00000026;
+  position: relative;
+  z-index: 10;
+}
+
+.rating-sort-dropdown > div {
+  width: 80.5px;
+  height: 36px;
+  box-sizing: border-box;
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  cursor: pointer;
+}
+
+.rating-sort-dropdown > div:hover {
+  background-color: rgb(226, 226, 230);
+}
+
+.active-rating-sort {
+  background-color: #ebfbff;
+  font-weight: 600;
+}
+
 .review-search-bar {
   width: 238px;
   height: 40px;
