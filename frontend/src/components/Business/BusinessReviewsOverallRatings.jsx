@@ -1,5 +1,4 @@
 import ReviewStarsLarge from "../ReviewStars/ReviewStarsLarge";
-import ReviewStarsLargeBlue from "../ReviewStars/ReviewStarsLargeBlue";
 import "./BusinessReviewsOverallRatings.css";
 
 const BusinessReviewsOverallRatings = ({ yelpBusinessReviews }) => {
@@ -166,7 +165,7 @@ const BusinessReviewsOverallRatings = ({ yelpBusinessReviews }) => {
       <div className="business-review-rating-container-2">
         <div className="business-overall-rating-container">
           <div>Service rating</div>
-          <ReviewStarsLargeBlue starCount={serviceRatingAverage} />
+          <ReviewStarsLarge starCount={serviceRatingAverage} blueStars={true} />
           <div className="review-total-count">{ratingsTotal} reviews</div>
         </div>
         <div className="business-review-breakdown-container">
