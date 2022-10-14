@@ -176,7 +176,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
-  bcrypt (~> 3.1.7)
+  bcrypt
   better_errors
   binding_of_caller
   bootsnap
@@ -188,7 +188,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rack-cors
-  rails (~> 7.0.4)
+  rails
   tzinfo-data
 
 RUBY VERSION
