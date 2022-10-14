@@ -188,7 +188,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.0)
   rack-cors
-  rails
+  rails (~> 7.0.3)
   tzinfo-data
 
 RUBY VERSION
