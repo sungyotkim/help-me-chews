@@ -16,15 +16,7 @@
 # end
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'localhost'
-    resource '*',
-      headers: :any,
-      methods: [:get, :post, :put, :patch, :delete, :options, :head],
-      credentials: true
-  end
-
-  allow do
-    origins 'https://help-me-chews.herokuapp.com'
+    origins ['https://help-me-chews.herokuapp.com', 'localhost:3000']
     resource '*',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head],
