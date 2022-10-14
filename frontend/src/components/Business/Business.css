@@ -472,6 +472,51 @@
   background-color: rgb(216, 226, 230);
 }
 
+.user-to-review-container {
+  width: 699px;
+  height: 68px;
+  padding: 24px;
+  box-sizing: content-box;
+  display: flex;
+  border-radius: 4px;
+  box-shadow: 0 0 10px #0000001a;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.user-to-review-user-info {
+  display: flex;
+  width: 349px;
+  height: 68px;
+  gap: 10px;
+}
+
+.user-to-review-top-info {
+  width: 100%;
+}
+
+.user-to-review-rating-container {
+  width: 337px;
+  height: 68px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.user-to-review-rating-container > div {
+  color: #027a97;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.user-to-review-rating-container > div:hover {
+  text-decoration: underline;
+}
+
 .business-page-right-container {
   width: 381px;
   box-sizing: border-box;
