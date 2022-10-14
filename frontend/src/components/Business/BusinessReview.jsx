@@ -91,7 +91,10 @@ const BusinessReview = ({ review, location }) => {
           </div>
           <div className="review-user-info-container">
             <div className="review-user-info-top">
-              <div className="review-user-name">{review.user.name}</div>
+              <div className="review-user-name">
+                {review.user.name}{" "}
+                <div>(Yelp reviewer - blue stars are simulated)</div>
+              </div>
               <div className="review-user-location">{location}</div>
             </div>
             <div className="review-user-icons">
@@ -155,68 +158,70 @@ const BusinessReview = ({ review, location }) => {
         </div>
       </div>
       <div className="user-review-text">{review.text}</div>
-      <div className="review-react-btns-container">
-        <div
-          className={
-            usefulBtnClicked ? "useful-btn review-btn-clicked" : "useful-btn"
-          }
-          onClick={handleUsefulBtnClicked}
-        >
-          <svg width={16} height={16}>
-            {usefulBtnClicked && (
-              <>
-                <path d="M8 8.95a1.75 1.75 0 100-3.5 1.75 1.75 0 000 3.5z"></path>
-                <path d="M8 1.25A6.75 6.75 0 1014.75 8 6.758 6.758 0 008 1.25zm1.75 8.68v.87a1.251 1.251 0 01-1.25 1.25h-1a1.251 1.251 0 01-1.25-1.25v-.87a3.25 3.25 0 113.5 0z"></path>
-              </>
-            )}
-            {!usefulBtnClicked && (
-              <>
-                <path d="M8 14.75A6.75 6.75 0 1114.75 8 6.758 6.758 0 018 14.75zm0-12A5.25 5.25 0 1013.25 8 5.256 5.256 0 008 2.75z"></path>
-                <path d="M11.25 7.2a3.25 3.25 0 10-5 2.73v.87a1.251 1.251 0 001.25 1.25h1a1.251 1.251 0 001.25-1.25v-.87a3.243 3.243 0 001.5-2.73zM8 8.95a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5z"></path>
-              </>
-            )}
-          </svg>
-          <div>Useful {useful ? useful : ""}</div>
+      {!review.yelpReview && (
+        <div className="review-react-btns-container">
+          <div
+            className={
+              usefulBtnClicked ? "useful-btn review-btn-clicked" : "useful-btn"
+            }
+            onClick={handleUsefulBtnClicked}
+          >
+            <svg width={16} height={16}>
+              {usefulBtnClicked && (
+                <>
+                  <path d="M8 8.95a1.75 1.75 0 100-3.5 1.75 1.75 0 000 3.5z"></path>
+                  <path d="M8 1.25A6.75 6.75 0 1014.75 8 6.758 6.758 0 008 1.25zm1.75 8.68v.87a1.251 1.251 0 01-1.25 1.25h-1a1.251 1.251 0 01-1.25-1.25v-.87a3.25 3.25 0 113.5 0z"></path>
+                </>
+              )}
+              {!usefulBtnClicked && (
+                <>
+                  <path d="M8 14.75A6.75 6.75 0 1114.75 8 6.758 6.758 0 018 14.75zm0-12A5.25 5.25 0 1013.25 8 5.256 5.256 0 008 2.75z"></path>
+                  <path d="M11.25 7.2a3.25 3.25 0 10-5 2.73v.87a1.251 1.251 0 001.25 1.25h1a1.251 1.251 0 001.25-1.25v-.87a3.243 3.243 0 001.5-2.73zM8 8.95a1.75 1.75 0 110-3.5 1.75 1.75 0 010 3.5z"></path>
+                </>
+              )}
+            </svg>
+            <div>Useful {useful ? useful : ""}</div>
+          </div>
+          <div
+            className={
+              funnyBtnClicked ? "funny-btn review-btn-clicked" : "funny-btn"
+            }
+            onClick={handleFunnyBtnClicked}
+          >
+            <svg width={16} height={16}>
+              {funnyBtnClicked && (
+                <path d="M8 1.25A6.75 6.75 0 1014.75 8 6.758 6.758 0 008 1.25zM9.806 6.3a1.1 1.1 0 011.1 1.1h-2.2a1.1 1.1 0 011.1-1.1zm-3.612 0a1.1 1.1 0 011.1 1.1h-2.2a1.1 1.1 0 011.1-1.1zM8 12.221a3.625 3.625 0 01-3.575-3.045A.151.151 0 014.572 9h6.856a.151.151 0 01.147.176A3.636 3.636 0 018 12.221z"></path>
+              )}
+              {!funnyBtnClicked && (
+                <>
+                  <path d="M8 14.75A6.75 6.75 0 1114.75 8 6.758 6.758 0 018 14.75zm0-12A5.25 5.25 0 1013.25 8 5.256 5.256 0 008 2.75zm.706 4.65a1.1 1.1 0 112.2 0m-5.812 0a1.1 1.1 0 112.2 0"></path>
+                  <path d="M4.572 9a.151.151 0 00-.147.176 3.62 3.62 0 007.15 0A.151.151 0 0011.428 9H4.572z"></path>{" "}
+                </>
+              )}
+            </svg>
+            <div>Funny {funny ? funny : ""}</div>
+          </div>
+          <div
+            className={
+              coolBtnClicked ? "cool-btn review-btn-clicked" : "cool-btn"
+            }
+            onClick={handleCoolBtnClicked}
+          >
+            <svg width={16} height={16}>
+              {coolBtnClicked && (
+                <path d="M8 1.25A6.75 6.75 0 1014.75 8 6.758 6.758 0 008 1.25zm2.737 9.333A3.432 3.432 0 018 12.035a3.434 3.434 0 01-2.737-1.452.148.148 0 01.158-.234 9.75 9.75 0 005.158 0 .148.148 0 01.158.234zm1.75-3.603l-.506 1.518a1.773 1.773 0 01-3.363 0l-.17-.51a.473.473 0 00-.896 0l-.17.51a1.772 1.772 0 01-3.363 0L3.513 6.98a.256.256 0 01.243-.336h8.488a.255.255 0 01.243.336z"></path>
+              )}
+              {!coolBtnClicked && (
+                <>
+                  <path d="M8 14.75A6.75 6.75 0 1114.75 8 6.758 6.758 0 018 14.75zm0-12A5.25 5.25 0 1013.25 8 5.256 5.256 0 008 2.75z"></path>
+                  <path d="M3.513 6.98l.506 1.518a1.772 1.772 0 003.363 0l.17-.51a.473.473 0 01.896 0l.17.51a1.772 1.772 0 003.363 0l.506-1.518a.256.256 0 00-.243-.336H3.756a.255.255 0 00-.243.336zm1.907 3.369a.149.149 0 00-.157.234A3.432 3.432 0 008 12.035a3.431 3.431 0 002.737-1.452.148.148 0 00-.158-.234 9.75 9.75 0 01-5.158 0z"></path>
+                </>
+              )}
+            </svg>
+            <div>Cool {cool ? cool : ""}</div>
+          </div>
         </div>
-        <div
-          className={
-            funnyBtnClicked ? "funny-btn review-btn-clicked" : "funny-btn"
-          }
-          onClick={handleFunnyBtnClicked}
-        >
-          <svg width={16} height={16}>
-            {funnyBtnClicked && (
-              <path d="M8 1.25A6.75 6.75 0 1014.75 8 6.758 6.758 0 008 1.25zM9.806 6.3a1.1 1.1 0 011.1 1.1h-2.2a1.1 1.1 0 011.1-1.1zm-3.612 0a1.1 1.1 0 011.1 1.1h-2.2a1.1 1.1 0 011.1-1.1zM8 12.221a3.625 3.625 0 01-3.575-3.045A.151.151 0 014.572 9h6.856a.151.151 0 01.147.176A3.636 3.636 0 018 12.221z"></path>
-            )}
-            {!funnyBtnClicked && (
-              <>
-                <path d="M8 14.75A6.75 6.75 0 1114.75 8 6.758 6.758 0 018 14.75zm0-12A5.25 5.25 0 1013.25 8 5.256 5.256 0 008 2.75zm.706 4.65a1.1 1.1 0 112.2 0m-5.812 0a1.1 1.1 0 112.2 0"></path>
-                <path d="M4.572 9a.151.151 0 00-.147.176 3.62 3.62 0 007.15 0A.151.151 0 0011.428 9H4.572z"></path>{" "}
-              </>
-            )}
-          </svg>
-          <div>Funny {funny ? funny : ""}</div>
-        </div>
-        <div
-          className={
-            coolBtnClicked ? "cool-btn review-btn-clicked" : "cool-btn"
-          }
-          onClick={handleCoolBtnClicked}
-        >
-          <svg width={16} height={16}>
-            {coolBtnClicked && (
-              <path d="M8 1.25A6.75 6.75 0 1014.75 8 6.758 6.758 0 008 1.25zm2.737 9.333A3.432 3.432 0 018 12.035a3.434 3.434 0 01-2.737-1.452.148.148 0 01.158-.234 9.75 9.75 0 005.158 0 .148.148 0 01.158.234zm1.75-3.603l-.506 1.518a1.773 1.773 0 01-3.363 0l-.17-.51a.473.473 0 00-.896 0l-.17.51a1.772 1.772 0 01-3.363 0L3.513 6.98a.256.256 0 01.243-.336h8.488a.255.255 0 01.243.336z"></path>
-            )}
-            {!coolBtnClicked && (
-              <>
-                <path d="M8 14.75A6.75 6.75 0 1114.75 8 6.758 6.758 0 018 14.75zm0-12A5.25 5.25 0 1013.25 8 5.256 5.256 0 008 2.75z"></path>
-                <path d="M3.513 6.98l.506 1.518a1.772 1.772 0 003.363 0l.17-.51a.473.473 0 01.896 0l.17.51a1.772 1.772 0 003.363 0l.506-1.518a.256.256 0 00-.243-.336H3.756a.255.255 0 00-.243.336zm1.907 3.369a.149.149 0 00-.157.234A3.432 3.432 0 008 12.035a3.431 3.431 0 002.737-1.452.148.148 0 00-.158-.234 9.75 9.75 0 01-5.158 0z"></path>
-              </>
-            )}
-          </svg>
-          <div>Cool {cool ? cool : ""}</div>
-        </div>
-      </div>
+      )}
     </div>
   );
 };

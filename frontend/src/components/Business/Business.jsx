@@ -73,12 +73,9 @@ const Business = () => {
     }
   }
 
-  // console.log(resultHours);
-
   currentBusiness.categories.forEach((cat) => {
     categories.push(cat.title);
   });
-  // console.log(currentBusiness);
 
   let openTime;
   let closeTime;
@@ -167,7 +164,6 @@ const Business = () => {
     setShowReviewTrustContainer(false);
   };
 
-  // const databaseReviews = [];
   const [databaseReviews, setDatabaseReviews] = useState([]);
 
   useEffect(() => {
@@ -175,6 +171,7 @@ const Business = () => {
     yelpBusinessReviews.forEach((review) => {
       review.foodRating = review.rating;
       review.serviceRating = review.rating;
+      review.yelpReview = true;
       yelpReviews.push(review);
     });
     setDatabaseReviews((databaseReviews) => [
@@ -453,7 +450,6 @@ const Business = () => {
           </div>
         </div>
       </div>
-      <div className="test">business</div>
     </>
   );
 };

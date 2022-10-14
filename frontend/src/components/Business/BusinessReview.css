@@ -2,6 +2,7 @@
   width: 747px;
   min-height: 210px;
   position: relative;
+  margin-bottom: 24px;
 }
 
 .review-header-container {
@@ -52,6 +53,14 @@
   line-height: 24px;
   color: rgb(45, 46, 47);
   cursor: pointer;
+  display: flex;
+  gap: 10px;
+}
+
+.review-user-name > div {
+  color: rgb(110, 112, 114);
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .review-user-name:hover {
@@ -191,7 +200,6 @@
   letter-spacing: 0;
   line-height: 16px;
   color: rgb(110, 112, 114);
-  margin-bottom: 24px;
 }
 
 .useful-btn {
