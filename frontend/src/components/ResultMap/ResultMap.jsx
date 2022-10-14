@@ -26,8 +26,10 @@ const ResultMap = () => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      center.lat = businessResults.region.center.latitude;
-      center.lng = businessResults.region.center.longitude;
+      if (businessResults.region) {
+        center.lat = businessResults.region.center.latitude;
+        center.lng = businessResults.region.center.longitude;
+      }
       setCenter({});
       setCenter((oldCenter) => ({ ...oldCenter, ...center }));
     }
