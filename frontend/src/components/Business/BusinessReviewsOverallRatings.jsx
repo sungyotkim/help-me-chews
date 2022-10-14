@@ -58,8 +58,6 @@ const BusinessReviewsOverallRatings = ({ databaseReviews }) => {
     }
   });
 
-  // console.log(databaseReviews);
-
   let foodRatingFiveWidth = (foodRatingFive / ratingsTotal) * 100;
   let foodRatingFourWidth = (foodRatingFour / ratingsTotal) * 100;
   let foodRatingThreeWidth = (foodRatingThree / ratingsTotal) * 100;

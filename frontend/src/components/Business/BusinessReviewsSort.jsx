@@ -6,6 +6,7 @@ const BusinessReviewSort = () => {
   const [showHelpSort, setShowHelpSort] = useState(false);
   const [showRatingSort, setShowRatingSort] = useState(false);
   const ref = useRef(null);
+  const node = useRef();
 
   const handleFocus = () => {
     setSearchReviewsAnimate(!searchReviewsAnimate);
@@ -27,7 +28,10 @@ const BusinessReviewSort = () => {
     }
   };
 
-  const clickOutside = () => {
+  const clickOutside = (e) => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
     setShowHelpSort(false);
     setShowRatingSort(false);
   };
@@ -58,7 +62,7 @@ const BusinessReviewSort = () => {
             </svg>
           </div>
           {showHelpSort && (
-            <div className="help-sort-dropdown">
+            <div className="help-sort-dropdown" ref={node}>
               <div className="active-help-sort">Help me Sort</div>
               <div>Newest First</div>
               <div>Oldest First</div>
@@ -78,7 +82,7 @@ const BusinessReviewSort = () => {
             </svg>
           </div>
           {showRatingSort && (
-            <div className="rating-sort-dropdown">
+            <div className="rating-sort-dropdown" ref={node}>
               <div className="active-rating-sort">5 stars</div>
               <div>4 stars</div>
               <div>3 stars</div>

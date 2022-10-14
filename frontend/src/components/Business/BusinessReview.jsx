@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./BusinessReview.css";
 
@@ -6,6 +6,8 @@ const BusinessReview = ({ review, location }) => {
   const [usefulBtnClicked, setUsefulBtnClicked] = useState(false);
   const [funnyBtnClicked, setFunnyBtnClicked] = useState(false);
   const [coolBtnClicked, setCoolBtnClicked] = useState(false);
+  const [showReviewMenu, setShowReviewMenu] = useState(false);
+  const node = useRef();
 
   let month = review.time_created.slice(5, 7);
   let day = review.time_created.slice(8, 10);
@@ -58,6 +60,28 @@ const BusinessReview = ({ review, location }) => {
     }
   };
 
+  const clickOutside = (e) => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+    setShowReviewMenu(false);
+  };
+
+  const handleMenuClick = () => {
+    if (showReviewMenu) {
+      setShowReviewMenu(false);
+    } else {
+      setShowReviewMenu(true);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", clickOutside);
+    return () => {
+      document.removeEventListener("mousedown", clickOutside);
+    };
+  }, [showReviewMenu]);
+
   return (
     <div className="review-main-container">
       <div className="review-header-container">
@@ -88,11 +112,17 @@ const BusinessReview = ({ review, location }) => {
           </div>
         </div>
         <div className="review-header-menu-container">
-          <div className="review-header-menu-btn">
+          <div className="review-header-menu-btn" onClick={handleMenuClick}>
             <svg width={24} height={24}>
               <path d="M12 13.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm8 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm-16 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
             </svg>
           </div>
+          {showReviewMenu && (
+            <div className="review-header-menu-dropdown" ref={node}>
+              <div>Send Message</div>
+              <div>Follow {review.user.name}</div>
+            </div>
+          )}
         </div>
       </div>
       <div className="user-review-stars-container">

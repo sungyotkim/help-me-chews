@@ -1,6 +1,7 @@
 .review-main-container {
   width: 747px;
   min-height: 210px;
+  position: relative;
 }
 
 .review-header-container {
@@ -93,6 +94,7 @@
 .review-header-menu-container {
   width: 40px;
   height: 68px;
+  position: relative;
 }
 
 .review-header-menu-btn {
@@ -107,6 +109,39 @@
 }
 
 .review-header-menu-btn:hover {
+  background-color: rgb(226, 226, 230);
+}
+
+.review-header-menu-dropdown {
+  width: 144px;
+  height: 92px;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 4px;
+  box-shadow: 0 0 18px #00000026;
+  position: absolute;
+  right: 0;
+  z-index: 1009;
+}
+
+.review-header-menu-dropdown > div {
+  width: 112px;
+  height: 30px;
+  padding: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.review-header-menu-dropdown > div:hover {
   background-color: rgb(226, 226, 230);
 }
 
