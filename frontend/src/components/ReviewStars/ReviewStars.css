@@ -2,9 +2,36 @@
   display: flex;
   gap: 4px;
   margin-top: 8px;
+  height: auto;
 }
 
 .tiny-review-star-container {
   display: flex;
   gap: 2px;
+}
+
+.small-review-star-container {
+  display: flex;
+  gap: 4px;
+  height: auto;
+}
+
+.small-first-star {
+  height: 20px;
+}
+
+.small-second-star {
+  height: 20px;
+}
+
+.small-third-star {
+  height: 20px;
+}
+
+.small-fourth-star {
+  height: 20px;
+}
+
+.small-fifth-star {
+  height: 20px;
 }

@@ -1,10 +1,10 @@
 .review-main-container {
-  width: 746px;
+  width: 747px;
   min-height: 210px;
 }
 
 .review-header-container {
-  width: 746px;
+  width: 747px;
   height: 68px;
   display: flex;
   justify-content: space-between;
@@ -23,6 +23,7 @@
   box-sizing: border-box;
   padding: 2px 0;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .review-user-profile-picture-container > img {
@@ -49,6 +50,11 @@
   letter-spacing: 0;
   line-height: 24px;
   color: rgb(45, 46, 47);
+  cursor: pointer;
+}
+
+.review-user-name:hover {
+  text-decoration: underline;
 }
 
 .review-user-location {
@@ -102,4 +108,118 @@
 
 .review-header-menu-btn:hover {
   background-color: rgb(226, 226, 230);
+}
+
+.user-review-stars-container {
+  width: 747px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 8px 0 12px;
+}
+
+.user-review-stars-row {
+  width: 747px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(110, 112, 114);
+}
+
+.user-review-text {
+  width: 655px;
+  height: auto;
+  margin-bottom: 16px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+}
+
+.review-react-btns-container {
+  width: 747px;
+  height: 31px;
+  display: flex;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 16px;
+  color: rgb(110, 112, 114);
+  margin-bottom: 24px;
+}
+
+.useful-btn {
+  min-width: 92px;
+  height: 31px;
+  box-sizing: border-box;
+  margin-right: 12px;
+  padding: 6px 12px;
+  display: flex;
+  gap: 10px;
+  transition: all 0.5s;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+  border: 1px solid rgb(200, 201, 202);
+}
+
+.useful-btn:hover {
+  background-color: rgb(226, 226, 230);
+}
+
+.funny-btn {
+  min-width: 90px;
+  height: 31px;
+  box-sizing: border-box;
+  margin-right: 12px;
+  padding: 6px 12px;
+  display: flex;
+  gap: 10px;
+  transition: all 0.5s;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+  border: 1px solid rgb(200, 201, 202);
+}
+
+.funny-btn:hover {
+  background-color: rgb(226, 226, 230);
+}
+
+.cool-btn {
+  min-width: 81px;
+  height: 31px;
+  box-sizing: border-box;
+  margin-right: 12px;
+  padding: 6px 12px;
+  display: flex;
+  gap: 10px;
+  transition: all 0.5s;
+  border-radius: 4px;
+  cursor: pointer;
+  align-items: center;
+  border: 1px solid rgb(200, 201, 202);
+}
+
+.cool-btn:hover {
+  background-color: rgb(226, 226, 230);
+}
+
+.review-btn-clicked {
+  border-color: #027a97;
+  color: #027a97;
+  fill: #027a97;
+  background-color: #ebf6ff;
+  font-weight: 700;
 }
