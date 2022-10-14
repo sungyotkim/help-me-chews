@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get '/search/businesses/:term/:location/:radius/:price/:open_now/:gender_neutral_bathrooms/:wheelchair_accessible/:limit/:offset/:hot_and_new', to: "businesses#get_businesses"
   get '/search/businesses/:id', to: "businesses#get_business_by_id"
   get '/search/businesses/:id/reviews', to: "reviews#get_reviews_by_business_id"
-  # get '*path', to: "static_pages#frontend_index"
+  get '*path', to: "static_pages#frontend_index"
 end
