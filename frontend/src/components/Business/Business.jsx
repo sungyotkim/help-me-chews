@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../Header/Header";
-import ReviewStarsLarge from "../ReviewStars/ReviewStarsLarge";
+import ReviewStars from "../ReviewStars/ReviewStars";
 import "./Business.css";
 import { businessPagePlaceholder } from "./businessPagePlaceholder";
+import BusinessReviewsDetail from "./BusinessReviewsDetail";
 import BusinessReviewsOverallRatings from "./BusinessReviewsOverallRatings";
 import { businessReviewsPlaceholder } from "./businessReviewsPlaceholder";
 import BusinessReviewSort from "./BusinessReviewsSort";
@@ -166,6 +167,25 @@ const Business = () => {
     setShowReviewTrustContainer(false);
   };
 
+  // const databaseReviews = [];
+  const [databaseReviews, setDatabaseReviews] = useState([]);
+
+  useEffect(() => {
+    let yelpReviews = [];
+    yelpBusinessReviews.forEach((review) => {
+      review.foodRating = review.rating;
+      review.serviceRating = review.rating;
+      yelpReviews.push(review);
+    });
+    setDatabaseReviews((databaseReviews) => [
+      ...databaseReviews,
+      ...yelpReviews,
+    ]);
+  }, []);
+
+  let businessLocation =
+    currentBusiness.location.city + ", " + currentBusiness.location.state;
+
   return (
     <>
       <div className="business-page-container">
@@ -194,7 +214,7 @@ const Business = () => {
               <div className="business-header-name">{currentBusiness.name}</div>
               <div className="business-header-ratings">
                 <div>
-                  <ReviewStarsLarge starCount={currentBusiness.rating} />
+                  <ReviewStars starCount={currentBusiness.rating} size={32} />
                 </div>
                 <div>{currentBusiness.review_count} Yelp reviews</div>
               </div>
@@ -384,10 +404,15 @@ const Business = () => {
               )}
 
               <BusinessReviewsOverallRatings
-                yelpBusinessReviews={yelpBusinessReviews}
+                databaseReviews={databaseReviews}
               />
 
               <BusinessReviewSort />
+
+              <BusinessReviewsDetail
+                databaseReviews={databaseReviews}
+                location={businessLocation}
+              />
             </div>
           </div>
 

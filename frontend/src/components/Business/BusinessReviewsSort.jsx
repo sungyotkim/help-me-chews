@@ -6,7 +6,6 @@ const BusinessReviewSort = () => {
   const [showHelpSort, setShowHelpSort] = useState(false);
   const [showRatingSort, setShowRatingSort] = useState(false);
   const ref = useRef(null);
-  const node = useRef();
 
   const handleFocus = () => {
     setSearchReviewsAnimate(!searchReviewsAnimate);

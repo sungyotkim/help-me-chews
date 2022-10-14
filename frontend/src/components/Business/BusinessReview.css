@@ -1,0 +1,105 @@
+.review-main-container {
+  width: 746px;
+  min-height: 210px;
+}
+
+.review-header-container {
+  width: 746px;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-header-info-container {
+  width: 674px;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-user-profile-picture-container {
+  width: 64px;
+  height: 68px;
+  box-sizing: border-box;
+  padding: 2px 0;
+  border-radius: 50%;
+}
+
+.review-user-profile-picture-container > img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+}
+
+.review-user-info-container {
+  width: 598px;
+  height: 68px;
+}
+
+.review-user-info-top {
+  width: 598px;
+  height: 44px;
+}
+
+.review-user-name {
+  height: 22px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 24px;
+  color: rgb(45, 46, 47);
+}
+
+.review-user-location {
+  height: 20px;
+  margin-top: 2px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+}
+
+.review-user-icons {
+  height: 20px;
+  margin-top: 4px;
+  display: flex;
+}
+
+.user-icon-container {
+  height: 20px;
+  width: 43px;
+  margin-right: 8px;
+  display: flex;
+  gap: 4px;
+  fill: rgb(110, 112, 114);
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 20px;
+  color: rgb(110, 112, 114);
+  align-items: center;
+}
+
+.review-header-menu-container {
+  width: 40px;
+  height: 68px;
+}
+
+.review-header-menu-btn {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.8s;
+}
+
+.review-header-menu-btn:hover {
+  background-color: rgb(226, 226, 230);
+}

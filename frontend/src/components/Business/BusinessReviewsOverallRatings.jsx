@@ -1,17 +1,8 @@
-import ReviewStarsLarge from "../ReviewStars/ReviewStarsLarge";
+import ReviewStars from "../ReviewStars/ReviewStars";
 import "./BusinessReviewsOverallRatings.css";
 
-const BusinessReviewsOverallRatings = ({ yelpBusinessReviews }) => {
-  let localReviews = [];
-  let yelpReviews = yelpBusinessReviews;
-
-  yelpReviews.forEach((review) => {
-    review.foodRating = review.rating;
-    review.serviceRating = review.rating;
-    localReviews.push(review);
-  });
-
-  let ratingsTotal = localReviews.length;
+const BusinessReviewsOverallRatings = ({ databaseReviews }) => {
+  let ratingsTotal = databaseReviews.length;
 
   let foodRatingFive = 0;
   let foodRatingFour = 0;
@@ -25,7 +16,7 @@ const BusinessReviewsOverallRatings = ({ yelpBusinessReviews }) => {
   let serviceRatingTwo = 0;
   let serviceRatingOne = 0;
 
-  localReviews.forEach((review) => {
+  databaseReviews.forEach((review) => {
     switch (review.foodRating) {
       case 5:
         foodRatingFive++;
@@ -67,7 +58,7 @@ const BusinessReviewsOverallRatings = ({ yelpBusinessReviews }) => {
     }
   });
 
-  // console.log(localReviews);
+  // console.log(databaseReviews);
 
   let foodRatingFiveWidth = (foodRatingFive / ratingsTotal) * 100;
   let foodRatingFourWidth = (foodRatingFour / ratingsTotal) * 100;
@@ -110,7 +101,7 @@ const BusinessReviewsOverallRatings = ({ yelpBusinessReviews }) => {
       <div className="business-review-rating-container">
         <div className="business-overall-rating-container">
           <div>Food rating</div>
-          <ReviewStarsLarge starCount={foodRatingAverage} />
+          <ReviewStars starCount={foodRatingAverage} size={32} />
           <div className="review-total-count">{ratingsTotal} reviews</div>
         </div>
         <div className="business-review-breakdown-container">
@@ -165,7 +156,11 @@ const BusinessReviewsOverallRatings = ({ yelpBusinessReviews }) => {
       <div className="business-review-rating-container-2">
         <div className="business-overall-rating-container">
           <div>Service rating</div>
-          <ReviewStarsLarge starCount={serviceRatingAverage} blueStars={true} />
+          <ReviewStars
+            starCount={serviceRatingAverage}
+            blueStars={true}
+            size={32}
+          />
           <div className="review-total-count">{ratingsTotal} reviews</div>
         </div>
         <div className="business-review-breakdown-container">

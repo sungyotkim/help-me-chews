@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   margin-top: 24px;
+  margin-bottom: 48px;
   transition: box-shadow 0.2s ease-in-out;
 }
 
