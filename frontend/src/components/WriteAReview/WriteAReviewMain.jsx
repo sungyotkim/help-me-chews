@@ -48,6 +48,17 @@ const WriteAReviewMain = ({ business }) => {
               className="review-text-container"
             ></textarea>
           </div>
+          <div className="attach-photo-container">
+            <div className="attach-photo-header">Attach Photos</div>
+            <div className="photo-input-container">
+              <svg width={24} height={24}>
+                <path d="M16 2a1 1 0 011 .68L17.72 5H20a3 3 0 013 3v11a3 3 0 01-3 3H4a3 3 0 01-3-3V8a3 3 0 013-3h2.28L7 2.68A1 1 0 018 2zm-.72 2H8.72L8 6.32A1 1 0 017 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1h-3a1 1 0 01-.95-.68L15.28 4zM12 9a1 1 0 011 1v2.5h2.5a1 1 0 110 2H13V17a1 1 0 11-2 0v-2.5H8.5a1 1 0 110-2H11V10a1 1 0 011-1z"></path>
+              </svg>
+            </div>
+          </div>
+          <div className="post-review-btn-container">
+            <input type="submit" value="Post Review" id="post-review-btn" />
+          </div>
         </form>
       </div>
     </>

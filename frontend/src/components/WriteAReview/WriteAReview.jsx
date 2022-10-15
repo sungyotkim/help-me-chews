@@ -15,7 +15,9 @@ const WriteAReview = () => {
       <WriteAReviewHeader />
       <div className="write-a-review-bottom-container">
         <div className="write-a-review-main-container">
-          <WriteAReviewMain business={business} />
+          <div className="write-a-review-inner-container">
+            <WriteAReviewMain business={business} />
+          </div>
         </div>
         <div className="recent-reviews-right-container"></div>
       </div>

@@ -76,3 +76,71 @@
   border: none;
   outline: none;
 }
+
+.attach-photo-container {
+  width: 625px;
+  height: 162px;
+  margin-top: 48px;
+}
+
+.attach-photo-header {
+  height: 28;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 28px;
+  color: rgb(45, 46, 47);
+}
+
+.photo-input-container {
+  height: 110px;
+  padding-bottom: 8px;
+  margin-top: 16px;
+  box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #ebebeb;
+  fill: rgb(227, 227, 227);
+}
+
+.photo-input-container:hover {
+  border: 2px solid #999;
+}
+
+.post-review-btn-container {
+  width: 200px;
+  height: 40px;
+  padding-bottom: 48px;
+  margin-top: 32px;
+  box-sizing: content-box;
+}
+
+#post-review-btn {
+  width: 168px;
+  height: 24px;
+  padding: 8px 16px;
+  box-sizing: content-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(224, 7, 7);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  transition: all 0.8s;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  border-radius: 4px;
+  border: none;
+}
+
+#post-review-btn:hover {
+  background-color: rgb(244, 13, 21);
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 30%);
+}
