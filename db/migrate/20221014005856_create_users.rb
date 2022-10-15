@@ -7,7 +7,9 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :first_name, null: false
       t.string :last_name, null: false
       t.string :diet_preference, default: "None", null: false
-      t.string :zipcode, null: false
+      t.string :city, null: false
+      t.string :state, null: false
+      t.string :photo_url
       t.timestamps
     end
     add_index :users, :email, unique: true

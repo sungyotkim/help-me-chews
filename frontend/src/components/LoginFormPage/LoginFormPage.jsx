@@ -209,7 +209,7 @@ function LoginFormPage() {
                     />
                     <input
                       type="password"
-                      minlength={6}
+                      minLength={6}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="password"

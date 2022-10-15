@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_010055) do
     t.boolean "useful", default: false, null: false
     t.boolean "funny", default: false, null: false
     t.boolean "cool", default: false, null: false
+    t.string "photos_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "author_id"
@@ -43,7 +44,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_010055) do
     t.string "first_name", null: false
     t.string "last_name", null: false
     t.string "diet_preference", default: "None", null: false
-    t.string "zipcode", null: false
+    t.string "city", null: false
+    t.string "state", null: false
+    t.string "photo_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

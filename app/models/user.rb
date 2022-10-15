@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, uniqueness: true, length: { in: 3..255 }
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :first_name, :last_name, :diet_preference, :zipcode, presence: true
+  validates :first_name, :last_name, :city, :state, presence: true
 
   before_validation :ensure_session_token
 

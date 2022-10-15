@@ -11,10 +11,10 @@ function SignupFormPage() {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  let [dietPreference, setDietPreference] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [zipcode, setZipcode] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
   const [errors, setErrors] = useState([]);
   const location = useLocation();
 
@@ -36,17 +36,14 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      if (!dietPreference) {
-        dietPreference = "None";
-      }
       return dispatch(
         sessionActions.signupUser({
           email,
           password,
           firstName,
           lastName,
-          dietPreference,
-          zipcode,
+          city,
+          state,
         })
       ).catch(async (res) => {
         let data;
@@ -177,16 +174,16 @@ function SignupFormPage() {
                     />
                     <input
                       type="text"
-                      value={zipcode}
-                      onChange={(e) => setZipcode(e.target.value)}
+                      value={city}
+                      onChange={(e) => setCity(e.target.value)}
                       required
-                      placeholder="ZIP Code"
+                      placeholder="City e.g. Bayside"
                     />
                     <input
                       type="text"
-                      value={dietPreference}
-                      onChange={(e) => setDietPreference(e.target.value)}
-                      placeholder="Diet Preference Optional"
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                      placeholder="State e.g. New York"
                     />
                     <button type="submit">Sign Up</button>
                   </form>
