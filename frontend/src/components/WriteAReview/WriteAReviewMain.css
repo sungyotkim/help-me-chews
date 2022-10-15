@@ -1,0 +1,78 @@
+.write-a-review-main-header {
+  max-width: 625px;
+  height: 96px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+  line-height: 36px;
+  color: rgb(45, 46, 47);
+  word-break: break-all;
+  overflow-wrap: break-word;
+  padding: 36px 0 24px;
+  box-sizing: border-box;
+}
+
+.write-a-review-main-form {
+  max-width: 625px;
+  height: 700px;
+}
+
+.top-form-container {
+  width: 625px;
+  height: 370px;
+  padding: 24px;
+  border: 1px solid rgb(200, 201, 202);
+  border-radius: 4px;
+  cursor: text;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.food-star-container {
+  width: 575px;
+  height: 32px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+}
+
+.service-star-container {
+  width: 575px;
+  height: 32px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0px;
+  line-height: 20px;
+  color: rgb(45, 46, 47);
+}
+
+.review-text-container {
+  width: 575px;
+  height: 216px;
+  border: none;
+  padding: 0;
+  resize: none;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgb(45, 46, 47);
+}
+
+.review-text-container:focus {
+  border: none;
+  outline: none;
+}
