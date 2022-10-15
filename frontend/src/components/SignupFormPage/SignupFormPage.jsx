@@ -183,7 +183,9 @@ function SignupFormPage() {
                       type="text"
                       value={state}
                       onChange={(e) => setState(e.target.value)}
-                      placeholder="State e.g. New York"
+                      placeholder="State e.g. NY"
+                      minLength={2}
+                      maxLength={2}
                     />
                     <button type="submit">Sign Up</button>
                   </form>
