@@ -4,6 +4,7 @@ import LoginFormPage from "./components/LoginFormPage/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage/SignupFormPage";
 import SearchPage from "./components/SearchPage/SearchPage";
 import Business from "./components/Business/Business";
+import WriteAReview from "./components/WriteAReview/WriteAReview";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/business">
           <Business />
+        </Route>
+        <Route path="/writeareview">
+          <WriteAReview />
         </Route>
       </Switch>
     </>

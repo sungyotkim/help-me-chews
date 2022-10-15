@@ -23,7 +23,7 @@ const CustomToolTip = styled(({ className, ...props }) => (
   },
 }));
 
-const HeaderLoggedIn = ({ styleBlack }) => {
+const HeaderLoggedIn = ({ styleBlack, hideOptions }) => {
   let messageNotifications = 5;
   let notificationNotifications = 0;
   const [open, setOpen] = useState(false);
@@ -32,6 +32,17 @@ const HeaderLoggedIn = ({ styleBlack }) => {
   let username = `${sessionUser.firstName} ${sessionUser.lastName[0]}.`;
   const node = useRef();
   const dispatch = useDispatch();
+  let profileAvatar =
+    "https://s3-media0.fl.yelpcdn.com/assets/public/default_user_avatar_40x40_v2.yji-1b8b3dd9a1cc11cda816.png";
+
+  if (hideOptions) {
+    profileAvatar =
+      "https://s3-media0.fl.yelpcdn.com/assets/public/user_small_square.yji-02e48b9cc7aa959e66ab.png";
+  }
+
+  if (sessionUser.img) {
+    profileAvatar = sessionUser.img;
+  }
 
   const handleOpenToolTip = () => {
     setOpen(false);
@@ -79,32 +90,38 @@ const HeaderLoggedIn = ({ styleBlack }) => {
 
   return (
     <>
-      <CustomToolTip title="Messages" arrow>
-        <div className="header-messages-container">
-          <div>
-            <svg className="svg-icon" style={styleBlack}>
-              <path d="M7.39 11.75a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm4.61 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm4.61 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zM7 22.53a.94.94 0 01-.43-.1 1 1 0 01-.57-.9v-3a8.19 8.19 0 01-5-7.4v-.9A8.26 8.26 0 019.26 2h5.48A8.26 8.26 0 0123 10.26v.48A8.26 8.26 0 0114.74 19h-3l-4.12 3.31a1 1 0 01-.62.22zM9.26 4A6.27 6.27 0 003 10.26v.9A6.29 6.29 0 007.34 17a1 1 0 01.66.94v1.56l2.79-2.23a1 1 0 01.62-.22h3.33A6.27 6.27 0 0021 10.74v-.48A6.27 6.27 0 0014.74 4H9.26z"></path>
-            </svg>
-          </div>
-          {messageNotifications > 0 && (
-            <span className="notifications-badge">{messageNotifications}</span>
-          )}
-        </div>
-      </CustomToolTip>
-      <CustomToolTip title="Notifications" arrow>
-        <div className="header-notifications-container">
-          <div>
-            <svg className="svg-icon" style={styleBlack}>
-              <path d="M22.64 17.23A7.31 7.31 0 0120 11.59V9A8 8 0 004 9v2.59a7.31 7.31 0 01-2.64 5.64A1 1 0 002 19h6a4 4 0 008 0h6a1 1 0 00.64-1.77zM6 9a6 6 0 0112 0v2.59c.001.472.038.943.11 1.41H5.89A9.36 9.36 0 006 11.59V9zm6 12a2 2 0 01-2-2h4a2 2 0 01-2 2zm-7.72-4a9.42 9.42 0 001.08-2h13.28a9.42 9.42 0 001.08 2H4.28z"></path>
-            </svg>
-          </div>
-          {notificationNotifications > 0 && (
-            <span className="notifications-badge">
-              {notificationNotifications}
-            </span>
-          )}
-        </div>
-      </CustomToolTip>
+      {!hideOptions && (
+        <>
+          <CustomToolTip title="Messages" arrow>
+            <div className="header-messages-container">
+              <div>
+                <svg className="svg-icon" style={styleBlack}>
+                  <path d="M7.39 11.75a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm4.61 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zm4.61 0a1.25 1.25 0 110-2.5 1.25 1.25 0 010 2.5zM7 22.53a.94.94 0 01-.43-.1 1 1 0 01-.57-.9v-3a8.19 8.19 0 01-5-7.4v-.9A8.26 8.26 0 019.26 2h5.48A8.26 8.26 0 0123 10.26v.48A8.26 8.26 0 0114.74 19h-3l-4.12 3.31a1 1 0 01-.62.22zM9.26 4A6.27 6.27 0 003 10.26v.9A6.29 6.29 0 007.34 17a1 1 0 01.66.94v1.56l2.79-2.23a1 1 0 01.62-.22h3.33A6.27 6.27 0 0021 10.74v-.48A6.27 6.27 0 0014.74 4H9.26z"></path>
+                </svg>
+              </div>
+              {messageNotifications > 0 && (
+                <span className="notifications-badge">
+                  {messageNotifications}
+                </span>
+              )}
+            </div>
+          </CustomToolTip>
+          <CustomToolTip title="Notifications" arrow>
+            <div className="header-notifications-container">
+              <div>
+                <svg className="svg-icon" style={styleBlack}>
+                  <path d="M22.64 17.23A7.31 7.31 0 0120 11.59V9A8 8 0 004 9v2.59a7.31 7.31 0 01-2.64 5.64A1 1 0 002 19h6a4 4 0 008 0h6a1 1 0 00.64-1.77zM6 9a6 6 0 0112 0v2.59c.001.472.038.943.11 1.41H5.89A9.36 9.36 0 006 11.59V9zm6 12a2 2 0 01-2-2h4a2 2 0 01-2 2zm-7.72-4a9.42 9.42 0 001.08-2h13.28a9.42 9.42 0 001.08 2H4.28z"></path>
+                </svg>
+              </div>
+              {notificationNotifications > 0 && (
+                <span className="notifications-badge">
+                  {notificationNotifications}
+                </span>
+              )}
+            </div>
+          </CustomToolTip>
+        </>
+      )}
       <div className="header-profile-container">
         <CustomToolTip
           title={username}
@@ -119,7 +136,7 @@ const HeaderLoggedIn = ({ styleBlack }) => {
           >
             <img
               className="header-profile-icon"
-              src="https://s3-media0.fl.yelpcdn.com/assets/public/default_user_avatar_40x40_v2.yji-1b8b3dd9a1cc11cda816.png"
+              src={profileAvatar}
               alt={username}
             ></img>
           </div>

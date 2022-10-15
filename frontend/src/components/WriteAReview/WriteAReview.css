@@ -1,0 +1,13 @@
+.write-a-review-page-container {
+  min-width: 500px;
+  max-width: 1903px;
+  display: flex;
+  flex-direction: column;
+  height: 912px;
+}
+
+.write-a-review-bottom-container {
+  display: flex;
+  width: 100%;
+  height: 816px;
+}

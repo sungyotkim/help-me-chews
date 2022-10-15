@@ -1,0 +1,15 @@
+.write-a-review-header-container {
+  width: 100%;
+  height: 96px;
+  padding: 28px 40px 26px;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.review-header-container {
+  display: flex;
+  height: 40px;
+  width: 210px;
+}
