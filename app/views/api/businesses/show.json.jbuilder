@@ -1,4 +1,4 @@
-json.set! @business.id do
+
   json.partial! '/api/businesses/business', business: @business
 
   @business.reviews.includes(:author).each do |review|
@@ -12,4 +12,3 @@ json.set! @business.id do
           end
       end
   end
-end

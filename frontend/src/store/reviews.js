@@ -108,7 +108,7 @@ export const deleteReview = (reviewId) => async (dispatch) => {
   dispatch(removeReview(reviewId));
 };
 
-const reviewReducer = (state = {}, action) => {
+const reviewsReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_REVIEWS:
       return { ...state, ...action.payload };
@@ -123,4 +123,4 @@ const reviewReducer = (state = {}, action) => {
   }
 };
 
-export default reviewReducer;
+export default reviewsReducer;

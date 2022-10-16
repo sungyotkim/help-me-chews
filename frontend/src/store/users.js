@@ -37,7 +37,7 @@ export const fetchUser = (userId) => async (dispatch) => {
   }
 };
 
-const userReducer = (state = {}, action) => {
+const usersReducer = (state = {}, action) => {
   switch (action.type) {
     case GET_USERS:
       return { ...state, ...action.payload };
@@ -48,4 +48,4 @@ const userReducer = (state = {}, action) => {
   }
 };
 
-export default userReducer;
+export default usersReducer;

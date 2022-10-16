@@ -13,12 +13,14 @@ export const setBusiness = (business) => ({
   payload: business,
 });
 
-export const getBusinesses = ({ businesses }) =>
-  businesses ? Object.values(businesses) : [];
+export const getBusinesses = (state) => {
+  return Object.values(state.businesses);
+};
 export const getBusiness =
-  (businessId) =>
-  ({ businesses }) =>
-    businesses ? businesses(businessId) : null;
+  (yelpId) =>
+  ({ businesses }) => {
+    return businesses.yelpId === yelpId ? businesses : null;
+  };
 
 export const createBusiness = (business) => async (dispatch) => {
   const { yelpId } = business;
@@ -27,35 +29,37 @@ export const createBusiness = (business) => async (dispatch) => {
     body: JSON.stringify(yelpId),
   });
   const data = await res.json();
-  dispatch(setBusiness(data.buisness));
-  return res;
+  dispatch(setBusiness(data));
+  return data;
 };
 
 export const fetchBusinesses = () => async (dispatch) => {
   const res = await csrfFetch("/api/businesses");
   if (res.ok) {
     const data = await res.json();
-    dispatch(setBusinesses(data.businesses));
+    dispatch(setBusinesses(data));
+    return data;
   }
 };
 
-export const fetchBusiness = (businessId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/businesses/${businessId}`);
+export const fetchBusiness = (yelpId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/businesses/${yelpId}`);
   if (res.ok) {
     const data = await res.json();
-    dispatch(setBusiness(data.business));
+    dispatch(setBusiness(data));
+    return data;
   }
 };
 
-const businessReducer = (state = {}, action) => {
+const businessesReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_BUSINESSES:
       return { ...state, ...action.payload };
     case SET_BUSINESS:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, ...action.payload };
     default:
       return state;
   }
 };
 
-export default businessReducer;
+export default businessesReducer;

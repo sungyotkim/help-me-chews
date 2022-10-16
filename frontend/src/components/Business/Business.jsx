@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../Header/Header";
 import NextReviewStars from "../Home/NextReviewStars";
 import ReviewStars from "../ReviewStars/ReviewStars";
@@ -9,10 +9,11 @@ import BusinessReviewsDetail from "./BusinessReviewsDetail";
 import BusinessReviewsOverallRatings from "./BusinessReviewsOverallRatings";
 import { businessReviewsPlaceholder } from "./businessReviewsPlaceholder";
 import BusinessReviewSort from "./BusinessReviewsSort";
-import * as businessActions from "../../store/businesses";
+import { fetchBusiness, getBusiness } from "../../store/businesses";
 import { useLocation } from "react-router-dom";
 
 const Business = () => {
+  const dispatch = useDispatch();
   const currentBusiness = businessPagePlaceholder[0];
   const yelpBusinessReviews = businessReviewsPlaceholder.reviews;
   const [showReviewTrustContainer, setShowReviewTrustContainer] =
@@ -21,6 +22,12 @@ const Business = () => {
   // const sessionUser = useSelector((state) => state.session.user);
   const location = useLocation();
   let yelpId = location.pathname.slice(10);
+  const business = useSelector(getBusiness(yelpId));
+  console.log(business);
+
+  useEffect(() => {
+    dispatch(fetchBusiness(yelpId));
+  }, [yelpId]);
 
   let categories = [];
   let date = new Date();
