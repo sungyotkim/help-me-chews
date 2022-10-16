@@ -265,3 +265,35 @@
   line-height: 1.29em;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+#signup-city-input {
+  width: 127px;
+  height: 18px;
+  padding: 5px 9px;
+  margin-bottom: 9px;
+  box-sizing: content-box;
+  border: 1px solid #999;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1.29em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#signup-state-input {
+  width: 127px;
+  height: 18px;
+  padding: 5px 9px;
+  margin-bottom: 9px;
+  box-sizing: content-box;
+  border: 1px solid #999;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1.29em;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+}
+
+#signup-state-input:focus {
+  border: 1px solid #999;
+}
