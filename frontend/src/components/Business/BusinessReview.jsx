@@ -9,9 +9,15 @@ const BusinessReview = ({ review, location }) => {
   const [showReviewMenu, setShowReviewMenu] = useState(false);
   const node = useRef();
 
-  let month = review.time_created.slice(5, 7);
-  let day = review.time_created.slice(8, 10);
-  let year = review.time_created.slice(0, 4);
+  let month = review.time_created
+    ? review.time_created.slice(5, 7)
+    : review.createdAt.slice(5, 7);
+  let day = review.time_created
+    ? review.time_created.slice(8, 10)
+    : review.createdAt.slice(8, 10);
+  let year = review.time_created
+    ? review.time_created.slice(0, 4)
+    : review.createdAt.slice(0, 4);
   if (month[0] === "0") month = month[1];
   if (day[0] === "0") day = day[1];
   let date = month + "/" + day + "/" + year;

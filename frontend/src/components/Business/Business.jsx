@@ -38,6 +38,10 @@ const Business = () => {
   const [databaseReviews, setDatabaseReviews] = useState([]);
 
   useEffect(() => {
+    if (business) {
+      setDatabaseReviews(business.reviews);
+    }
+
     let yelpReviews = [];
     yelpBusinessReviews.forEach((review) => {
       review.foodRating = review.rating;
