@@ -25,6 +25,7 @@ const SearchResults = () => {
         businessResults.businesses &&
         businessResults.businesses.length === limit
       ) {
+        console.log(businessResults);
         businessResults.businesses.forEach((result) => {
           fetchResult(result.id);
           fetchReviews(result.id);
