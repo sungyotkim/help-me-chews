@@ -12,7 +12,8 @@ class Api::BusinessesController < ApplicationController
         @reviews = @business.reviews
         render :show
       else
-        render json: {}
+        @business = Business.new(business_params)
+        render :show
       end
   end
 
