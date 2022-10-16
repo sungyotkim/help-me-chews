@@ -15,14 +15,14 @@ class BusinessesController < ApplicationController
     if params[:offset] != "null" then url += "offset=#{params[:offset]}&" end
     if params[:hot_and_new] != "null" then url += "attributes=hot_and_new&" end
     url[-1] = ''
-    response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"})
+    response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
     render json: response
   end
 
   def get_business_by_id
     key = Dotenv.load('.env')["yelp_api_key"]
     url = "https://api.yelp.com/v3/businesses/#{params[:id]}"
-    response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"})
+    response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
     render json: response
   end
 end
