@@ -17,7 +17,7 @@ class BusinessesController < ApplicationController
     if params[:hot_and_new] != "null" then url += "attributes=hot_and_new&" end
     url[-1] = ''
     response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
-    render json: response["businesses"]
+    render json: response
     # render json: response
   end
 
