@@ -2,7 +2,8 @@ require 'dotenv'
 
 class BusinessesController < ApplicationController
   def get_businesses
-    key = Dotenv.load('.env')["yelp_api_key"]
+    # key = Dotenv.load('.env')["yelp_api_key"]
+    key = ENV["yelp_api_key"]
     url = "https://api.yelp.com/v3/businesses/search?"
     if params[:term] != "null" then url += "term=#{params[:term]}&" end
     if params[:location] != "null" then url += "location=#{params[:location]}&" end
@@ -20,7 +21,8 @@ class BusinessesController < ApplicationController
   end
 
   def get_business_by_id
-    key = Dotenv.load('.env')["yelp_api_key"]
+    # key = Dotenv.load('.env')["yelp_api_key"]
+    key = ENV["yelp_api_key"]
     url = "https://api.yelp.com/v3/businesses/#{params[:id]}"
     response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
     render json: response
