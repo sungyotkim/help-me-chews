@@ -61,8 +61,6 @@ function Header({ styleBlack, fromSearch, sticky }) {
       `/search/businesses/${term}/${location}/${radius}/${priceString}/${openNow}/${genderNeutralBathrooms}/${wheelchairAccessible}/${limit}/${offset}/${hotAndNew}`
     );
     const newBusinesses = await res.json();
-    console.log("businesses");
-    console.log(newBusinesses);
     setBusinessResults((businessResults) => ({
       ...businessResults,
       ...newBusinesses,

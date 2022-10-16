@@ -18,7 +18,6 @@ class BusinessesController < ApplicationController
     url[-1] = ''
     response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
     render json: response
-    # render json: response
   end
 
   def get_business_by_id

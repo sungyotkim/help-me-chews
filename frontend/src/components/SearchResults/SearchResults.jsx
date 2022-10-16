@@ -25,7 +25,6 @@ const SearchResults = () => {
         businessResults.businesses &&
         businessResults.businesses.length === limit
       ) {
-        console.log(businessResults);
         businessResults.businesses.forEach((result) => {
           fetchResult(result.id);
           fetchReviews(result.id);
@@ -38,16 +37,12 @@ const SearchResults = () => {
   const fetchResult = async (resultId) => {
     const res = await fetch(`/search/businesses/${resultId}`);
     const newResults = await res.json();
-    console.log("result");
-    console.log(newResults);
     setCurrentBusinessResults((oldResults) => [...oldResults, newResults]);
   };
 
   const fetchReviews = async (resultId) => {
     const res = await fetch(`/search/businesses/${resultId}/reviews`);
     const newReviews = await res.json();
-    console.log("reviews");
-    console.log(newReviews);
     setResultReviews((oldReviews) => [
       ...oldReviews,
       newReviews.reviews[0].text,
