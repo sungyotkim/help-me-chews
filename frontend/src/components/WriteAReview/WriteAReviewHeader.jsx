@@ -13,7 +13,7 @@ const WriteAReviewHeader = () => {
 
   return (
     <div className="write-a-review-header-container">
-      <Link to="/" className="review-header-container">
+      <Link to="/" className="write-a-review-header-inner-container">
         <span className="logo-name" style={{ color: "black", fill: "black" }}>
           help me chews
         </span>

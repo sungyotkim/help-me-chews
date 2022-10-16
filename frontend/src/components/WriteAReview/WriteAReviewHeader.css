@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-.review-header-container {
+.write-a-review-header-inner-container {
   display: flex;
   height: 40px;
   width: 210px;

@@ -9,6 +9,8 @@ import BusinessReviewsDetail from "./BusinessReviewsDetail";
 import BusinessReviewsOverallRatings from "./BusinessReviewsOverallRatings";
 import { businessReviewsPlaceholder } from "./businessReviewsPlaceholder";
 import BusinessReviewSort from "./BusinessReviewsSort";
+import * as businessActions from "../../store/businesses";
+import { useLocation } from "react-router-dom";
 
 const Business = () => {
   const currentBusiness = businessPagePlaceholder[0];
@@ -17,6 +19,8 @@ const Business = () => {
     useState(true);
   const [userDidNotReview, setUserDidNotReview] = useState(true);
   // const sessionUser = useSelector((state) => state.session.user);
+  const location = useLocation();
+  let yelpId = location.pathname.slice(10);
 
   let categories = [];
   let date = new Date();
