@@ -156,7 +156,7 @@ const BusinessReview = ({ review, location }) => {
         </div>
         <div className="user-review-stars-row">
           <ReviewStars
-            starCount={review.foodRating}
+            starCount={review.serviceRating}
             size={20}
             blueStars={true}
             starContainer="small-review-star-container"

@@ -25,11 +25,6 @@ const Business = () => {
   const business = useSelector(getBusiness(yelpId));
   const currentBusiness = businessPagePlaceholder[0];
   console.log(business);
-  // if (business) {
-  //   business.reviews.forEach((review) => {
-  //     console.log(review);
-  //   });
-  // }
 
   useEffect(() => {
     dispatch(fetchBusiness(yelpId));
