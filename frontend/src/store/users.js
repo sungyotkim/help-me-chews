@@ -23,8 +23,8 @@ export const fetchUsers = () => async (dispatch) => {
   const res = await csrfFetch("/api/users");
   if (res.ok) {
     const data = await res.json();
-    dispatch(setUsers(data));
-    // dispatch(setUsers(data.users))
+    // dispatch(setUsers(data));
+    dispatch(setUsers(data.users));
   }
 };
 
@@ -32,8 +32,8 @@ export const fetchUser = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/users/${userId}`);
   if (res.ok) {
     const data = await res.json();
-    dispatch(setUser(data));
-    // dispatch(setUser(data.user))
+    // dispatch(setUser(data));
+    dispatch(setUser(data.user));
   }
 };
 
