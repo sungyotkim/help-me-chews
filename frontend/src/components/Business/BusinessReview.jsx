@@ -11,13 +11,13 @@ const BusinessReview = ({ review, location }) => {
 
   let month = review.time_created
     ? review.time_created.slice(5, 7)
-    : review.createdAt.slice(5, 7);
+    : review.updatedAt.slice(5, 7);
   let day = review.time_created
     ? review.time_created.slice(8, 10)
-    : review.createdAt.slice(8, 10);
+    : review.updatedAt.slice(8, 10);
   let year = review.time_created
     ? review.time_created.slice(0, 4)
-    : review.createdAt.slice(0, 4);
+    : review.updatedAt.slice(0, 4);
   if (month[0] === "0") month = month[1];
   if (day[0] === "0") day = day[1];
   let date = month + "/" + day + "/" + year;
@@ -88,8 +88,7 @@ const BusinessReview = ({ review, location }) => {
     };
   }, [showReviewMenu]);
 
-  let userName =
-    (review.user.name ||= `${review.user.firstName} ${review.user.lastName[0]}.`);
+  review.user.name ||= `${review.user.firstName} ${review.user.lastName[0]}.`;
   let yelpReviewer = !review.user.notYelpUser;
 
   return (
@@ -97,12 +96,12 @@ const BusinessReview = ({ review, location }) => {
       <div className="review-header-container">
         <div className="review-header-info-container">
           <div className="review-user-profile-picture-container">
-            <img src={userProfilePhoto} alt={userName} />
+            <img src={userProfilePhoto} alt={review.user.name} />
           </div>
           <div className="review-user-info-container">
             <div className="review-user-info-top">
               <div className="review-user-name">
-                {userName}{" "}
+                {review.user.name}{" "}
                 {yelpReviewer && (
                   <div>(Yelp reviewer - blue stars are simulated)</div>
                 )}
@@ -135,7 +134,7 @@ const BusinessReview = ({ review, location }) => {
           {showReviewMenu && (
             <div className="review-header-menu-dropdown" ref={node}>
               <div>Send Message</div>
-              <div>Follow {userName}</div>
+              <div>Follow {review.user.name}</div>
             </div>
           )}
         </div>

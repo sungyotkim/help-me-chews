@@ -47,6 +47,7 @@ const SearchResults = () => {
     setResultReviews((oldReviews) => [
       ...oldReviews,
       newReviews.reviews[0].text,
+      // newReviews.reviews,
     ]);
   };
 

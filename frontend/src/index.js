@@ -37,6 +37,9 @@ function Root() {
   const [loading, setLoading] = useState(true);
   const [resultReviews, setResultReviews] = useState([]);
 
+  // console.log(currentBusinessResults);
+  // console.log(resultReviews);
+
   return (
     <Provider store={store}>
       <BusinessSearchContext.Provider

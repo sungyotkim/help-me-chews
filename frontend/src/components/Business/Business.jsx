@@ -21,10 +21,8 @@ const Business = () => {
   // const sessionUser = useSelector((state) => state.session.user);
   const location = useLocation();
   let yelpId = location.pathname.slice(10);
-  // const [currentBusiness, setCurrentBusiness] = useState();
   const business = useSelector(getBusiness(yelpId));
   const currentBusiness = businessPagePlaceholder[0];
-  console.log(business);
 
   useEffect(() => {
     dispatch(fetchBusiness(yelpId));

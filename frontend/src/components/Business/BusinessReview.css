@@ -122,7 +122,7 @@
 }
 
 .review-header-menu-dropdown {
-  width: 144px;
+  width: 164px;
   height: 92px;
   box-sizing: border-box;
   padding: 16px;
@@ -134,7 +134,7 @@
 }
 
 .review-header-menu-dropdown > div {
-  width: 112px;
+  width: 132px;
   height: 30px;
   padding: 8px;
   box-sizing: border-box;
