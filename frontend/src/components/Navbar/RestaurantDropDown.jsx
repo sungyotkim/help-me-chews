@@ -8,17 +8,9 @@ const RestaurantDropDown = ({ styleBlack }) => {
   const [hoverStyle, setHoverStyle] = useState();
   const history = useHistory();
   const {
-    price,
     setTerm,
     location,
-    radius,
-    openNow,
-    genderNeutralBathrooms,
-    wheelchairAccessible,
-    limit,
-    offset,
     setBusinessResults,
-    hotAndNew,
     setCurrentBusinessResults,
     setLoading,
     setResultReviews,
@@ -44,21 +36,6 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setHoverStyle();
   };
 
-  const fetchBusinessesWithRestaurantDropdown = async (value) => {
-    let priceString = "null";
-    if (price.length > 0) {
-      priceString = price.join(", ");
-    }
-    let res = await fetch(
-      `/search/businesses/${value}/${location}/${radius}/${priceString}/${openNow}/${genderNeutralBathrooms}/${wheelchairAccessible}/${limit}/${offset}/${hotAndNew}`
-    );
-    const newBusinesses = await res.json();
-    setBusinessResults((businessResults) => ({
-      ...businessResults,
-      ...newBusinesses,
-    }));
-  };
-
   const handleClick = (e, value) => {
     e.preventDefault();
     setTerm(value);
@@ -77,7 +54,6 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setHotAndNew("null");
     setSearchedTerm(value);
     setSearchedLocation(location);
-    fetchBusinessesWithRestaurantDropdown(value);
     if (history.location.pathname !== "/search") {
       let path = "/search";
       history.push(path);

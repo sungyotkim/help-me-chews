@@ -23,7 +23,8 @@ const SearchResults = () => {
     } else {
       if (
         businessResults.businesses &&
-        businessResults.businesses.length === limit
+        businessResults.businesses.length === limit &&
+        currentBusinessResults.length < limit
       ) {
         businessResults.businesses.forEach((result) => {
           fetchResult(result.id);
