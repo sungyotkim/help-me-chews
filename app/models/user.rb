@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :session_token, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :first_name, :last_name, :city, :state, presence: true
+  validates :not_yelp_user, inclusion: { in: [true, false] }
 
   before_validation :ensure_session_token
 

@@ -88,18 +88,24 @@ const BusinessReview = ({ review, location }) => {
     };
   }, [showReviewMenu]);
 
+  let userName =
+    (review.user.name ||= `${review.user.firstName} ${review.user.lastName[0]}.`);
+  let yelpReviewer = !review.user.notYelpUser;
+
   return (
     <div className="review-main-container">
       <div className="review-header-container">
         <div className="review-header-info-container">
           <div className="review-user-profile-picture-container">
-            <img src={userProfilePhoto} alt={review.user.name} />
+            <img src={userProfilePhoto} alt={userName} />
           </div>
           <div className="review-user-info-container">
             <div className="review-user-info-top">
               <div className="review-user-name">
-                {review.user.name}{" "}
-                <div>(Yelp reviewer - blue stars are simulated)</div>
+                {userName}{" "}
+                {yelpReviewer && (
+                  <div>(Yelp reviewer - blue stars are simulated)</div>
+                )}
               </div>
               <div className="review-user-location">{location}</div>
             </div>
@@ -129,7 +135,7 @@ const BusinessReview = ({ review, location }) => {
           {showReviewMenu && (
             <div className="review-header-menu-dropdown" ref={node}>
               <div>Send Message</div>
-              <div>Follow {review.user.name}</div>
+              <div>Follow {userName}</div>
             </div>
           )}
         </div>

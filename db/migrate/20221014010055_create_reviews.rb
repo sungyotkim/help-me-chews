@@ -7,7 +7,7 @@ class CreateReviews < ActiveRecord::Migration[7.0]
       t.boolean :useful, default: false, null: false
       t.boolean :funny, default: false, null: false
       t.boolean :cool, default: false, null: false
-      t.string :photos_url
+      t.string :image_url
       t.timestamps
     end
     add_reference :reviews, :author, index: true, foreign_key: { to_table: :users }

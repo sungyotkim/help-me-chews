@@ -9,7 +9,8 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :diet_preference, default: "None", null: false
       t.string :city, null: false
       t.string :state, null: false
-      t.string :photo_url
+      t.string :image_url
+      t.boolean :not_yelp_user, default: true, null: false 
       t.timestamps
     end
     add_index :users, :email, unique: true
