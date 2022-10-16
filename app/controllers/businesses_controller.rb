@@ -17,7 +17,7 @@ class BusinessesController < ApplicationController
     if params[:hot_and_new] != "null" then url += "attributes=hot_and_new&" end
     url[-1] = ''
     response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
-    render json: response
+    render json: response["businesses"]
   end
 
   def get_business_by_id
@@ -25,6 +25,6 @@ class BusinessesController < ApplicationController
     key = ENV["yelp_api_key"]
     url = "https://api.yelp.com/v3/businesses/#{params[:id]}"
     response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
-    render json: response
+    render json: response["business"]
   end
 end
