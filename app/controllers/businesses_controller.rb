@@ -18,6 +18,7 @@ class BusinessesController < ApplicationController
     url[-1] = ''
     response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
     render json: response["businesses"]
+    # render json: response
   end
 
   def get_business_by_id
@@ -25,6 +26,6 @@ class BusinessesController < ApplicationController
     key = ENV["yelp_api_key"]
     url = "https://api.yelp.com/v3/businesses/#{params[:id]}"
     response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
-    render json: response["business"]
+    render json: response
   end
 end
