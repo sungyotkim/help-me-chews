@@ -9,31 +9,30 @@ import { useEffect } from "react";
 const libraries = ["places"];
 
 const ResultMap = () => {
-  const { businessResults, currentBusinessResults, radius } = useContext(
-    BusinessSearchContext
-  );
+  const { currentBusinessResults, radius } = useContext(BusinessSearchContext);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_MAPS_API_KEY,
     libraries: libraries,
   });
   const [center, setCenter] = useState({ lat: 40.7459, lng: -73.9911 });
-  const [zoom, setZoom] = useState(15);
+  const [zoom, setZoom] = useState(10);
 
   const isInitialMount = useRef(true);
 
   useEffect(() => {
+    let newCenter = {};
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      if (businessResults.region) {
-        center.lat = businessResults.region.center.latitude;
-        center.lng = businessResults.region.center.longitude;
+      if (currentBusinessResults.length > 0) {
+        newCenter.lat = currentBusinessResults[0].coordinates.latitude;
+        newCenter.lng = currentBusinessResults[0].coordinates.longitude;
       }
       setCenter({});
-      setCenter((oldCenter) => ({ ...oldCenter, ...center }));
+      setCenter((oldCenter) => ({ ...oldCenter, ...newCenter }));
     }
-  }, [businessResults]);
+  }, [currentBusinessResults]);
 
   useEffect(() => {
     if (radius === "16093") {
