@@ -22,8 +22,5 @@
   "homepage": "https://github.com/sungyotkim/help-me-chews#readme",
   "engines": {
     "node": "16.x"
-  },
-  "dependencies": {
-    "@chakra-ui/alert": "^2.0.11"
   }
 }
