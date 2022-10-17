@@ -14,15 +14,15 @@ import { useLocation } from "react-router-dom";
 
 const Business = () => {
   const dispatch = useDispatch();
-  const yelpBusinessReviews = businessReviewsPlaceholder.reviews;
   const [showReviewTrustContainer, setShowReviewTrustContainer] =
     useState(true);
   const [userDidNotReview, setUserDidNotReview] = useState(true);
-  // const sessionUser = useSelector((state) => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
   const location = useLocation();
   let yelpId = location.pathname.slice(10);
   const business = useSelector(getBusiness(yelpId));
-  const currentBusiness = businessPagePlaceholder[0];
+  const currentBusiness = location.state.result;
+  const yelpBusinessReviews = location.state.reviewArr;
 
   useEffect(() => {
     dispatch(fetchBusiness(yelpId));
@@ -203,16 +203,20 @@ const Business = () => {
     let businessLocation =
       currentBusiness.location.city + ", " + currentBusiness.location.state;
 
-    let sessionUser = {
-      location: "Little Neck, NY",
-      friends: 90,
-      name: "Jenny X.",
-    };
-    let userProfilePhoto = (sessionUser.image_url ||=
-      "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/514f6997a318/assets/img/default_avatars/user_60_square.png");
-    let userLocation = (sessionUser.location ||= businessLocation);
-    let userFriends = (sessionUser.friends ||= 0);
-    let userReviews = (sessionUser.reviews ||= 0);
+    let userProfilePhoto;
+    let userLocation;
+    let userFriends;
+    let userReviews;
+    if (sessionUser) {
+      userProfilePhoto = sessionUser.image_url ||=
+        "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/514f6997a318/assets/img/default_avatars/user_60_square.png";
+      userLocation = sessionUser.location ||= businessLocation;
+      userFriends = sessionUser.friends ||= 0;
+      userReviews = sessionUser.reviews ||= 0;
+      sessionUser.name =
+        sessionUser.firstName + " " + sessionUser.lastName.slice(0, 1) + ".";
+      console.log(sessionUser);
+    }
 
     return (
       <>

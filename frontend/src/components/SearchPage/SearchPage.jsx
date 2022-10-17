@@ -37,6 +37,7 @@ const SearchPage = () => {
     setLoading,
     setResultReviews,
     setAllResultReviews,
+    currentBusinessResults,
   } = useContext(BusinessSearchContext);
   const [filters, setFilters] = useState([]);
 

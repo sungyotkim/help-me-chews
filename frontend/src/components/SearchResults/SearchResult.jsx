@@ -1,5 +1,8 @@
 import "./SearchResult.css";
 import ReviewStars from "../ReviewStars/ReviewStars";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { BusinessSearchContext } from "../../contexts/BusinessSearchContext";
 
 const SearchResult = ({ result, index, firstReview }) => {
   let transactions;
@@ -21,6 +24,8 @@ const SearchResult = ({ result, index, firstReview }) => {
     "Sunday",
   ];
   let categories = [];
+  const { allResultReviews } = useContext(BusinessSearchContext);
+  const reviewArr = allResultReviews[index];
 
   if (result.transactions) {
     transactions = result.transactions;
@@ -122,9 +127,13 @@ const SearchResult = ({ result, index, firstReview }) => {
 
   return (
     <>
-      {/* {resultLoading && <LoadingResults counter={[1]} />} */}
-
-      <div onClick={handleClick} className="search-result-item-container">
+      <Link
+        to={{
+          pathname: `/business/${result.id}`,
+          state: { reviewArr, result },
+        }}
+        className="search-result-item-container"
+      >
         <div className="result-item-left-container">
           <div className="result-image-container">
             <img src={result.image_url} alt={result.image_url} />
@@ -217,7 +226,7 @@ const SearchResult = ({ result, index, firstReview }) => {
               })}
           </div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };

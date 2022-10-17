@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { BusinessSearchContext } from "../../contexts/BusinessSearchContext";
 import LoadingResults from "./LoadingResults";
 import SearchResult from "./SearchResult";
@@ -53,8 +54,8 @@ const SearchResults = () => {
     setAllResultReviews((oldReviews) => [...oldReviews, newReviews.reviews]);
   };
 
-  console.log(currentBusinessResults);
-  console.log(allResultReviews);
+  // console.log(currentBusinessResults);
+  // console.log(allResultReviews);
 
   return (
     <>
@@ -62,6 +63,7 @@ const SearchResults = () => {
       {!loading && currentBusinessResults.length === limit && (
         <>
           {currentBusinessResults.map((result, i) => {
+            let reviewArr = allResultReviews[i];
             return (
               <SearchResult
                 result={result}
