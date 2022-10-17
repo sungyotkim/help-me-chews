@@ -479,7 +479,7 @@ const Business = () => {
                       </div>
 
                       <div className="user-to-review-rating-container">
-                        <NextReviewStars />
+                        <NextReviewStars currentBusiness={currentBusiness} />
                         <div>
                           Start your review of{" "}
                           <strong>{currentBusiness.name}.</strong>

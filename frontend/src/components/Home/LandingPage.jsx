@@ -14,7 +14,7 @@ const LandingPage = () => {
   return (
     <>
       <HeroContainer />
-      {nextReviews}
+      {/* {nextReviews} */}
       <RecentActivity />
       <h1>hi</h1>
     </>

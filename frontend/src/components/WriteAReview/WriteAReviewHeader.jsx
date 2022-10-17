@@ -1,16 +1,9 @@
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./WriteAReviewHeader.css";
 import logoImg from "../../assets/help-logo.png";
 import HeaderLoggedIn from "../Header/HeaderLoggedIn";
-import { useSelector } from "react-redux";
 
 const WriteAReviewHeader = () => {
-  const sessionUser = useSelector((state) => state.session.user);
-
-  if (!sessionUser) {
-    return <Redirect to="/" />;
-  }
-
   return (
     <div className="write-a-review-header-container">
       <Link to="/" className="write-a-review-header-inner-container">
