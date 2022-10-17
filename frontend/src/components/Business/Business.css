@@ -619,3 +619,20 @@
   color: rgb(2, 122, 151);
   font-weight: 700;
 }
+
+.message-container {
+  position: absolute;
+  height: 50px;
+  width: 360px;
+  background-color: rgba(4, 197, 133, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 100px;
+  left: 40%;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  z-index: 1000;
+  border-radius: 4px;
+}

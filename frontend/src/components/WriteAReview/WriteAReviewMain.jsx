@@ -22,6 +22,7 @@ const WriteAReviewMain = ({
   const [foodValueSelected, setFoodValueSelected] = useState(false);
   const [serviceValue, setServiceValue] = useState("Select your rating");
   const [serviceValueSelected, setServiceValueSelected] = useState(false);
+  const [redirect, setRedirect] = useState(false);
   let starValues = [
     "",
     "Not good",
@@ -55,29 +56,35 @@ const WriteAReviewMain = ({
       businessId: businessId,
     };
     if (action === "create") {
-      // console.log(review);
-      return dispatch(createReview(review)).catch(async (res) => {
-        let data;
-        try {
-          data = await res.clone().json();
-        } catch {
-          data = await res.text();
-        }
-        if (data?.errors) setErrors(data.errors);
-        else if (data) setErrors([data]);
-        else setErrors([res.statusText]);
-      });
+      return dispatch(createReview(review))
+        .catch(async (res) => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+        })
+        .then(setRedirect(true));
     } else if (action === "edit") {
     }
-    <Redirect
-      to={{
-        pathname: `/business/${business.id}`,
-        state: {
-          result: business,
-        },
-      }}
-    />;
   };
+
+  if (redirect)
+    return (
+      <Redirect
+        to={{
+          pathname: `/business/${business.id}`,
+          state: {
+            result: business,
+            msg: "Your review has been successfully created!",
+          },
+        }}
+      />
+    );
 
   return (
     <>

@@ -45,7 +45,19 @@ const Business = () => {
     ]);
   }, [business]);
 
-  console.log(business);
+  const [reviewSuccessMesssage, setReviewSuccessMesssage] = useState();
+
+  useEffect(() => {
+    setReviewSuccessMesssage(location.state.msg);
+
+    let timeout = setTimeout(() => {
+      setReviewSuccessMesssage();
+    }, 3000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [location.state]);
 
   if (currentBusiness) {
     let categories = [];
@@ -219,6 +231,9 @@ const Business = () => {
     return (
       <>
         <div className="business-page-container">
+          {reviewSuccessMesssage && (
+            <div className="message-container">{reviewSuccessMesssage}</div>
+          )}
           <Header
             styleBlack={{ color: "black", fill: "black" }}
             fromSearch={{ fromSearch: false }}
