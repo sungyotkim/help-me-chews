@@ -70,15 +70,6 @@ const BusinessReviewsOverallRatings = ({ databaseReviews }) => {
   let serviceRatingTwoWidth = (serviceRatingTwo / ratingsTotal) * 100;
   let serviceRatingOneWidth = (serviceRatingOne / ratingsTotal) * 100;
 
-  foodRatingFourWidth = 75;
-  foodRatingThreeWidth = 65;
-  foodRatingTwoWidth = 10;
-  foodRatingOneWidth = 30;
-  serviceRatingFourWidth = 45;
-  serviceRatingThreeWidth = 80;
-  serviceRatingTwoWidth = 40;
-  serviceRatingOneWidth = 10;
-
   let foodRatingAverage =
     (foodRatingFive * 5 +
       foodRatingFour * 4 +
