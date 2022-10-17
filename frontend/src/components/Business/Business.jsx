@@ -20,14 +20,13 @@ const Business = () => {
   let yelpId = location.pathname.slice(10);
   const business = useSelector(getBusiness(yelpId));
   const currentBusiness = location.state.result;
-  const yelpBusinessReviews = location.state.reviewArr;
+  const yelpBusinessReviews = (location.state.reviewArr ||= []);
 
   useEffect(() => {
     dispatch(fetchBusiness(yelpId));
   }, [yelpId]);
 
   const [databaseReviews, setDatabaseReviews] = useState([]);
-
   useEffect(() => {
     if (business) {
       setDatabaseReviews(business.reviews);
@@ -45,6 +44,8 @@ const Business = () => {
       ...yelpReviews,
     ]);
   }, [business]);
+
+  console.log(business);
 
   if (currentBusiness) {
     let categories = [];
@@ -479,7 +480,10 @@ const Business = () => {
                       </div>
 
                       <div className="user-to-review-rating-container">
-                        <NextReviewStars currentBusiness={currentBusiness} />
+                        <NextReviewStars
+                          business={business}
+                          currentBusiness={currentBusiness}
+                        />
                         <div>
                           Start your review of{" "}
                           <strong>{currentBusiness.name}.</strong>

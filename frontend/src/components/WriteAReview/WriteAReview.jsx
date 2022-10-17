@@ -12,9 +12,10 @@ const WriteAReview = () => {
     return <Redirect to="/" />;
   }
 
-  let business = location.state.currentBusiness;
-  let yelpId = location.pathname.slice(14);
+  let yelpBusiness = location.state.currentBusiness;
   let currentRating = location.state.currentRating;
+  let action = location.state.action;
+  let business = location.state.business;
 
   return (
     <div className="write-a-review-page-container">
@@ -23,9 +24,11 @@ const WriteAReview = () => {
         <div className="write-a-review-main-container">
           <div className="write-a-review-inner-container">
             <WriteAReviewMain
-              business={business}
-              yelpId={yelpId}
+              business={yelpBusiness}
               currentRating={currentRating}
+              action={action}
+              authorId={sessionUser.id}
+              businessId={business.id}
             />
           </div>
         </div>

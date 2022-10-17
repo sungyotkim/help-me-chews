@@ -13,7 +13,7 @@ class Api::BusinessesController < ApplicationController
         @reviews = @business.reviews
         render :show
       else
-        @business = Business.new(yelp_id: params[:yelp_id])
+        @business = Business.create(yelp_id: params[:yelp_id])
         render :show
       end
   end

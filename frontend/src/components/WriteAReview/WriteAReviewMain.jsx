@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { createReview } from "../../store/reviews";
 import NextReviewStars from "../ReviewStars/NextReviewStars";
 import "./WriteAReviewMain.css";
 
-const WriteAReviewMain = ({ business, yelpId, currentRating }) => {
+const WriteAReviewMain = ({
+  business,
+  currentRating,
+  action,
+  authorId,
+  businessId,
+}) => {
   const placeHolderTextOptions = [
     "Doesn't look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hamburger and wow... there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles). There's about a million options available between the menu board and a wall full of specials, so it can get a little overwhelming, but you really can't go wrong. Not much else to say besides go see for yourself! You won't be disappointed.",
     "If you want to find the world's best street burrito, look no further. Whenver I'm craving a California burrito, I immediately head to this food truck. For $12, they stuff in fries, guacamole, sour cream, and your choice of meat. The employees like to keep the line moving, which is great especially during lunch. There's so many things to try outside of burritos though. Better to place your order ahead of time to skip the line.",
@@ -13,24 +22,77 @@ const WriteAReviewMain = ({ business, yelpId, currentRating }) => {
   const [foodValueSelected, setFoodValueSelected] = useState(false);
   const [serviceValue, setServiceValue] = useState("Select your rating");
   const [serviceValueSelected, setServiceValueSelected] = useState(false);
-  let starValues = ["Not good", "Could've been better", "OK", "Good", "Great"];
+  let starValues = [
+    "",
+    "Not good",
+    "Could've been better",
+    "OK",
+    "Good",
+    "Great",
+  ];
+  const [reviewText, setReviewText] = useState("");
+  const dispatch = useDispatch();
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     setPlaceHolderText(placeHolderTextOptions[Math.floor(Math.random() * 2)]);
 
     if (currentRating) {
-      setFoodValue(starValues[currentRating - 1]);
-      setServiceValue(starValues[currentRating - 1]);
-      setFoodValueSelected(starValues[currentRating - 1]);
-      setServiceValueSelected(starValues[currentRating - 1]);
+      setFoodValue(starValues[currentRating]);
+      setServiceValue(starValues[currentRating]);
+      setFoodValueSelected(starValues[currentRating]);
+      setServiceValueSelected(starValues[currentRating]);
     }
   }, [business]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const review = {
+      text: reviewText,
+      foodRating: starValues.indexOf(foodValueSelected),
+      serviceRating: starValues.indexOf(serviceValueSelected),
+      authorId: authorId,
+      businessId: businessId,
+    };
+    if (action === "create") {
+      // console.log(review);
+      return dispatch(createReview(review)).catch(async (res) => {
+        let data;
+        try {
+          data = await res.clone().json();
+        } catch {
+          data = await res.text();
+        }
+        if (data?.errors) setErrors(data.errors);
+        else if (data) setErrors([data]);
+        else setErrors([res.statusText]);
+      });
+    } else if (action === "edit") {
+    }
+    <Redirect
+      to={{
+        pathname: `/business/${business.id}`,
+        state: {
+          result: business,
+        },
+      }}
+    />;
+  };
+
   return (
     <>
+      <div className="signup-alert-container">
+        {errors.length > 0 && (
+          <div className="login-errors">
+            <div>{errors[0]}</div>
+            <div className="close-login-errors">×</div>
+          </div>
+        )}
+      </div>
+      <div>{errors}</div>
       <div className="write-a-review-main-header">{business.name}</div>
       <div className="write-a-review-main-form">
-        <form id="review-form">
+        <form id="review-form" onSubmit={handleSubmit}>
           <div className="top-form-container">
             <div className="food-star-container">
               <NextReviewStars
@@ -60,6 +122,8 @@ const WriteAReviewMain = ({ business, yelpId, currentRating }) => {
               form="review-form"
               placeholder={placeHolderText}
               className="review-text-container"
+              value={reviewText}
+              onChange={(e) => setReviewText(e.target.value)}
             ></textarea>
           </div>
           <div className="attach-photo-container">

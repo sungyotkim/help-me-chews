@@ -33,6 +33,7 @@ const NextReviewStars = ({
   setServiceValueSelected,
   blueStars,
   currentBusiness,
+  business,
   currentRating,
 }) => {
   const defaultGray = "rgba(187,186,192, 0.5)";
@@ -316,6 +317,8 @@ const NextReviewStars = ({
               state: {
                 currentBusiness: currentBusiness,
                 currentRating: 1,
+                action: "create",
+                business: business,
               },
             }}
           >
@@ -349,6 +352,8 @@ const NextReviewStars = ({
               state: {
                 currentBusiness: currentBusiness,
                 currentRating: 2,
+                action: "create",
+                business: business,
               },
             }}
           >
@@ -382,6 +387,8 @@ const NextReviewStars = ({
               state: {
                 currentBusiness: currentBusiness,
                 currentRating: 3,
+                action: "create",
+                business: business,
               },
             }}
           >
@@ -415,6 +422,8 @@ const NextReviewStars = ({
               state: {
                 currentBusiness: currentBusiness,
                 currentRating: 4,
+                action: "create",
+                business: business,
               },
             }}
           >
@@ -448,6 +457,8 @@ const NextReviewStars = ({
               state: {
                 currentBusiness: currentBusiness,
                 currentRating: 5,
+                action: "create",
+                business: business,
               },
             }}
           >

@@ -27,32 +27,14 @@ export const getReview =
     reviews ? reviews(reviewId) : null;
 
 export const createReview = (review) => async (dispatch) => {
-  const {
-    text,
-    foodRating,
-    serviceRating,
-    useful,
-    funny,
-    cool,
-    photosUrl,
-    authorId,
-    businessId,
-  } = review;
+  const { text, foodRating, serviceRating, authorId, businessId } = review;
+  console.log(review);
   const res = await csrfFetch("/api/reviews", {
     method: "POST",
-    body: JSON.stringify(
-      text,
-      foodRating,
-      serviceRating,
-      useful,
-      funny,
-      cool,
-      photosUrl,
-      authorId,
-      businessId
-    ),
+    body: JSON.stringify(review),
   });
   const data = await res.json();
+  console.log(data);
   dispatch(setReview(data.review));
   return res;
 };
@@ -113,7 +95,7 @@ const reviewsReducer = (state = {}, action) => {
     case SET_REVIEWS:
       return { ...state, ...action.payload };
     case SET_REVIEW:
-      return { ...state, [action.payload.id]: action.payload };
+      return { ...state, ...action.payload };
     case REMOVE_REVIEW:
       const nextState = { ...state };
       delete nextState[action.payload];
