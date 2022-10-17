@@ -1,16 +1,25 @@
 import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
+import { deleteReview } from "../../store/reviews";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./BusinessReview.css";
 
-const BusinessReview = ({ review, location, business, currentBusiness }) => {
+const BusinessReview = ({
+  review,
+  location,
+  business,
+  currentBusiness,
+  databaseReviews,
+  setDatabaseReviews,
+}) => {
   const [usefulBtnClicked, setUsefulBtnClicked] = useState(false);
   const [funnyBtnClicked, setFunnyBtnClicked] = useState(false);
   const [coolBtnClicked, setCoolBtnClicked] = useState(false);
   const [showReviewMenu, setShowReviewMenu] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
   const node = useRef();
+  const dispatch = useDispatch();
 
   let month = review.time_created
     ? review.time_created.slice(5, 7)
@@ -99,6 +108,21 @@ const BusinessReview = ({ review, location, business, currentBusiness }) => {
     userIsAuthor = true;
   }
 
+  const handleReviewDelete = () => {
+    const choice = window.confirm(
+      "Are you sure you want to delete this review?"
+    );
+    if (!choice) return;
+    let index = databaseReviews.indexOf(review);
+    databaseReviews.splice(index, 1);
+    dispatch(deleteReview(review.id)).then(
+      setDatabaseReviews([...databaseReviews])
+    );
+    setShowReviewMenu(false);
+  };
+
+  console.log(databaseReviews.indexOf(review));
+
   return (
     <div className="review-main-container">
       <div className="review-header-container">
@@ -165,19 +189,12 @@ const BusinessReview = ({ review, location, business, currentBusiness }) => {
               >
                 Edit Review
               </Link>
-              <Link
+              <div
                 className="review-header-menu-dropdown-option"
-                to={{
-                  pathname: `/writeareview/${currentBusiness.id}`,
-                  state: {
-                    currentBusiness: currentBusiness,
-                    action: "create",
-                    business: business,
-                  },
-                }}
+                onClick={handleReviewDelete}
               >
                 Delete Review
-              </Link>
+              </div>
             </div>
           )}
         </div>

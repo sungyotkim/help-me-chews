@@ -20,12 +20,12 @@ const Business = () => {
   const business = useSelector(getBusiness(yelpId));
   const currentBusiness = location.state.result;
   const yelpBusinessReviews = (location.state.reviewArr ||= []);
+  const [databaseReviews, setDatabaseReviews] = useState([]);
 
   useEffect(() => {
     dispatch(fetchBusiness(yelpId));
   }, [yelpId]);
 
-  const [databaseReviews, setDatabaseReviews] = useState([]);
   useEffect(() => {
     if (business) {
       setDatabaseReviews(business.reviews.reverse());
@@ -528,6 +528,7 @@ const Business = () => {
                   location={businessLocation}
                   business={business}
                   currentBusiness={currentBusiness}
+                  setDatabaseReviews={setDatabaseReviews}
                 />
               </div>
             </div>

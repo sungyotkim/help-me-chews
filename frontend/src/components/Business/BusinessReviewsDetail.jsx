@@ -4,6 +4,7 @@ const BusinessReviewsDetail = ({
   location,
   business,
   currentBusiness,
+  setDatabaseReviews,
 }) => {
   return (
     <>
@@ -15,6 +16,8 @@ const BusinessReviewsDetail = ({
             location={location}
             business={business}
             currentBusiness={currentBusiness}
+            databaseReviews={databaseReviews}
+            setDatabaseReviews={setDatabaseReviews}
           />
         );
       })}
