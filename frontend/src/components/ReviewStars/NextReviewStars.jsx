@@ -58,7 +58,6 @@ const NextReviewStars = ({
 
   useEffect(() => {
     if (currentRating) {
-      console.log("hi");
       switch (currentRating) {
         case 1:
           setPathFill1(oneStarColor);
