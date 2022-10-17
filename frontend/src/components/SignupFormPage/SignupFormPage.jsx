@@ -19,14 +19,30 @@ function SignupFormPage() {
   const location = useLocation();
 
   let fromSearch;
+  let fromBusiness;
 
   if (location.state.fromSearch) {
     fromSearch = location.state.fromSearch;
+  }
+  if (location.state.fromBusiness) {
+    fromBusiness = location.state.fromBusiness;
   }
 
   if (sessionUser) {
     if (fromSearch.fromSearch) {
       return <Redirect to="/search" />;
+    } else if (fromBusiness.fromBusiness) {
+      return (
+        <Redirect
+          to={{
+            pathname: `/business/${fromBusiness.result.id}`,
+            state: {
+              result: fromBusiness.result,
+              reviewArr: fromBusiness.reviewArr,
+            },
+          }}
+        />
+      );
     } else {
       return <Redirect to="/" />;
     }

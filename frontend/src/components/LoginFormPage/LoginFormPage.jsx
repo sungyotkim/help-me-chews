@@ -133,7 +133,17 @@ function LoginFormPage() {
     if (fromSearch.fromSearch) {
       return <Redirect to="/search" />;
     } else if (fromBusiness.fromBusiness) {
-      return <Redirect to={`/business/${fromBusiness.fromBusiness}`} />;
+      return (
+        <Redirect
+          to={{
+            pathname: `/business/${fromBusiness.result.id}`,
+            state: {
+              result: fromBusiness.result,
+              reviewArr: fromBusiness.reviewArr,
+            },
+          }}
+        />
+      );
     } else {
       return <Redirect to="/" />;
     }

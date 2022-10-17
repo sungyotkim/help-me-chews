@@ -221,7 +221,11 @@ const Business = () => {
           <Header
             styleBlack={{ color: "black", fill: "black" }}
             fromSearch={{ fromSearch: false }}
-            fromBusiness={{ fromBusiness: currentBusiness.id }}
+            fromBusiness={{
+              fromBusiness: true,
+              result: currentBusiness,
+              reviewArr: yelpBusinessReviews,
+            }}
             sticky={{ position: "relative", top: 0 }}
           />
           <div className="business-images-container">
