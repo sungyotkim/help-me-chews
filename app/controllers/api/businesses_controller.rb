@@ -7,20 +7,22 @@ class Api::BusinessesController < ApplicationController
   end
 
   def show
+    p params
       @business = Business.find_by_yelp_id(params[:yelp_id])
       if @business
         @reviews = @business.reviews
         render :show
       else
-        @business = Business.new(business_params)
+        @business = Business.new(yelp_id: params[:yelp_id])
         render :show
       end
   end
 
   private
 
-  def business_params
-      params.require(:business).permit(:yelp_id)
-  end
+  # def business_params
+  #     params.require(:business).permit(:yelp_id)
+  #     # params.require(:business).permit(:yelp_id)
+  # end
   
 end

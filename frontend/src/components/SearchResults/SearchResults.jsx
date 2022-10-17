@@ -53,10 +53,6 @@ const SearchResults = () => {
     ]);
     setAllResultReviews((oldReviews) => [...oldReviews, newReviews.reviews]);
   };
-
-  // console.log(currentBusinessResults);
-  // console.log(allResultReviews);
-
   return (
     <>
       {loading && <LoadingResults counter={[1, 2, 3, 4, 5]} />}

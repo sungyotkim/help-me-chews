@@ -4,10 +4,8 @@ import Header from "../Header/Header";
 import NextReviewStars from "../ReviewStars/NextReviewStars";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./Business.css";
-import { businessPagePlaceholder } from "./businessPagePlaceholder";
 import BusinessReviewsDetail from "./BusinessReviewsDetail";
 import BusinessReviewsOverallRatings from "./BusinessReviewsOverallRatings";
-import { businessReviewsPlaceholder } from "./businessReviewsPlaceholder";
 import BusinessReviewSort from "./BusinessReviewsSort";
 import { fetchBusiness, getBusiness } from "../../store/businesses";
 import { useLocation } from "react-router-dom";
@@ -215,7 +213,6 @@ const Business = () => {
       userReviews = sessionUser.reviews ||= 0;
       sessionUser.name =
         sessionUser.firstName + " " + sessionUser.lastName.slice(0, 1) + ".";
-      console.log(sessionUser);
     }
 
     return (
@@ -224,6 +221,7 @@ const Business = () => {
           <Header
             styleBlack={{ color: "black", fill: "black" }}
             fromSearch={{ fromSearch: false }}
+            fromBusiness={{ fromBusiness: currentBusiness.id }}
             sticky={{ position: "relative", top: 0 }}
           />
           <div className="business-images-container">

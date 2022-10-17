@@ -38,9 +38,6 @@ function Root() {
   const [resultReviews, setResultReviews] = useState([]);
   const [allResultReviews, setAllResultReviews] = useState([]);
 
-  // console.log(currentBusinessResults);
-  // console.log(resultReviews);
-
   return (
     <Provider store={store}>
       <BusinessSearchContext.Provider

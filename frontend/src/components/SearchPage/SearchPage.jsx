@@ -119,6 +119,7 @@ const SearchPage = () => {
       <Header
         styleBlack={{ color: "black", fill: "black" }}
         fromSearch={{ fromSearch: true }}
+        fromBusiness={{ fromBusiness: false }}
         sticky={{ position: "sticky", top: 0, background: "white" }}
       />
       <div className="main-search-results-container">

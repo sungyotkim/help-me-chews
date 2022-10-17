@@ -14,7 +14,10 @@ const HeroContainer = () => {
       {/* <div className="hero-carousel"> */}
 
       <div className="hero-container">
-        <Header fromSearch={{ fromSearch: false }} />
+        <Header
+          fromSearch={{ fromSearch: false }}
+          fromBusiness={{ fromBusiness: false }}
+        />
       </div>
 
       {/* <div className="hero-container-2"> */}

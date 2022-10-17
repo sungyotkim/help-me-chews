@@ -9,7 +9,7 @@ import { Link, useHistory } from "react-router-dom";
 import { BusinessSearchContext } from "../../contexts/BusinessSearchContext";
 import { usePlacesWidget } from "react-google-autocomplete";
 
-function Header({ styleBlack, fromSearch, sticky }) {
+function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
   const sessionUser = useSelector((state) => state.session.user);
   const history = useHistory();
   const {
@@ -186,7 +186,11 @@ function Header({ styleBlack, fromSearch, sticky }) {
           </div>
           {sessionUser && <HeaderLoggedIn styleBlack={styleBlack} />}
           {!sessionUser && (
-            <HeaderLoggedOut styleBlack={styleBlack} fromSearch={fromSearch} />
+            <HeaderLoggedOut
+              styleBlack={styleBlack}
+              fromSearch={fromSearch}
+              fromBusiness={fromBusiness}
+            />
           )}
         </div>
       </div>
