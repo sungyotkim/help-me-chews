@@ -121,8 +121,6 @@ const BusinessReview = ({
     setShowReviewMenu(false);
   };
 
-  console.log(databaseReviews.indexOf(review));
-
   return (
     <div className="review-main-container">
       <div className="review-header-container">
