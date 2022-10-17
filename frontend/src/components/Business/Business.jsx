@@ -14,7 +14,6 @@ const Business = () => {
   const dispatch = useDispatch();
   const [showReviewTrustContainer, setShowReviewTrustContainer] =
     useState(true);
-  const [userDidNotReview, setUserDidNotReview] = useState(true);
   const sessionUser = useSelector((state) => state.session.user);
   const location = useLocation();
   let yelpId = location.pathname.slice(10);
@@ -29,7 +28,7 @@ const Business = () => {
   const [databaseReviews, setDatabaseReviews] = useState([]);
   useEffect(() => {
     if (business) {
-      setDatabaseReviews(business.reviews);
+      setDatabaseReviews(business.reviews.reverse());
     }
 
     let yelpReviews = [];
@@ -470,7 +469,7 @@ const Business = () => {
                   </div>
                 )}
 
-                {sessionUser && userDidNotReview && (
+                {sessionUser && (
                   <>
                     <div className="user-to-review-container">
                       <div className="user-to-review-user-info">
