@@ -8,7 +8,7 @@ import BusinessReviewsDetail from "./BusinessReviewsDetail";
 import BusinessReviewsOverallRatings from "./BusinessReviewsOverallRatings";
 import BusinessReviewSort from "./BusinessReviewsSort";
 import { fetchBusiness, getBusiness } from "../../store/businesses";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Business = () => {
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const Business = () => {
     return () => {
       clearTimeout(timeout);
     };
-  }, [location.state]);
+  }, []);
 
   if (currentBusiness) {
     let categories = [];
@@ -306,14 +306,24 @@ const Business = () => {
           <div className="business-page-below-header">
             <div className="business-page-left-container">
               <div className="business-left-container-top-btns-container">
-                <div className="write-a-review-btn">
+                <Link
+                  to={{
+                    pathname: `/writeareview/${currentBusiness.id}`,
+                    state: {
+                      currentBusiness: currentBusiness,
+                      action: "create",
+                      business: business,
+                    },
+                  }}
+                  className="write-a-review-btn"
+                >
                   <div>
                     <svg width={24} height={24}>
                       <path d="M17.87 22a.93.93 0 01-.46-.12L12 19.08l-5.41 2.84a1 1 0 01-1-.08 1 1 0 01-.4-1l1-6-4.39-4.26a1 1 0 01.56-1.7L8.4 8l2.7-5.48a1 1 0 011.8 0L15.6 8l6 .88a1 1 0 01.56 1.7l-4.38 4.27 1 6a1 1 0 01-1 1.17l.09-.02zM12 17c.163.002.323.04.47.11l4.07 2.15-.78-4.54a1 1 0 01.29-.89l3.3-3.21-4.56-.72a1 1 0 01-.79-.54l-2-4.14-2 4.14a1 1 0 01-.75.54l-4.56.67L8 13.78a1 1 0 01.29.89l-.78 4.54 4.07-2.15A1.12 1.12 0 0112 17z"></path>
                     </svg>
                   </div>
                   <div>Write a review</div>
-                </div>
+                </Link>
                 <div className="save-business-btn">
                   <div>
                     <svg width={24} height={24}>
