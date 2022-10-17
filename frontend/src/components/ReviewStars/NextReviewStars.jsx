@@ -55,26 +55,18 @@ const NextReviewStars = ({
 
   const handleFirstStarMouseOver = () => {
     setPathFill1(oneStarColor);
+    setPathFill2(defaultGray);
+    setPathFill3(defaultGray);
+    setPathFill4(defaultGray);
+    setPathFill5(defaultGray);
 
     if (hideToolTip) {
       if (foodValue) {
         setFoodValue("Not good");
-        if (foodValueSelected) {
-          setPathFill2(defaultGray);
-          setPathFill3(defaultGray);
-          setPathFill4(defaultGray);
-          setPathFill5(defaultGray);
-        }
       }
 
       if (serviceValue) {
         setServiceValue("Not good");
-        if (serviceValueSelected) {
-          setPathFill2(defaultGray);
-          setPathFill3(defaultGray);
-          setPathFill4(defaultGray);
-          setPathFill5(defaultGray);
-        }
       }
     }
   };
@@ -82,24 +74,17 @@ const NextReviewStars = ({
   const handleSecondStarMouseOver = () => {
     setPathFill1(twoStarColor);
     setPathFill2(twoStarColor);
+    setPathFill3(defaultGray);
+    setPathFill4(defaultGray);
+    setPathFill5(defaultGray);
 
     if (hideToolTip) {
       if (foodValue) {
         setFoodValue("Could've been better");
-        if (foodValueSelected) {
-          setPathFill3(defaultGray);
-          setPathFill4(defaultGray);
-          setPathFill5(defaultGray);
-        }
       }
 
       if (serviceValue) {
         setServiceValue("Could've been better");
-        if (serviceValueSelected) {
-          setPathFill3(defaultGray);
-          setPathFill4(defaultGray);
-          setPathFill5(defaultGray);
-        }
       }
     }
   };
@@ -108,22 +93,16 @@ const NextReviewStars = ({
     setPathFill1(threeStarColor);
     setPathFill2(threeStarColor);
     setPathFill3(threeStarColor);
+    setPathFill4(defaultGray);
+    setPathFill5(defaultGray);
 
     if (hideToolTip) {
       if (foodValue) {
         setFoodValue("OK");
-        if (foodValueSelected) {
-          setPathFill4(defaultGray);
-          setPathFill5(defaultGray);
-        }
       }
 
       if (serviceValue) {
         setServiceValue("OK");
-        if (serviceValueSelected) {
-          setPathFill4(defaultGray);
-          setPathFill5(defaultGray);
-        }
       }
     }
   };
@@ -133,20 +112,15 @@ const NextReviewStars = ({
     setPathFill2(fourStarColor);
     setPathFill3(fourStarColor);
     setPathFill4(fourStarColor);
+    setPathFill5(defaultGray);
 
     if (hideToolTip) {
       if (foodValue) {
         setFoodValue("Good");
-        if (foodValueSelected) {
-          setPathFill5(defaultGray);
-        }
       }
 
       if (serviceValue) {
         setServiceValue("Good");
-        if (serviceValueSelected) {
-          setPathFill5(defaultGray);
-        }
       }
     }
   };

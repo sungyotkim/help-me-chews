@@ -1,6 +1,6 @@
 import { nextReviewRestaurants } from "./next-review-placeholder";
 import "./NextReviewItems.css";
-import NextReviewStars from "./NextReviewStars";
+import NextReviewStars from "../ReviewStars/NextReviewStars";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 

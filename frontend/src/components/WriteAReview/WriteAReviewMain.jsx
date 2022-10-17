@@ -1,5 +1,5 @@
-import { useState } from "react";
-import NextReviewStars from "../Home/NextReviewStars";
+import { useEffect, useState } from "react";
+import NextReviewStars from "../ReviewStars/NextReviewStars";
 import "./WriteAReviewMain.css";
 
 const WriteAReviewMain = ({ business }) => {
@@ -8,7 +8,12 @@ const WriteAReviewMain = ({ business }) => {
     "If you want to find the world's best street burrito, look no further. Whenver I'm craving a California burrito, I immediately head to this food truck. For $12, they stuff in fries, guacamole, sour cream, and your choice of meat. The employees like to keep the line moving, which is great especially during lunch. There's so many things to try outside of burritos though. Better to place your order ahead of time to skip the line.",
   ];
 
-  let placeHolderText = placeHolderTextOptions[Math.floor(Math.random() * 2)];
+  let placeHolderText;
+
+  useEffect(() => {
+    placeHolderText = placeHolderTextOptions[Math.floor(Math.random() * 2)];
+  }, [business]);
+
   const [foodValue, setFoodValue] = useState("Select your rating");
   const [foodValueSelected, setFoodValueSelected] = useState(false);
   const [serviceValue, setServiceValue] = useState("Select your rating");

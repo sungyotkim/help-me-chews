@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../Header/Header";
-import NextReviewStars from "../Home/NextReviewStars";
+import NextReviewStars from "../ReviewStars/NextReviewStars";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./Business.css";
 import { businessPagePlaceholder } from "./businessPagePlaceholder";

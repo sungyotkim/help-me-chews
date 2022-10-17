@@ -75,13 +75,3 @@
   text-align: left;
   vertical-align: middle;
 }
-
-.next-review-star-container {
-  display: flex;
-  gap: 4px;
-  margin-top: 8px;
-}
-
-.next-review-star-container > div {
-  cursor: pointer;
-}
