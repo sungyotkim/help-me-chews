@@ -13,6 +13,8 @@ const SearchResults = () => {
     setCurrentBusinessResults,
     resultReviews,
     setResultReviews,
+    setAllResultReviews,
+    allResultReviews,
   } = useContext(BusinessSearchContext);
 
   const isInitialMount = useRef(true);
@@ -47,9 +49,12 @@ const SearchResults = () => {
     setResultReviews((oldReviews) => [
       ...oldReviews,
       newReviews.reviews[0].text,
-      // newReviews.reviews,
     ]);
+    setAllResultReviews((oldReviews) => [...oldReviews, newReviews.reviews]);
   };
+
+  console.log(currentBusinessResults);
+  console.log(allResultReviews);
 
   return (
     <>

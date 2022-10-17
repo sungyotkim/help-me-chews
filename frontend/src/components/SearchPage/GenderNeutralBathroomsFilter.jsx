@@ -11,6 +11,7 @@ const GenderNeutralBathroomsFilter = ({ filters, setFilters }) => {
     setCurrentBusinessResults,
     setLoading,
     setResultReviews,
+    setAllResultReviews,
   } = useContext(BusinessSearchContext);
   const suggestedOption = "Gender Neutral Bathrooms";
 
@@ -38,6 +39,7 @@ const GenderNeutralBathroomsFilter = ({ filters, setFilters }) => {
     } else {
       setCurrentBusinessResults([]);
       setResultReviews([]);
+      setAllResultReviews([]);
       const emptyResults = {};
       setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
       setLoading(true);

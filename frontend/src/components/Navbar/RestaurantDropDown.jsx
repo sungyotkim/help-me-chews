@@ -24,6 +24,7 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setLimit,
     setOffset,
     setHotAndNew,
+    setAllResultReviews,
   } = useContext(BusinessSearchContext);
 
   const handleMouseOver = () => {
@@ -41,6 +42,7 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setTerm(value);
     setCurrentBusinessResults([]);
     setResultReviews([]);
+    setAllResultReviews([]);
     const emptyResults = {};
     setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
     setLoading(true);

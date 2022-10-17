@@ -36,6 +36,7 @@ function Root() {
   const [currentBusinessResults, setCurrentBusinessResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const [resultReviews, setResultReviews] = useState([]);
+  const [allResultReviews, setAllResultReviews] = useState([]);
 
   // console.log(currentBusinessResults);
   // console.log(resultReviews);
@@ -78,6 +79,8 @@ function Root() {
           setLoading,
           resultReviews,
           setResultReviews,
+          allResultReviews,
+          setAllResultReviews,
         }}
       >
         <BrowserRouter>

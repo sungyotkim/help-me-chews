@@ -39,6 +39,7 @@ function Header({ styleBlack, fromSearch, sticky }) {
     setCurrentBusinessResults,
     setLoading,
     setResultReviews,
+    setAllResultReviews,
   } = useContext(BusinessSearchContext);
 
   let emptyDiv;
@@ -71,6 +72,7 @@ function Header({ styleBlack, fromSearch, sticky }) {
     e.preventDefault();
     setCurrentBusinessResults([]);
     setResultReviews([]);
+    setAllResultReviews([]);
     const emptyResults = {};
     setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
     setLoading(true);
@@ -121,6 +123,7 @@ function Header({ styleBlack, fromSearch, sticky }) {
     if (e.key === "Enter") {
       setCurrentBusinessResults([]);
       setResultReviews([]);
+      setAllResultReviews([]);
       fetchBusinesses();
       setSearchedTerm(term);
       setSearchedLocation(location);

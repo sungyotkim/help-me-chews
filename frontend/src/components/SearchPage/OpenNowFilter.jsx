@@ -12,6 +12,7 @@ const OpenNowFilter = ({ filters, setFilters }) => {
     setCurrentBusinessResults,
     setLoading,
     setResultReviews,
+    setAllResultReviews,
   } = useContext(BusinessSearchContext);
   const suggestedOption = "Open Now";
 
@@ -60,6 +61,7 @@ const OpenNowFilter = ({ filters, setFilters }) => {
     } else {
       setCurrentBusinessResults([]);
       setResultReviews([]);
+      setAllResultReviews([]);
       const emptyResults = {};
       setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
       setLoading(true);

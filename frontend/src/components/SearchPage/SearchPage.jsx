@@ -36,6 +36,7 @@ const SearchPage = () => {
     location,
     setLoading,
     setResultReviews,
+    setAllResultReviews,
   } = useContext(BusinessSearchContext);
   const [filters, setFilters] = useState([]);
 
@@ -89,6 +90,7 @@ const SearchPage = () => {
     setFilters([]);
     setCurrentBusinessResults([]);
     setResultReviews([]);
+    setAllResultReviews([]);
     const emptyResults = {};
     setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
     setLoading(true);

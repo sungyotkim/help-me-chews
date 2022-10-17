@@ -20,6 +20,7 @@ const SearchPagePriceFilter = ({ priceOption, filters, setFilters }) => {
     setCurrentBusinessResults,
     setLoading,
     setResultReviews,
+    setAllResultReviews,
   } = useContext(BusinessSearchContext);
 
   let borderStyle = {
@@ -66,6 +67,7 @@ const SearchPagePriceFilter = ({ priceOption, filters, setFilters }) => {
       setPrice(price);
       setCurrentBusinessResults([]);
       setResultReviews([]);
+      setAllResultReviews([]);
       const emptyResults = {};
       setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
       setLoading(true);
@@ -79,6 +81,7 @@ const SearchPagePriceFilter = ({ priceOption, filters, setFilters }) => {
       setPrice(price);
       setCurrentBusinessResults([]);
       setResultReviews([]);
+      setAllResultReviews([]);
       const emptyResults = {};
       setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
       setLoading(true);

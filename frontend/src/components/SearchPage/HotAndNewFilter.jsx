@@ -11,6 +11,7 @@ const HotAndNewFilter = ({ filters, setFilters }) => {
     setCurrentBusinessResults,
     setLoading,
     setResultReviews,
+    setAllResultReviews,
   } = useContext(BusinessSearchContext);
   const suggestedOption = "Hot and New";
 
@@ -38,6 +39,7 @@ const HotAndNewFilter = ({ filters, setFilters }) => {
     } else {
       setCurrentBusinessResults([]);
       setResultReviews([]);
+      setAllResultReviews([]);
       const emptyResults = {};
       setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
       setLoading(true);

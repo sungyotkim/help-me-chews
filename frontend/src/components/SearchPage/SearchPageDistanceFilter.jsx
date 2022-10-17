@@ -9,6 +9,7 @@ const SearchPageDistanceFilter = ({ filters, setFilters }) => {
     setCurrentBusinessResults,
     setLoading,
     setResultReviews,
+    setAllResultReviews,
   } = useContext(BusinessSearchContext);
   const [birdsEyeChecked, setBirdsEyeChecked] = useState(false);
   const [drivingChecked, setDrivingChecked] = useState(false);
@@ -19,6 +20,7 @@ const SearchPageDistanceFilter = ({ filters, setFilters }) => {
   const handleChange = (value) => {
     setCurrentBusinessResults([]);
     setResultReviews([]);
+    setAllResultReviews([]);
     const emptyResults = {};
     setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
     setLoading(true);
