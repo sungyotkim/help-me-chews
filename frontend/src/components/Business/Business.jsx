@@ -526,6 +526,8 @@ const Business = () => {
                 <BusinessReviewsDetail
                   databaseReviews={databaseReviews}
                   location={businessLocation}
+                  business={business}
+                  currentBusiness={currentBusiness}
                 />
               </div>
             </div>

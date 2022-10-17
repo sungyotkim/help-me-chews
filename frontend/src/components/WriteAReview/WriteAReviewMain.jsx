@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { createReview } from "../../store/reviews";
+import { createReview, updateReview } from "../../store/reviews";
 import NextReviewStars from "../ReviewStars/NextReviewStars";
 import "./WriteAReviewMain.css";
 
@@ -11,6 +11,7 @@ const WriteAReviewMain = ({
   action,
   authorId,
   businessId,
+  currentReview,
 }) => {
   const placeHolderTextOptions = [
     "Doesn't look like much when you walk past, but I was practically dying of hunger so I popped in. The definition of a hole-in-the-wall. I got the regular hamburger and wow... there are no words. A classic burger done right. Crisp bun, juicy patty, stuffed with all the essentials (ketchup, shredded lettuce, tomato, and pickles). There's about a million options available between the menu board and a wall full of specials, so it can get a little overwhelming, but you really can't go wrong. Not much else to say besides go see for yourself! You won't be disappointed.",
@@ -44,6 +45,13 @@ const WriteAReviewMain = ({
       setFoodValueSelected(starValues[currentRating]);
       setServiceValueSelected(starValues[currentRating]);
     }
+    if (currentReview) {
+      setReviewText(currentReview.text);
+      setFoodValue(starValues[currentReview.foodRating]);
+      setFoodValueSelected(starValues[currentReview.foodRating]);
+      setServiceValue(starValues[currentReview.serviceRating]);
+      setServiceValueSelected(starValues[currentReview.serviceRating]);
+    }
   }, [business]);
 
   const handleSubmit = (e) => {
@@ -70,21 +78,53 @@ const WriteAReviewMain = ({
         })
         .then(setRedirect(true));
     } else if (action === "edit") {
+      review.id = currentReview.id;
+      return dispatch(updateReview(review))
+        .catch(async (res) => {
+          let data;
+          try {
+            data = await res.clone().json();
+          } catch {
+            data = await res.text();
+          }
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+        })
+        .then(setRedirect(true));
     }
   };
 
-  if (redirect)
+  let msgOptions = [
+    "Your review has been successfully created!",
+    "Your review has been successfully updated!",
+  ];
+  let msg = msgOptions[0];
+
+  if (redirect) {
+    if (action === "edit") {
+      msg = msgOptions[1];
+    }
     return (
       <Redirect
         to={{
           pathname: `/business/${business.id}`,
           state: {
             result: business,
-            msg: "Your review has been successfully created!",
+            msg: msg,
           },
         }}
       />
     );
+  }
+
+  let currentFoodRating;
+  let currentServiceRating;
+
+  if (currentReview) {
+    currentFoodRating = currentReview.foodRating;
+    currentServiceRating = currentReview.serviceRating;
+  }
 
   return (
     <>
@@ -109,6 +149,7 @@ const WriteAReviewMain = ({
                 foodValueSelected={foodValueSelected}
                 setFoodValueSelected={setFoodValueSelected}
                 currentRating={currentRating}
+                currentReviewRating={currentFoodRating}
               />
               {foodValue}
             </div>
@@ -121,6 +162,7 @@ const WriteAReviewMain = ({
                 setServiceValueSelected={setServiceValueSelected}
                 blueStars={true}
                 currentRating={currentRating}
+                currentReviewRating={currentServiceRating}
               />
               {serviceValue}
             </div>

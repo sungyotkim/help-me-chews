@@ -35,6 +35,7 @@ const NextReviewStars = ({
   currentBusiness,
   business,
   currentRating,
+  currentReviewRating,
 }) => {
   const defaultGray = "rgba(187,186,192, 0.5)";
   const [pathFill1, setPathFill1] = useState(defaultGray);
@@ -58,48 +59,53 @@ const NextReviewStars = ({
   }
 
   useEffect(() => {
+    let ratingValue;
     if (currentRating) {
-      switch (currentRating) {
-        case 1:
-          setPathFill1(oneStarColor);
-          setPathFill2(defaultGray);
-          setPathFill3(defaultGray);
-          setPathFill4(defaultGray);
-          setPathFill5(defaultGray);
-          break;
-        case 2:
-          setPathFill1(twoStarColor);
-          setPathFill2(twoStarColor);
-          setPathFill3(defaultGray);
-          setPathFill4(defaultGray);
-          setPathFill5(defaultGray);
-          break;
-        case 3:
-          setPathFill1(threeStarColor);
-          setPathFill2(threeStarColor);
-          setPathFill3(threeStarColor);
-          setPathFill4(defaultGray);
-          setPathFill5(defaultGray);
-          break;
-        case 4:
-          setPathFill1(fourStarColor);
-          setPathFill2(fourStarColor);
-          setPathFill3(fourStarColor);
-          setPathFill4(fourStarColor);
-          setPathFill5(defaultGray);
-          break;
-        case 5:
-          setPathFill1(fiveStarColor);
-          setPathFill2(fiveStarColor);
-          setPathFill3(fiveStarColor);
-          setPathFill4(fiveStarColor);
-          setPathFill5(fiveStarColor);
-          break;
-        default:
-          break;
-      }
+      ratingValue = currentRating;
+    } else if (currentReviewRating) {
+      ratingValue = currentReviewRating;
     }
-  }, [currentRating]);
+
+    switch (ratingValue) {
+      case 1:
+        setPathFill1(oneStarColor);
+        setPathFill2(defaultGray);
+        setPathFill3(defaultGray);
+        setPathFill4(defaultGray);
+        setPathFill5(defaultGray);
+        break;
+      case 2:
+        setPathFill1(twoStarColor);
+        setPathFill2(twoStarColor);
+        setPathFill3(defaultGray);
+        setPathFill4(defaultGray);
+        setPathFill5(defaultGray);
+        break;
+      case 3:
+        setPathFill1(threeStarColor);
+        setPathFill2(threeStarColor);
+        setPathFill3(threeStarColor);
+        setPathFill4(defaultGray);
+        setPathFill5(defaultGray);
+        break;
+      case 4:
+        setPathFill1(fourStarColor);
+        setPathFill2(fourStarColor);
+        setPathFill3(fourStarColor);
+        setPathFill4(fourStarColor);
+        setPathFill5(defaultGray);
+        break;
+      case 5:
+        setPathFill1(fiveStarColor);
+        setPathFill2(fiveStarColor);
+        setPathFill3(fiveStarColor);
+        setPathFill4(fiveStarColor);
+        setPathFill5(fiveStarColor);
+        break;
+      default:
+        break;
+    }
+  }, [currentRating, currentReviewRating]);
 
   const handleFirstStarMouseOver = () => {
     setPathFill1(oneStarColor);

@@ -133,7 +133,7 @@
   z-index: 1009;
 }
 
-.review-header-menu-dropdown > div {
+.review-header-menu-dropdown-option {
   width: 132px;
   height: 30px;
   padding: 8px;
@@ -150,7 +150,7 @@
   align-items: center;
 }
 
-.review-header-menu-dropdown > div:hover {
+.review-header-menu-dropdown-option:hover {
   background-color: rgb(226, 226, 230);
 }
 

@@ -1,12 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./BusinessReview.css";
 
-const BusinessReview = ({ review, location }) => {
+const BusinessReview = ({ review, location, business, currentBusiness }) => {
   const [usefulBtnClicked, setUsefulBtnClicked] = useState(false);
   const [funnyBtnClicked, setFunnyBtnClicked] = useState(false);
   const [coolBtnClicked, setCoolBtnClicked] = useState(false);
   const [showReviewMenu, setShowReviewMenu] = useState(false);
+  const sessionUser = useSelector((state) => state.session.user);
   const node = useRef();
 
   let month = review.time_created
@@ -91,6 +94,11 @@ const BusinessReview = ({ review, location }) => {
   review.user.name ||= `${review.user.firstName} ${review.user.lastName[0]}.`;
   let yelpReviewer = !review.user.notYelpUser;
 
+  let userIsAuthor = false;
+  if (review.user.id === sessionUser.id) {
+    userIsAuthor = true;
+  }
+
   return (
     <div className="review-main-container">
       <div className="review-header-container">
@@ -131,10 +139,45 @@ const BusinessReview = ({ review, location }) => {
               <path d="M12 13.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm8 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm-16 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
             </svg>
           </div>
-          {showReviewMenu && (
+          {showReviewMenu && !userIsAuthor && (
             <div className="review-header-menu-dropdown" ref={node}>
-              <div>Send Message</div>
-              <div>Follow {review.user.name}</div>
+              <div className="review-header-menu-dropdown-option">
+                Send Message
+              </div>
+              <div className="review-header-menu-dropdown-option">
+                Follow {review.user.name}
+              </div>
+            </div>
+          )}
+          {showReviewMenu && userIsAuthor && (
+            <div className="review-header-menu-dropdown" ref={node}>
+              <Link
+                className="review-header-menu-dropdown-option"
+                to={{
+                  pathname: `/writeareview/${currentBusiness.id}`,
+                  state: {
+                    currentBusiness: currentBusiness,
+                    action: "edit",
+                    business: business,
+                    review: review,
+                  },
+                }}
+              >
+                Edit Review
+              </Link>
+              <Link
+                className="review-header-menu-dropdown-option"
+                to={{
+                  pathname: `/writeareview/${currentBusiness.id}`,
+                  state: {
+                    currentBusiness: currentBusiness,
+                    action: "create",
+                    business: business,
+                  },
+                }}
+              >
+                Delete Review
+              </Link>
             </div>
           )}
         </div>

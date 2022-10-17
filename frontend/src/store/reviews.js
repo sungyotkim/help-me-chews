@@ -27,40 +27,19 @@ export const getReview =
     reviews ? reviews(reviewId) : null;
 
 export const createReview = (review) => async (dispatch) => {
-  const { text, foodRating, serviceRating, authorId, businessId } = review;
-  console.log(review);
   const res = await csrfFetch("/api/reviews", {
     method: "POST",
     body: JSON.stringify(review),
   });
   const data = await res.json();
-  console.log(data);
   dispatch(setReview(data.review));
   return res;
 };
 
 export const updateReview = (review) => async (dispatch) => {
-  const {
-    id,
-    text,
-    foodRating,
-    serviceRating,
-    useful,
-    funny,
-    cool,
-    photosUrl,
-  } = review;
-  const res = await csrfFetch(`/api/reviews/${id}`, {
-    method: "POST",
-    body: JSON.stringify(
-      text,
-      foodRating,
-      serviceRating,
-      useful,
-      funny,
-      cool,
-      photosUrl
-    ),
+  const res = await csrfFetch(`/api/reviews/${review.id}`, {
+    method: "PUT",
+    body: JSON.stringify(review),
   });
   const data = await res.json();
   dispatch(setReview(data.review));

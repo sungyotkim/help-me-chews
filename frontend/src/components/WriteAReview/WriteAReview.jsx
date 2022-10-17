@@ -16,6 +16,7 @@ const WriteAReview = () => {
   let currentRating = location.state.currentRating;
   let action = location.state.action;
   let business = location.state.business;
+  let currentReview = location.state.review;
 
   return (
     <div className="write-a-review-page-container">
@@ -29,6 +30,7 @@ const WriteAReview = () => {
               action={action}
               authorId={sessionUser.id}
               businessId={business.id}
+              currentReview={currentReview}
             />
           </div>
         </div>
