@@ -239,7 +239,7 @@ function LoginFormPage() {
                   <Link
                     to={{
                       pathname: "/signup",
-                      state: { fromSearch },
+                      state: { fromSearch, fromBusiness },
                     }}
                   >
                     <div className="second-signup-btn-from-login">Sign up</div>

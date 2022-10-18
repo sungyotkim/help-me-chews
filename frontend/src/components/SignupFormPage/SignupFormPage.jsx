@@ -138,7 +138,7 @@ function SignupFormPage() {
                   <Link
                     to={{
                       pathname: "/login",
-                      state: { fromDemoBtn: true, fromSearch },
+                      state: { fromDemoBtn: true, fromSearch, fromBusiness },
                     }}
                   >
                     <div className="demo-user-signup-btn">
@@ -272,7 +272,7 @@ function SignupFormPage() {
                   <Link
                     to={{
                       pathname: "/login",
-                      state: { fromSearch },
+                      state: { fromSearch, fromBusiness },
                     }}
                   >
                     <div className="second-signup-btn-from-signup">Log in</div>
