@@ -14,6 +14,7 @@ import {
   RiStarSmileLine,
 } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
+import { useState } from "react";
 
 const Profile = () => {
   const user = useSelector((state) => state.session.user);
@@ -39,6 +40,53 @@ const Profile = () => {
   ];
   const userMonth = months[parseInt(user.createdAt.slice(5, 7))];
   const userYear = user.createdAt.slice(0, 4);
+  const [overviewSelected, setOverviewSelected] = useState(true);
+  const [friendsSelected, setFriendsSelected] = useState(false);
+  const [reviewsSelected, setReviewsSelected] = useState(false);
+  const [bookmarksSelected, setBookmarksSelected] = useState(false);
+  const [followingSelected, setFollowingSelected] = useState(false);
+  const [followersSelected, setFollowersSelected] = useState(false);
+
+  const setOthersFalse = (selected) => {
+    if (selected !== "overview") {
+      if (overviewSelected) {
+        setOverviewSelected(false);
+      }
+    }
+    if (selected !== "friends") {
+      if (friendsSelected) {
+        setFriendsSelected(false);
+      }
+    }
+    if (selected !== "reviews") {
+      if (reviewsSelected) {
+        setReviewsSelected(false);
+      }
+    }
+    if (selected !== "bookmarks") {
+      if (bookmarksSelected) {
+        setBookmarksSelected(false);
+      }
+    }
+    if (selected !== "following") {
+      if (followingSelected) {
+        setFollowingSelected(false);
+      }
+    }
+    if (selected !== "followers") {
+      if (followersSelected) {
+        setFollowersSelected(false);
+      }
+    }
+  };
+
+  const handleNavClick = (e, getter, setter, value) => {
+    e.preventDefault();
+    if (!getter) {
+      setter(true);
+    }
+    setOthersFalse(value);
+  };
   console.log(user);
 
   return (
@@ -106,22 +154,106 @@ const Profile = () => {
               <div className="column-nav-header">
                 {user.firstName}'s Profile
               </div>
-              <div className="column-nav-row column-nav-selected">
+              <div
+                className={
+                  overviewSelected
+                    ? "column-nav-row column-nav-selected"
+                    : "column-nav-row"
+                }
+                onClick={(e) =>
+                  handleNavClick(
+                    e,
+                    overviewSelected,
+                    setOverviewSelected,
+                    "overview"
+                  )
+                }
+              >
                 <FaUserCircle className="column-nav-icon" /> Profile Overview
               </div>
-              <div className="column-nav-row">
+              <div
+                className={
+                  friendsSelected
+                    ? "column-nav-row column-nav-selected"
+                    : "column-nav-row"
+                }
+                onClick={(e) =>
+                  handleNavClick(
+                    e,
+                    friendsSelected,
+                    setFriendsSelected,
+                    "friends"
+                  )
+                }
+              >
                 <Diversity1Icon className="column-nav-icon" /> Friends
               </div>
-              <div className="column-nav-row">
+              <div
+                className={
+                  reviewsSelected
+                    ? "column-nav-row column-nav-selected"
+                    : "column-nav-row"
+                }
+                onClick={(e) =>
+                  handleNavClick(
+                    e,
+                    reviewsSelected,
+                    setReviewsSelected,
+                    "reviews"
+                  )
+                }
+              >
                 <RiStarSmileLine className="column-nav-icon" /> Reviews
               </div>
-              <div className="column-nav-row">
+              <div
+                className={
+                  bookmarksSelected
+                    ? "column-nav-row column-nav-selected"
+                    : "column-nav-row"
+                }
+                onClick={(e) =>
+                  handleNavClick(
+                    e,
+                    bookmarksSelected,
+                    setBookmarksSelected,
+                    "bookmarks"
+                  )
+                }
+              >
                 <RiBookmark3Line className="column-nav-icon" /> Bookmarks
               </div>
-              <div className="column-nav-row">
+              <div
+                className={
+                  followingSelected
+                    ? "column-nav-row column-nav-selected"
+                    : "column-nav-row"
+                }
+                onClick={(e) =>
+                  handleNavClick(
+                    e,
+                    followingSelected,
+                    setFollowingSelected,
+                    "following"
+                  )
+                }
+              >
                 <RiUserHeartLine className="column-nav-icon" /> Following
               </div>
-              <div className="column-nav-row">
+              <div
+                className={
+                  followersSelected
+                    ? "column-nav-row column-nav-selected"
+                    : "column-nav-row"
+                }
+                onClick={(e) =>
+                  handleNavClick(
+                    e,
+                    followersSelected,
+                    setFollowersSelected,
+                    "followers"
+                  )
+                }
+              >
                 <RiUserReceivedLine className="column-nav-icon" /> Followers
               </div>
             </div>
