@@ -22,7 +22,25 @@ const Profile = () => {
     "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png");
   const friendCount = 0;
   const reviewCount = 0;
+  const months = [
+    "",
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const userMonth = months[parseInt(user.createdAt.slice(5, 7))];
+  const userYear = user.createdAt.slice(0, 4);
   console.log(user);
+
   return (
     <>
       <Header
@@ -108,7 +126,21 @@ const Profile = () => {
               </div>
             </div>
             <div className="profile-center-column"></div>
-            <div className="profile-right-column"></div>
+            <div className="profile-right-column">
+              <div className="side-column-header">About {name}</div>
+              <div className="side-column-row-header">Location</div>
+              <div className="side-column-row">
+                {user.city}, {user.state}
+              </div>
+              <div className="side-column-row-header">Helping since</div>
+              <div className="side-column-row">
+                {userMonth} {userYear}
+              </div>
+              <div className="side-column-row-header">Things I Love</div>
+              <div className="side-column-row">
+                Coding... though this part isn't coded yet!
+              </div>
+            </div>
           </div>
         </div>
       </div>
