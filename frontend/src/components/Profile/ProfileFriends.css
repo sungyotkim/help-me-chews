@@ -7,28 +7,3 @@
   flex-direction: column;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-.profile-friends-header {
-  width: 712px;
-  height: 27px;
-  color: #d32323;
-  font-size: 21px;
-  font-weight: bold;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #e6e6e6;
-  margin-bottom: 11px;
-}
-
-.profile-friends-placeholder-info {
-  font-size: 14px;
-  color: #333333;
-  margin-bottom: 48px;
-}
-
-.friends-hero-img-container {
-  width: 712px;
-  height: 301px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
