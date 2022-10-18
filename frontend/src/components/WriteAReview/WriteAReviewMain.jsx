@@ -64,6 +64,17 @@ const WriteAReviewMain = ({
       authorId: authorId,
       businessId: businessId,
     };
+    setErrors([]);
+
+    if (review.foodRating === -1) {
+      setErrors(["Please fill out food rating"]);
+      return;
+    }
+    if (review.serviceRating === -1) {
+      setErrors(["Please fill out service rating"]);
+      return;
+    }
+
     if (action === "create") {
       return dispatch(createReview(review))
         .catch(async (res) => {
@@ -128,17 +139,22 @@ const WriteAReviewMain = ({
     currentServiceRating = currentReview.serviceRating;
   }
 
+  const handleCloseErrors = () => {
+    setErrors([]);
+  };
+
   return (
     <>
       <div className="signup-alert-container">
         {errors.length > 0 && (
           <div className="login-errors">
             <div>{errors[0]}</div>
-            <div className="close-login-errors">×</div>
+            <div className="close-login-errors" onClick={handleCloseErrors}>
+              ×
+            </div>
           </div>
         )}
       </div>
-      <div>{errors}</div>
       <div className="write-a-review-main-header">{business.name}</div>
       <div className="write-a-review-main-form">
         <form id="review-form" onSubmit={handleSubmit}>
@@ -175,6 +191,7 @@ const WriteAReviewMain = ({
               className="review-text-container"
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
+              required
             ></textarea>
           </div>
           <div className="attach-photo-container">

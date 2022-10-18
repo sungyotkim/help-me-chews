@@ -13,7 +13,6 @@ const WriteAReview = () => {
   let business = location.state.business;
   let currentReview = location.state.review;
   let reviewArr = location.state.reviewArr;
-  console.log(reviewArr);
 
   if (!sessionUser) {
     return (
