@@ -9,8 +9,6 @@ import BusinessReviewsOverallRatings from "./BusinessReviewsOverallRatings";
 import BusinessReviewSort from "./BusinessReviewsSort";
 import { fetchBusiness, getBusiness } from "../../store/businesses";
 import { Link, useLocation } from "react-router-dom";
-import { createUserFromYelp, getYelpUsers } from "../../store/users";
-import { obtainReviewByYelpId } from "../../store/reviews";
 
 const Business = () => {
   const dispatch = useDispatch();
@@ -23,25 +21,10 @@ const Business = () => {
   const currentBusiness = location.state.result;
   const yelpBusinessReviews = (location.state.reviewArr ||= []);
   const [databaseReviews, setDatabaseReviews] = useState([]);
-  const yelpReviewers = useSelector(getYelpUsers);
-  const [yelpReviewer, setYelpReviewer] = useState();
 
   useEffect(() => {
     dispatch(fetchBusiness(yelpId));
   }, [yelpId]);
-
-  const obtainReview = (review, yelpReviewerId) => {
-    const databaseReview = {
-      text: review.text,
-      foodRating: review.foodRating,
-      serviceRating: review.serviceRating,
-      authorId: yelpReviewerId,
-      businessId: business.id,
-      yelpId: review.id,
-    };
-
-    dispatch(obtainReviewByYelpId(databaseReview));
-  };
 
   useEffect(() => {
     let yelpReviews = [];
@@ -54,23 +37,6 @@ const Business = () => {
 
     if (business) {
       setDatabaseReviews(business.reviews.reverse());
-
-      yelpReviews.forEach((review, i) => {
-        const yelpUser = {
-          email: `${review.user.id}@yelp.com`,
-          password: review.user.id,
-          firstName: review.user.name.split(" ")[0],
-          lastName: review.user.name.split(" ")[1],
-          city: currentBusiness.location.city,
-          state: currentBusiness.location.state,
-          imageUrl: review.user.image_url,
-          notYelpUser: false,
-        };
-
-        dispatch(createUserFromYelp(yelpUser)).then(async (res) =>
-          obtainReview(review, res.user.id)
-        );
-      });
     }
 
     setDatabaseReviews((databaseReviews) => [

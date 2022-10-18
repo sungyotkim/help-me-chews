@@ -104,7 +104,7 @@ const BusinessReview = ({
   let yelpReviewer = !review.user.notYelpUser;
 
   let userIsAuthor = false;
-  if (review.user.id === sessionUser.id) {
+  if (sessionUser && review.user.id === sessionUser.id) {
     userIsAuthor = true;
   }
 
