@@ -41,8 +41,8 @@ const BusinessReview = ({
   let userFriends = (review.user.friends ||= 0);
   let userReviews = (review.user.reviews ||= 0);
 
-  if (review.user.location) {
-    location = review.user.location;
+  if (review.user.city && review.user.state) {
+    location = `${review.user.city}, ${review.user.state}`;
   }
 
   const [useful, setUseful] = useState((review.useful ||= 0));

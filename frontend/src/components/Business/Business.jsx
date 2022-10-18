@@ -210,10 +210,7 @@ const Business = () => {
       setShowReviewTrustContainer(false);
     };
 
-    let businessLocation =
-      currentYelpBusiness.location.city +
-      ", " +
-      currentYelpBusiness.location.state;
+    let businessLocation = `${currentYelpBusiness.location.city}, ${currentYelpBusiness.location.state}`;
 
     let userProfilePhoto;
     let userLocation;
@@ -222,7 +219,10 @@ const Business = () => {
     if (sessionUser) {
       userProfilePhoto = sessionUser.image_url ||=
         "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/514f6997a318/assets/img/default_avatars/user_60_square.png";
-      userLocation = sessionUser.location ||= businessLocation;
+      userLocation = businessLocation;
+      if (sessionUser.city && sessionUser.state) {
+        userLocation = `${sessionUser.city}, ${sessionUser.state}`;
+      }
       userFriends = sessionUser.friends ||= 0;
       userReviews = sessionUser.reviews ||= 0;
       sessionUser.name =
