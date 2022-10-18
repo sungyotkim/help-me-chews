@@ -7,16 +7,31 @@ import WriteAReviewMain from "./WriteAReviewMain";
 const WriteAReview = () => {
   const location = useLocation();
   const sessionUser = useSelector((state) => state.session.user);
-
-  if (!sessionUser) {
-    return <Redirect to="/" />;
-  }
-
-  let yelpBusiness = location.state.currentBusiness;
+  let yelpBusiness = location.state.currentYelpBusiness;
   let currentRating = location.state.currentRating;
   let action = location.state.action;
   let business = location.state.business;
   let currentReview = location.state.review;
+  let reviewArr = location.state.reviewArr;
+  console.log(reviewArr);
+
+  if (!sessionUser) {
+    return (
+      <Redirect
+        to={{
+          pathname: "/login",
+          state: {
+            fromSearch: { fromSearch: false },
+            fromBusiness: {
+              fromBusiness: true,
+              result: yelpBusiness,
+              reviewArr: reviewArr,
+            },
+          },
+        }}
+      />
+    );
+  }
 
   return (
     <div className="write-a-review-page-container">
@@ -31,6 +46,7 @@ const WriteAReview = () => {
               authorId={sessionUser.id}
               businessId={business.id}
               currentReview={currentReview}
+              reviewArr={reviewArr}
             />
           </div>
         </div>

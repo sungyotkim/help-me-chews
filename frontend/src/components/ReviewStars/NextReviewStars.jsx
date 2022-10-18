@@ -32,10 +32,11 @@ const NextReviewStars = ({
   serviceValueSelected,
   setServiceValueSelected,
   blueStars,
-  currentBusiness,
+  currentYelpBusiness,
   business,
   currentRating,
   currentReviewRating,
+  reviewArr,
 }) => {
   const defaultGray = "rgba(187,186,192, 0.5)";
   const [pathFill1, setPathFill1] = useState(defaultGray);
@@ -319,12 +320,13 @@ const NextReviewStars = ({
             className="next-review-first-star"
             onMouseOver={handleFirstStarMouseOver}
             to={{
-              pathname: `/writeareview/${currentBusiness.id}`,
+              pathname: `/writeareview/${currentYelpBusiness.id}`,
               state: {
-                currentBusiness: currentBusiness,
+                currentYelpBusiness: currentYelpBusiness,
                 currentRating: 1,
                 action: "create",
                 business: business,
+                reviewArr: reviewArr,
               },
             }}
           >
@@ -354,12 +356,13 @@ const NextReviewStars = ({
             className="next-review-second-star"
             onMouseOver={handleSecondStarMouseOver}
             to={{
-              pathname: `/writeareview/${currentBusiness.id}`,
+              pathname: `/writeareview/${currentYelpBusiness.id}`,
               state: {
-                currentBusiness: currentBusiness,
+                currentYelpBusiness: currentYelpBusiness,
                 currentRating: 2,
                 action: "create",
                 business: business,
+                reviewArr: reviewArr,
               },
             }}
           >
@@ -389,12 +392,13 @@ const NextReviewStars = ({
             className="next-review-third-star"
             onMouseOver={handleThirdStarMouseOver}
             to={{
-              pathname: `/writeareview/${currentBusiness.id}`,
+              pathname: `/writeareview/${currentYelpBusiness.id}`,
               state: {
-                currentBusiness: currentBusiness,
+                currentYelpBusiness: currentYelpBusiness,
                 currentRating: 3,
                 action: "create",
                 business: business,
+                reviewArr: reviewArr,
               },
             }}
           >
@@ -424,12 +428,13 @@ const NextReviewStars = ({
             className="next-review-fourth-star"
             onMouseOver={handleFourthStarMouseOver}
             to={{
-              pathname: `/writeareview/${currentBusiness.id}`,
+              pathname: `/writeareview/${currentYelpBusiness.id}`,
               state: {
-                currentBusiness: currentBusiness,
+                currentYelpBusiness: currentYelpBusiness,
                 currentRating: 4,
                 action: "create",
                 business: business,
+                reviewArr: reviewArr,
               },
             }}
           >
@@ -459,12 +464,13 @@ const NextReviewStars = ({
             className="next-review-fifth-star"
             onMouseOver={handleFifthStarMouseOver}
             to={{
-              pathname: `/writeareview/${currentBusiness.id}`,
+              pathname: `/writeareview/${currentYelpBusiness.id}`,
               state: {
-                currentBusiness: currentBusiness,
+                currentYelpBusiness: currentYelpBusiness,
                 currentRating: 5,
                 action: "create",
                 business: business,
+                reviewArr: reviewArr,
               },
             }}
           >

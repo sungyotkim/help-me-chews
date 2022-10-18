@@ -18,7 +18,7 @@ const Business = () => {
   const location = useLocation();
   let yelpId = location.pathname.slice(10);
   const business = useSelector(getBusiness(yelpId));
-  const currentBusiness = location.state.result;
+  const currentYelpBusiness = location.state.result;
   const yelpBusinessReviews = (location.state.reviewArr ||= []);
   const [databaseReviews, setDatabaseReviews] = useState([]);
 
@@ -37,12 +37,11 @@ const Business = () => {
 
     if (business) {
       setDatabaseReviews(business.reviews.reverse());
+      setDatabaseReviews((databaseReviews) => [
+        ...databaseReviews,
+        ...yelpReviews,
+      ]);
     }
-
-    setDatabaseReviews((databaseReviews) => [
-      ...databaseReviews,
-      ...yelpReviews,
-    ]);
   }, [business]);
 
   const [reviewSuccessMesssage, setReviewSuccessMesssage] = useState();
@@ -59,7 +58,7 @@ const Business = () => {
     };
   }, []);
 
-  if (currentBusiness) {
+  if (currentYelpBusiness) {
     let categories = [];
     let date = new Date();
     let dayIndex = date.getDay();
@@ -90,11 +89,11 @@ const Business = () => {
     }
     let openNow;
 
-    if (currentBusiness.hours) {
-      if (currentBusiness.hours[0].is_open_now) {
+    if (currentYelpBusiness.hours) {
+      if (currentYelpBusiness.hours[0].is_open_now) {
         openNow = true;
       }
-      let businessHours = currentBusiness.hours[0].open;
+      let businessHours = currentYelpBusiness.hours[0].open;
       if (businessHours) {
         businessHours.forEach((ele) => {
           if (ele.day === 0) {
@@ -120,7 +119,7 @@ const Business = () => {
       }
     }
 
-    currentBusiness.categories.forEach((cat) => {
+    currentYelpBusiness.categories.forEach((cat) => {
       categories.push(cat.title);
     });
 
@@ -212,7 +211,9 @@ const Business = () => {
     };
 
     let businessLocation =
-      currentBusiness.location.city + ", " + currentBusiness.location.state;
+      currentYelpBusiness.location.city +
+      ", " +
+      currentYelpBusiness.location.state;
 
     let userProfilePhoto;
     let userLocation;
@@ -239,20 +240,20 @@ const Business = () => {
             fromSearch={{ fromSearch: false }}
             fromBusiness={{
               fromBusiness: true,
-              result: currentBusiness,
+              result: currentYelpBusiness,
               reviewArr: yelpBusinessReviews,
             }}
             sticky={{ position: "relative", top: 0 }}
           />
           <div className="business-images-container">
-            {currentBusiness.photos.map((url, i) => {
+            {currentYelpBusiness.photos.map((url, i) => {
               return (
                 <div className="business-image-container" key={i}>
                   <img src={url} alt={url} />
                 </div>
               );
             })}
-            {currentBusiness.photos.map((url, i) => {
+            {currentYelpBusiness.photos.map((url, i) => {
               return (
                 <div className="business-image-container" key={i}>
                   <img src={url} alt={url} />
@@ -262,16 +263,19 @@ const Business = () => {
             <div className="business-main-header-container">
               <div className="business-main-header-inner-container">
                 <div className="business-header-name">
-                  {currentBusiness.name}
+                  {currentYelpBusiness.name}
                 </div>
                 <div className="business-header-ratings">
                   <div>
-                    <ReviewStars starCount={currentBusiness.rating} size={32} />
+                    <ReviewStars
+                      starCount={currentYelpBusiness.rating}
+                      size={32}
+                    />
                   </div>
-                  <div>{currentBusiness.review_count} Yelp reviews</div>
+                  <div>{currentYelpBusiness.review_count} Yelp reviews</div>
                 </div>
                 <div className="business-header-details-container-one">
-                  {currentBusiness.is_claimed && (
+                  {currentYelpBusiness.is_claimed && (
                     <>
                       <div className="is-claimed">
                         <svg width={16} height={16}>
@@ -282,7 +286,7 @@ const Business = () => {
                     </>
                   )}
                   <div className="business-header-price">
-                    {currentBusiness.price}
+                    {currentYelpBusiness.price}
                   </div>
                   <div className="business-header-categories">
                     {categories.join(", ")}
@@ -308,11 +312,12 @@ const Business = () => {
               <div className="business-left-container-top-btns-container">
                 <Link
                   to={{
-                    pathname: `/writeareview/${currentBusiness.id}`,
+                    pathname: `/writeareview/${currentYelpBusiness.id}`,
                     state: {
-                      currentBusiness: currentBusiness,
+                      currentYelpBusiness: currentYelpBusiness,
                       action: "create",
                       business: business,
+                      reviewArr: yelpBusinessReviews,
                     },
                   }}
                   className="write-a-review-btn"
@@ -347,10 +352,10 @@ const Business = () => {
                     <div className="business-directions-container">
                       <div>
                         <div className="first-address-line">
-                          {currentBusiness.location.display_address[0]}
+                          {currentYelpBusiness.location.display_address[0]}
                         </div>
                         <div className="second-address-line">
-                          {currentBusiness.location.display_address[1]}
+                          {currentYelpBusiness.location.display_address[1]}
                         </div>
                       </div>
                       <div className="get-directions-btn">Get directions</div>
@@ -507,11 +512,12 @@ const Business = () => {
                       <div className="user-to-review-rating-container">
                         <NextReviewStars
                           business={business}
-                          currentBusiness={currentBusiness}
+                          currentYelpBusiness={currentYelpBusiness}
+                          reviewArr={yelpBusinessReviews}
                         />
                         <div>
                           Start your review of{" "}
-                          <strong>{currentBusiness.name}.</strong>
+                          <strong>{currentYelpBusiness.name}.</strong>
                         </div>
                       </div>
                     </div>
@@ -528,7 +534,7 @@ const Business = () => {
                   databaseReviews={databaseReviews}
                   location={businessLocation}
                   business={business}
-                  currentBusiness={currentBusiness}
+                  currentYelpBusiness={currentYelpBusiness}
                   setDatabaseReviews={setDatabaseReviews}
                 />
               </div>
@@ -537,7 +543,9 @@ const Business = () => {
             <div className="business-page-right-container">
               <div className="business-page-right-inner-container">
                 <div className="business-website-container">
-                  <div className="business-website">{currentBusiness.url}</div>
+                  <div className="business-website">
+                    {currentYelpBusiness.url}
+                  </div>
                   <div>
                     <svg width={24} height={24}>
                       <path d="M20.47 3.07a.5.5 0 01.53.46v6a.5.5 0 01-.39.49.58.58 0 01-.19 0 .47.47 0 01-.35-.15L17.8 7.6l-5 5a1 1 0 01-1.41 0 1 1 0 010-1.41l5-5-2.27-2.27a.5.5 0 01.35-.85h6zM20 21H4a1 1 0 01-1-1V4a1 1 0 011-1h6a1 1 0 010 2H5v14h14v-5a1 1 0 012 0v6a1 1 0 01-1 1z"></path>
@@ -546,7 +554,7 @@ const Business = () => {
                 </div>
 
                 <div className="business-phone-container">
-                  <div>{currentBusiness.display_phone}</div>
+                  <div>{currentYelpBusiness.display_phone}</div>
                   <div>
                     <svg width={24} height={24}>
                       <path d="M13.59 23.07A7 7 0 018.64 21L3 15.36a7 7 0 010-9.9l1.39-1.41a1 1 0 011.42 0l5 5a1 1 0 010 1.41 2.001 2.001 0 002.83 2.83 1 1 0 011.41 0l4.95 5a1 1 0 010 1.42L18.54 21a7 7 0 01-4.95 2.07zM5.1 6.17l-.71.71a5 5 0 000 7.07l5.66 5.66a5 5 0 007.07 0l.71-.71-3.63-3.63a4 4 0 01-4.86-.61 4 4 0 01-.61-4.86L5.1 6.17zm12.78 5.95a1 1 0 01-1-1 4 4 0 00-4-4 1 1 0 010-2 6 6 0 016 6 1 1 0 01-1 1zm4.19 0a1 1 0 01-1-1 8.19 8.19 0 00-8.19-8.19 1 1 0 010-2c5.625.006 10.184 4.565 10.19 10.19a1 1 0 01-1 1z"></path>
@@ -558,7 +566,7 @@ const Business = () => {
                   <div className="business-directions">
                     <div className="get-directions-header">Get Directions</div>
                     <div>
-                      {currentBusiness.location.display_address.join(" ")}
+                      {currentYelpBusiness.location.display_address.join(" ")}
                     </div>
                   </div>
                   <div>
