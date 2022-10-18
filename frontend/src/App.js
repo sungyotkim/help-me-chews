@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage/SignupFormPage";
 import SearchPage from "./components/SearchPage/SearchPage";
 import Business from "./components/Business/Business";
 import WriteAReview from "./components/WriteAReview/WriteAReview";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/writeareview">
           <WriteAReview />
+        </Route>
+        <Route path="/profile">
+          <Profile />
         </Route>
       </Switch>
     </>

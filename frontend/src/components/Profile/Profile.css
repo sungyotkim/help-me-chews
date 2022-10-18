@@ -1,0 +1,83 @@
+.profile-page-container {
+  width: 1903px;
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-banner-container {
+  width: 1903px;
+  height: 196px;
+  padding-top: 15px;
+  background-color: #f5f5f5;
+  background-image: url(https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_user_details/3a3ed7e5327e/assets/img/stars-static.png);
+  background-position: bottom;
+  background-size: 1400px 268px;
+  background-repeat: no-repeat;
+}
+
+.profile-header-container {
+  width: 960px;
+  height: 180px;
+  padding: 9px 0 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-photo-container {
+  width: 217px;
+  height: 217px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.profile-photo-container > img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 4px;
+}
+
+.profile-info-container {
+  width: 465px;
+  height: 147px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #333;
+}
+
+.profile-actions-container {
+  width: 217px;
+  height: 147px;
+}
+
+.profile-user-name {
+  width: 100%;
+  height: 36px;
+  margin-bottom: 6px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2em;
+}
+
+.profile-user-location {
+  width: 100%;
+  height: 21px;
+  margin-bottom: 6px;
+  font-size: 16px;
+  line-height: 1.3125em;
+  font-weight: normal;
+}
+
+.profile-user-icons {
+  width: 100%;
+  height: 24px;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: normal;
+}
