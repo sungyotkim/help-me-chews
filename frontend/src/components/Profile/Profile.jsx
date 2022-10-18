@@ -273,21 +273,23 @@ const Profile = () => {
               {followersSelected && <ProfileFollowers />}
             </div>
 
-            <div className="profile-right-column">
-              <div className="side-column-header">About {name}</div>
-              <div className="side-column-row-header">Location</div>
-              <div className="side-column-row">
-                {user.city}, {user.state}
+            {overviewSelected && (
+              <div className="profile-right-column">
+                <div className="side-column-header">About {name}</div>
+                <div className="side-column-row-header">Location</div>
+                <div className="side-column-row">
+                  {user.city}, {user.state}
+                </div>
+                <div className="side-column-row-header">Helping since</div>
+                <div className="side-column-row">
+                  {userMonth} {userYear}
+                </div>
+                <div className="side-column-row-header">Things I Love</div>
+                <div className="side-column-row">
+                  Coding... though this part isn't coded yet!
+                </div>
               </div>
-              <div className="side-column-row-header">Helping since</div>
-              <div className="side-column-row">
-                {userMonth} {userYear}
-              </div>
-              <div className="side-column-row-header">Things I Love</div>
-              <div className="side-column-row">
-                Coding... though this part isn't coded yet!
-              </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
