@@ -14,16 +14,23 @@ import {
   RiStarSmileLine,
 } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
-import { Profiler, useState } from "react";
+import { useState } from "react";
 import ProfileOverview from "./ProfileOverview";
 import ProfileFriends from "./ProfileFriends";
 import ProfileReviews from "./ProfileReviews";
 import ProfileBookmarks from "./ProfileBookmarks";
 import ProfileFollowers from "./ProfileFollowers";
 import ProfileFollowing from "./ProfileFollowing";
+import { useLocation } from "react-router-dom";
+import { getUser } from "../../store/users";
 
 const Profile = () => {
-  const user = useSelector((state) => state.session.user);
+  const currentUser = useSelector((state) => state.session.user);
+  const location = useLocation();
+  const userId = location.pathname.slice(9);
+  const user1 = useSelector(getUser(userId));
+  console.log(user1);
+  const user = currentUser;
   const name = `${user.firstName} ${user.lastName.slice(0, 1)}.`;
   const profilePhotoUrl = (user.imageUrl ||=
     "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/7e4e0dfd903f/assets/img/default_avatars/user_large_square.png");

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { deleteReview } from "../../store/reviews";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./BusinessReview.css";

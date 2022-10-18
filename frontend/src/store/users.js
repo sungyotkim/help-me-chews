@@ -16,10 +16,11 @@ export const setUser = (user) => ({
 export const getUsers = (state) => {
   return Object.values(state.users);
 };
-export const getUser =
-  (userId) =>
-  ({ users }) =>
-    users ? users[userId] : null;
+export const getUser = (userId) => (state) => {
+  console.log(state);
+  return state;
+  // users ? users[userId] : null;
+};
 
 export const fetchUsers = () => async (dispatch) => {
   const res = await csrfFetch("/api/users");
@@ -33,7 +34,7 @@ export const fetchUser = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/users/${userId}`);
   if (res.ok) {
     const data = await res.json();
-    dispatch(setUser(data.user));
+    dispatch(setUser(data));
   }
 };
 

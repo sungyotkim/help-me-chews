@@ -32,7 +32,7 @@ export const createReview = (review) => async (dispatch) => {
     body: JSON.stringify(review),
   });
   const data = await res.json();
-  dispatch(setReview(data.review));
+  dispatch(setReview(data));
   return data;
 };
 
@@ -42,7 +42,7 @@ export const updateReview = (review) => async (dispatch) => {
     body: JSON.stringify(review),
   });
   const data = await res.json();
-  dispatch(setReview(data.review));
+  dispatch(setReview(data));
   return data;
 };
 
@@ -50,7 +50,7 @@ export const fetchReviews = () => async (dispatch) => {
   const res = await csrfFetch("/api/reviews");
   if (res.ok) {
     const data = await res.json();
-    dispatch(setReviews(data.reviews));
+    dispatch(setReviews(data));
   }
 };
 
@@ -58,7 +58,7 @@ export const fetchReview = (review) => async (dispatch) => {
   const res = await csrfFetch(`/api/reviews/${review.yelpId}`);
   if (res.ok) {
     const data = await res.json();
-    dispatch(setReview(data.review));
+    dispatch(setReview(data));
     return data;
   }
 };
