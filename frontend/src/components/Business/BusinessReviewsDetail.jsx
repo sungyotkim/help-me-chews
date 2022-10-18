@@ -3,7 +3,7 @@ const BusinessReviewsDetail = ({
   databaseReviews,
   location,
   business,
-  currentBusiness,
+  currentYelpBusiness,
   setDatabaseReviews,
 }) => {
   return (
@@ -15,7 +15,7 @@ const BusinessReviewsDetail = ({
             key={i}
             location={location}
             business={business}
-            currentBusiness={currentBusiness}
+            currentYelpBusiness={currentYelpBusiness}
             databaseReviews={databaseReviews}
             setDatabaseReviews={setDatabaseReviews}
           />

@@ -9,7 +9,7 @@ const BusinessReview = ({
   review,
   location,
   business,
-  currentBusiness,
+  currentYelpBusiness,
   databaseReviews,
   setDatabaseReviews,
 }) => {
@@ -176,9 +176,9 @@ const BusinessReview = ({
               <Link
                 className="review-header-menu-dropdown-option"
                 to={{
-                  pathname: `/writeareview/${currentBusiness.id}`,
+                  pathname: `/writeareview/${currentYelpBusiness.id}`,
                   state: {
-                    currentBusiness: currentBusiness,
+                    currentYelpBusiness: currentYelpBusiness,
                     action: "edit",
                     business: business,
                     review: review,
