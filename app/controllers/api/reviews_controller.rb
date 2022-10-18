@@ -1,5 +1,5 @@
 class Api::ReviewsController < ApplicationController
-    wrap_parameters include: Review.attribute_names + ['foodRating', 'serviceRating', 'businessId', 'authorId']
+    wrap_parameters include: Review.attribute_names + ['foodRating'] + ['serviceRating'] + ['businessId'] + ['authorId']
     before_action :require_logged_in, only: [:show, :create, :update, :destroy]
 
     def index
@@ -14,7 +14,6 @@ class Api::ReviewsController < ApplicationController
 
     def create
         @review = Review.new(review_params)
-
         if @review.save
             render :show
         else

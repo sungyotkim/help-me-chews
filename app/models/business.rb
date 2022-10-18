@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: businesses
+#
+#  id         :bigint           not null, primary key
+#  yelp_id    :string           not null
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 class Business < ApplicationRecord
   validates :yelp_id, presence: true, uniqueness: true
   

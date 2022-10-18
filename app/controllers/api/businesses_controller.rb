@@ -7,7 +7,6 @@ class Api::BusinessesController < ApplicationController
   end
 
   def show
-    p params
       @business = Business.find_by_yelp_id(params[:yelp_id])
       if @business
         @reviews = @business.reviews

@@ -33,7 +33,7 @@ export const createReview = (review) => async (dispatch) => {
   });
   const data = await res.json();
   dispatch(setReview(data.review));
-  return res;
+  return data;
 };
 
 export const updateReview = (review) => async (dispatch) => {
@@ -43,7 +43,7 @@ export const updateReview = (review) => async (dispatch) => {
   });
   const data = await res.json();
   dispatch(setReview(data.review));
-  return res;
+  return data;
 };
 
 export const fetchReviews = () => async (dispatch) => {
@@ -54,16 +54,17 @@ export const fetchReviews = () => async (dispatch) => {
   }
 };
 
-export const fetchReview = (reviewId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/reviews/${reviewId}`);
+export const fetchReview = (review) => async (dispatch) => {
+  const res = await csrfFetch(`/api/reviews/${review.yelpId}`);
   if (res.ok) {
     const data = await res.json();
     dispatch(setReview(data.review));
+    return data;
   }
 };
 
 export const deleteReview = (reviewId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/reviews/${reviewId}`, {
+  await csrfFetch(`/api/reviews/${reviewId}`, {
     method: "DELETE",
   });
   dispatch(removeReview(reviewId));
