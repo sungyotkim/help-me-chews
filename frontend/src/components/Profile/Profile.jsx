@@ -14,7 +14,13 @@ import {
   RiStarSmileLine,
 } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
-import { useState } from "react";
+import { Profiler, useState } from "react";
+import ProfileOverview from "./ProfileOverview";
+import ProfileFriends from "./ProfileFriends";
+import ProfileReviews from "./ProfileReviews";
+import ProfileBookmarks from "./ProfileBookmarks";
+import ProfileFollowers from "./ProfileFollowers";
+import ProfileFollowing from "./ProfileFollowing";
 
 const Profile = () => {
   const user = useSelector((state) => state.session.user);
@@ -257,7 +263,16 @@ const Profile = () => {
                 <RiUserReceivedLine className="column-nav-icon" /> Followers
               </div>
             </div>
-            <div className="profile-center-column"></div>
+
+            <div className="profile-center-column">
+              {overviewSelected && <ProfileOverview />}
+              {friendsSelected && <ProfileFriends />}
+              {reviewsSelected && <ProfileReviews />}
+              {bookmarksSelected && <ProfileBookmarks />}
+              {followingSelected && <ProfileFollowing />}
+              {followersSelected && <ProfileFollowers />}
+            </div>
+
             <div className="profile-right-column">
               <div className="side-column-header">About {name}</div>
               <div className="side-column-row-header">Location</div>
