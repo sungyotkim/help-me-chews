@@ -6,6 +6,14 @@ import { useSelector } from "react-redux";
 import addPhotoIconUrl from "../../assets/add_photo_icon.PNG";
 import updateProfileIconUrl from "../../assets/update_profile_icon.PNG";
 import findFriendsIconUrl from "../../assets/find_friends_icon.PNG";
+import Diversity1Icon from "@mui/icons-material/Diversity1";
+import {
+  RiUserReceivedLine,
+  RiUserHeartLine,
+  RiBookmark3Line,
+  RiStarSmileLine,
+} from "react-icons/ri";
+import { FaUserCircle } from "react-icons/fa";
 
 const Profile = () => {
   const user = useSelector((state) => state.session.user);
@@ -71,6 +79,36 @@ const Profile = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <div className="profile-content-wrapper">
+          <div className="profile-content-container">
+            <div className="profile-left-column">
+              <div className="column-nav-header">
+                {user.firstName}'s Profile
+              </div>
+              <div className="column-nav-row column-nav-selected">
+                <FaUserCircle className="column-nav-icon" /> Profile Overview
+              </div>
+              <div className="column-nav-row">
+                <Diversity1Icon className="column-nav-icon" /> Friends
+              </div>
+              <div className="column-nav-row">
+                <RiStarSmileLine className="column-nav-icon" /> Reviews
+              </div>
+              <div className="column-nav-row">
+                <RiBookmark3Line className="column-nav-icon" /> Bookmarks
+              </div>
+              <div className="column-nav-row">
+                <RiUserHeartLine className="column-nav-icon" /> Following
+              </div>
+              <div className="column-nav-row">
+                <RiUserReceivedLine className="column-nav-icon" /> Followers
+              </div>
+            </div>
+            <div className="profile-center-column"></div>
+            <div className="profile-right-column"></div>
           </div>
         </div>
       </div>
