@@ -8,6 +8,7 @@ const RestaurantDropDown = ({ styleBlack }) => {
   const [hoverStyle, setHoverStyle] = useState();
   const history = useHistory();
   const {
+    currentBusinessResults,
     setTerm,
     location,
     setBusinessResults,
@@ -25,6 +26,15 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setOffset,
     setHotAndNew,
     setAllResultReviews,
+    price,
+    term,
+    radius,
+    openNow,
+    genderNeutralBathrooms,
+    wheelchairAccessible,
+    limit,
+    offset,
+    hotAndNew,
   } = useContext(BusinessSearchContext);
 
   const handleMouseOver = () => {
@@ -37,8 +47,27 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setHoverStyle();
   };
 
+  const fetchBusinessesUponFirstClick = async () => {
+    let priceString = "null";
+    if (price.length > 0) {
+      priceString = price.join(", ");
+    }
+    const res = await fetch(
+      `/search/businesses/${term}/${location}/${radius}/${priceString}/${openNow}/${genderNeutralBathrooms}/${wheelchairAccessible}/${limit}/${offset}/${hotAndNew}`
+    );
+    const newBusinesses = await res.json();
+    setBusinessResults((businessResults) => ({
+      ...businessResults,
+      ...newBusinesses,
+    }));
+  };
+
   const handleClick = (e, value) => {
     e.preventDefault();
+    let run = false;
+    if (currentBusinessResults.length === 0) {
+      run = true;
+    }
     setTerm(value);
     setCurrentBusinessResults([]);
     setResultReviews([]);
@@ -56,6 +85,11 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setHotAndNew("null");
     setSearchedTerm(value);
     setSearchedLocation(location);
+
+    if (run) {
+      fetchBusinessesUponFirstClick();
+    }
+
     if (history.location.pathname !== "/search") {
       let path = "/search";
       history.push(path);
