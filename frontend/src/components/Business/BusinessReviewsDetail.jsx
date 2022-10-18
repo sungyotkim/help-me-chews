@@ -5,6 +5,7 @@ const BusinessReviewsDetail = ({
   business,
   currentYelpBusiness,
   setDatabaseReviews,
+  yelpBusinessReviews,
 }) => {
   return (
     <>
@@ -18,6 +19,7 @@ const BusinessReviewsDetail = ({
             currentYelpBusiness={currentYelpBusiness}
             databaseReviews={databaseReviews}
             setDatabaseReviews={setDatabaseReviews}
+            yelpBusinessReviews={yelpBusinessReviews}
           />
         );
       })}

@@ -12,6 +12,7 @@ const BusinessReview = ({
   currentYelpBusiness,
   databaseReviews,
   setDatabaseReviews,
+  yelpBusinessReviews,
 }) => {
   const [usefulBtnClicked, setUsefulBtnClicked] = useState(false);
   const [funnyBtnClicked, setFunnyBtnClicked] = useState(false);
@@ -182,6 +183,7 @@ const BusinessReview = ({
                     action: "edit",
                     business: business,
                     review: review,
+                    reviewArr: yelpBusinessReviews,
                   },
                 }}
               >

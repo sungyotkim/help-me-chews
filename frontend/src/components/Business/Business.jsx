@@ -536,6 +536,7 @@ const Business = () => {
                   business={business}
                   currentYelpBusiness={currentYelpBusiness}
                   setDatabaseReviews={setDatabaseReviews}
+                  yelpBusinessReviews={yelpBusinessReviews}
                 />
               </div>
             </div>
