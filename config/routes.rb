@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:create, :index]
     resource :session, only: [:create, :destroy, :show]
-    resources :businesses, only: [:index]
+    resources :businesses, only: [:index, :create]
     resources :reviews, only: [:index, :show, :create, :update, :destroy]
   end
 
-  get '/api/businesses/:yelp_id', to: "api/businesses#show"
+  # post '/api/businesses/:yelp_id', to: "api/businesses#show"
   get '/search/businesses/:term/:location/:radius/:price/:open_now/:gender_neutral_bathrooms/:wheelchair_accessible/:limit/:offset/:hot_and_new', to: "businesses#get_businesses"
   get '/search/businesses/:id', to: "businesses#get_business_by_id"
   get '/search/businesses/:id/reviews', to: "reviews#get_reviews_by_business_id"

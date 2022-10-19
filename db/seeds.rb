@@ -7,7 +7,6 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 demo_user = User.create!( email: 'demo@user.io', password: 'password', first_name: 'Tommy', last_name: 'Kim', city: 'Bayside', state: 'NY')
-haidilao = Business.create!( yelp_id: 'jWuUibgnTGsJibOrr6UUSw')
-haidilao_review = Review.create!( text: "This is a test review. I hope this works!", food_rating: 4, service_rating: 5, author_id: 1, business_id: 1)
-test = Business.create!( yelp_id: '123')
-haidilao_review2 = Review.create!( text: "This is another review", food_rating: 2, service_rating: 3, author_id: 1, business_id: 1)
+# haidilao = Business.create!( yelp_id: 'jWuUibgnTGsJibOrr6UUSw')
+# haidilao_review = Review.create!( text: "This is a test review. I hope this works!", food_rating: 4, service_rating: 5, author_id: 1, business_id: 1)
+# haidilao_review2 = Review.create!( text: "This is another review", food_rating: 2, service_rating: 3, author_id: 1, business_id: 1)

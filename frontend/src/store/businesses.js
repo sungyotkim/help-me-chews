@@ -23,10 +23,9 @@ export const getBusiness =
   };
 
 export const createBusiness = (business) => async (dispatch) => {
-  const { yelpId } = business;
-  const res = await csrfFetch("/api/businesses", {
+  const res = await csrfFetch(`/api/businesses/`, {
     method: "POST",
-    body: JSON.stringify(yelpId),
+    body: JSON.stringify(business),
   });
   const data = await res.json();
   dispatch(setBusiness(data));
@@ -42,8 +41,8 @@ export const fetchBusinesses = () => async (dispatch) => {
   }
 };
 
-export const fetchBusiness = (yelpId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/businesses/${yelpId}`);
+export const fetchBusiness = (yelpId, firstPhoto) => async (dispatch) => {
+  const res = await csrfFetch(`/api/businesses/${yelpId}/${firstPhoto}`);
   if (res.ok) {
     const data = await res.json();
     dispatch(setBusiness(data));

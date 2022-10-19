@@ -7,7 +7,7 @@ import "./Business.css";
 import BusinessReviewsDetail from "./BusinessReviewsDetail";
 import BusinessReviewsOverallRatings from "./BusinessReviewsOverallRatings";
 import BusinessReviewSort from "./BusinessReviewsSort";
-import { fetchBusiness, getBusiness } from "../../store/businesses";
+import { createBusiness, getBusiness } from "../../store/businesses";
 import { Link, useLocation } from "react-router-dom";
 
 const Business = () => {
@@ -23,7 +23,9 @@ const Business = () => {
   const [databaseReviews, setDatabaseReviews] = useState([]);
 
   useEffect(() => {
-    dispatch(fetchBusiness(yelpId));
+    let firstPhoto = currentYelpBusiness.photos[0];
+    let businessToMake = { yelpId: yelpId, photo: firstPhoto };
+    dispatch(createBusiness(businessToMake));
   }, [yelpId]);
 
   useEffect(() => {
