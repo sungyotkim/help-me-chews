@@ -35,8 +35,10 @@ const Business = () => {
       review.time_created = review.timeCreated;
     });
   }
-  console.log(currentYelpBusiness);
-  console.log(yelpBusinessReviews);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
     let firstPhoto = currentYelpBusiness.photos[0];

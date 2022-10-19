@@ -35,7 +35,6 @@ const NextReviewItems = ({
         arr.map((restaurant, i) => {
           let yelpInfo = restaurant.yelpInfo;
           let yelpReviews = restaurant.yelpInfo.yelpReviews;
-          console.log(restaurant);
           return (
             <div className="next-review-grid-item" key={i}>
               <Link
