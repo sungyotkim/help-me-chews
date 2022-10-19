@@ -21,6 +21,7 @@ const Business = () => {
   const currentYelpBusiness = location.state.result;
   const yelpBusinessReviews = (location.state.reviewArr ||= []);
   const [databaseReviews, setDatabaseReviews] = useState([]);
+  console.log(currentYelpBusiness);
 
   useEffect(() => {
     let firstPhoto = currentYelpBusiness.photos[0];

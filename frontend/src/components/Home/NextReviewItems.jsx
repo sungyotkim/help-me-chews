@@ -56,7 +56,11 @@ const NextReviewItems = ({
                   Do you recommend this business?
                 </div>
 
-                <NextReviewStars />
+                <NextReviewStars
+                  business={restaurant}
+                  currentYelpBusiness={[]}
+                  reviewArr={[]}
+                />
               </div>
             </div>
           );

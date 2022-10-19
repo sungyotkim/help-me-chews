@@ -39,7 +39,25 @@ domodomo = Business.create( name: "DOMODOMO - New York", yelp_id: "BPZfuPvSxCfop
 the_uncommons = Business.create( name: "The Uncommons", yelp_id: "h6qbszNgXgjj9Lrb62m-9w", photo: "https://s3-media3.fl.yelpcdn.com/bphoto/23Mnb_KXYfPD2SAzEvB6YA/o.jpg")
 arabica = Business.create( name: "% Arabica", yelp_id: "ED7A7vDdg8yLNKJTSVHHmg", photo: "https://s3-media4.fl.yelpcdn.com/bphoto/_3VSEFG3iUT-M66JYc7U4w/o.jpg")
 sweet_moment = Business.create( name: "Sweet Moment", yelp_id: "UZViRVpxNZvOM5KarmbT1g", photo: "https://s3-media4.fl.yelpcdn.com/bphoto/9FgfPV5mK-FbcS6m3v-Nvg/o.jpg")
-her_name_is_han = Business.create( name: "Her Name Is Han", yelp_id: "qY1o1MhoRyN84RRhUJtvpQ", photo: "https://s3-media2.fl.yelpcdn.com/bphoto/SBjw3d1VlqSVEU5KMYpDdQ/o.jpg")
+her_name_is_han = Business.create( name: "Her Name Is Han", yelp_id: "qY1o1MhoRyN84RRhUJtvpQ", photo: "https://s3-media2.fl.yelpcdn.com/bphoto/SBjw3d1VlqSVEU5KMYpDdQ/o.jpg", yelp_info: { alias: "her-name-is-han-new-york-3", 
+categories: [{alias: 'korean', title: 'Korean'}, {  alias: 'breakfast_brunch', title: 'Breakfast & Brunch'}, {  alias: 'cocktailbars', title: 'Cocktail Bars'}], 
+coordinates: {latitude: 40.7462615966797, longitude: -73.984733581543},
+display_phone: "(212) 779-9990",
+hours: [{  hours_type: "REGULAR",  is_open_now: true,  open: [    {is_overnight: false, start: '1200', end: '1430', day: 0},    {is_overnight: false, start: '1730', end: '2200', day: 0},    {is_overnight: false, start: '1200', end: '1430', day: 1},    {is_overnight: false, start: '1730', end: '2200', day: 1},    {is_overnight: false, start: '1200', end: '1430', day: 2},    {is_overnight: false, start: '1730', end: '2200', day: 2},    {is_overnight: false, start: '1200', end: '1430', day: 3},    {is_overnight: false, start: '1730', end: '2200', day: 3},    {is_overnight: false, start: '1200', end: '1430', day: 4},    {is_overnight: false, start: '1730', end: '2300', day: 4},    {is_overnight: false, start: '1200', end: '1430', day: 5},    {is_overnight: false, start: '1730', end: '2300', day: 5},    {is_overnight: false, start: '1200', end: '1430', day: 6},    {is_overnight: false, start: '1730', end: '2200', day: 6}  ]}],
+id: "qY1o1MhoRyN84RRhUJtvpQ",
+image_url: "https://s3-media2.fl.yelpcdn.com/bphoto/SBjw3d1VlqSVEU5KMYpDdQ/o.jpg",
+is_claimed: true,
+is_closed: false,
+location: {address1: '17 E 31st St', address2: '', address3: '', city: 'New York', country: "US",cross_streets: "5th Ave & Madison Ave",display_address: ["17 E 31st St", "New York, NY 10016"], state: "NY", zip_code: "10016"},
+name: "Her Name Is Han",
+phone: "+12127799990",
+photos: ['https://s3-media2.fl.yelpcdn.com/bphoto/SBjw3d1VlqSVEU5KMYpDdQ/o.jpg', 'https://s3-media1.fl.yelpcdn.com/bphoto/_Akdd-QYizdDS9O9hbr-MQ/o.jpg', 'https://s3-media3.fl.yelpcdn.com/bphoto/Jphf_ZYL6vnYirbA1RAZ4w/o.jpg'],
+price: "$$",
+rating: 4.5,
+review_count: 1606,
+special_hours: [],
+transactions: ['delivery', 'pickup'],
+url: "https://www.yelp.com/biz/her-name-is-han-new-york-3?adjust_creative=B1YfLhw7dNPhi18DuAYVCg&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=B1YfLhw7dNPhi18DuAYVCg"})
 lappartement_4f = Business.create( name: "L'appartement 4F", yelp_id: "zMzH5TN6uieQj_mM68aUkw", photo: "https://s3-media3.fl.yelpcdn.com/bphoto/3OKcDMAA5VsRHeJnyrKstw/o.jpg")
 hakka_cuisine = Business.create( name: "Hakka Cuisine", yelp_id: "OXNPuN7KcjP9T5DdilgzdQ", photo: "https://s3-media1.fl.yelpcdn.com/bphoto/DJIlWc9RS-7OYEIs05yvBw/o.jpg")
 house_of_joy = Business.create( name: "House of Joy", yelp_id: "9U5tPyF6QEiVntlyTemxKA", photo: "https://s3-media4.fl.yelpcdn.com/bphoto/B3zS6dwpVYSKPQITTvpJNQ/o.jpg")
