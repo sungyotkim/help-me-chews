@@ -479,14 +479,20 @@ const Business = () => {
                   <>
                     <div className="user-to-review-container">
                       <div className="user-to-review-user-info">
-                        <div className="review-user-profile-picture-container">
+                        <Link
+                          to={{ pathname: `/profile/${sessionUser.id}` }}
+                          className="review-user-profile-picture-container"
+                        >
                           <img src={userProfilePhoto} alt={sessionUser.name} />
-                        </div>
+                        </Link>
                         <div className="review-user-info-container">
                           <div className="user-to-review-top-info">
-                            <div className="review-user-name">
+                            <Link
+                              to={{ pathname: `/profile/${sessionUser.id}` }}
+                              className="review-user-name"
+                            >
                               {sessionUser.name}
-                            </div>
+                            </Link>
                             <div className="review-user-location">
                               {userLocation}
                             </div>

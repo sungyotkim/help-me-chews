@@ -126,17 +126,35 @@ const BusinessReview = ({
     <div className="review-main-container">
       <div className="review-header-container">
         <div className="review-header-info-container">
-          <div className="review-user-profile-picture-container">
-            <img src={userProfilePhoto} alt={review.user.name} />
-          </div>
+          {!yelpReviewer && (
+            <Link
+              to={{ pathname: `/profile/${review.user.id}` }}
+              className="review-user-profile-picture-container"
+            >
+              <img src={userProfilePhoto} alt={review.user.name} />
+            </Link>
+          )}
+          {yelpReviewer && (
+            <div className="review-user-profile-picture-container yelper">
+              <img src={userProfilePhoto} alt={review.user.name} />
+            </div>
+          )}
           <div className="review-user-info-container">
             <div className="review-user-info-top">
-              <div className="review-user-name">
-                {review.user.name}{" "}
-                {yelpReviewer && (
+              {yelpReviewer && (
+                <div className="review-user-name yelper">
+                  {review.user.name}{" "}
                   <div>(Yelp reviewer - blue stars are simulated)</div>
-                )}
-              </div>
+                </div>
+              )}
+              {!yelpReviewer && (
+                <Link
+                  to={{ pathname: `/profile/${review.user.id}` }}
+                  className="review.user-profile-picture-container"
+                >
+                  <div className="review-user-name">{review.user.name} </div>
+                </Link>
+              )}
               <div className="review-user-location">{location}</div>
             </div>
             <div className="review-user-icons">
@@ -156,48 +174,50 @@ const BusinessReview = ({
             </div>
           </div>
         </div>
-        <div className="review-header-menu-container">
-          <div className="review-header-menu-btn" onClick={handleMenuClick}>
-            <svg width={24} height={24}>
-              <path d="M12 13.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm8 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm-16 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-            </svg>
+        {!yelpReviewer && (
+          <div className="review-header-menu-container">
+            <div className="review-header-menu-btn" onClick={handleMenuClick}>
+              <svg width={24} height={24}>
+                <path d="M12 13.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm8 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm-16 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+              </svg>
+            </div>
+            {showReviewMenu && !userIsAuthor && (
+              <div className="review-header-menu-dropdown" ref={node}>
+                <div className="review-header-menu-dropdown-option">
+                  Send Message
+                </div>
+                <div className="review-header-menu-dropdown-option">
+                  Follow {review.user.name}
+                </div>
+              </div>
+            )}
+            {showReviewMenu && userIsAuthor && (
+              <div className="review-header-menu-dropdown" ref={node}>
+                <Link
+                  className="review-header-menu-dropdown-option"
+                  to={{
+                    pathname: `/writeareview/${currentYelpBusiness.id}`,
+                    state: {
+                      currentYelpBusiness: currentYelpBusiness,
+                      action: "edit",
+                      business: business,
+                      review: review,
+                      reviewArr: yelpBusinessReviews,
+                    },
+                  }}
+                >
+                  Edit Review
+                </Link>
+                <div
+                  className="review-header-menu-dropdown-option"
+                  onClick={handleReviewDelete}
+                >
+                  Delete Review
+                </div>
+              </div>
+            )}
           </div>
-          {showReviewMenu && !userIsAuthor && (
-            <div className="review-header-menu-dropdown" ref={node}>
-              <div className="review-header-menu-dropdown-option">
-                Send Message
-              </div>
-              <div className="review-header-menu-dropdown-option">
-                Follow {review.user.name}
-              </div>
-            </div>
-          )}
-          {showReviewMenu && userIsAuthor && (
-            <div className="review-header-menu-dropdown" ref={node}>
-              <Link
-                className="review-header-menu-dropdown-option"
-                to={{
-                  pathname: `/writeareview/${currentYelpBusiness.id}`,
-                  state: {
-                    currentYelpBusiness: currentYelpBusiness,
-                    action: "edit",
-                    business: business,
-                    review: review,
-                    reviewArr: yelpBusinessReviews,
-                  },
-                }}
-              >
-                Edit Review
-              </Link>
-              <div
-                className="review-header-menu-dropdown-option"
-                onClick={handleReviewDelete}
-              >
-                Delete Review
-              </div>
-            </div>
-          )}
-        </div>
+        )}
       </div>
       <div className="user-review-stars-container">
         <div className="user-review-stars-row">

@@ -67,6 +67,14 @@
   text-decoration: underline;
 }
 
+.yelper {
+  cursor: default;
+}
+
+.yelper:hover {
+  text-decoration: none;
+}
+
 .review-user-location {
   height: 20px;
   margin-top: 2px;
