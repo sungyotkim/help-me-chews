@@ -1,4 +1,11 @@
-json.partial! 'api/reviews/review', review: @review
-# json.author do
-#     json.partial! 'api/users/user', user: @review.author
-# end
+json.review do 
+      json.merge! review.attributes
+
+      json.user do
+            json.extract! review.author, :id, :first_name, :last_name, :city, :state, :image_url, :not_yelp_user
+      end
+
+      json.business do
+            json.extract! review.business, :photo
+      end
+end

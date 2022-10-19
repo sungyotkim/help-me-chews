@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { fetchUsers } from "./store/users";
 import { fetchReviews } from "./store/reviews";
+import { fetchBusinesses } from "./store/businesses";
 
 function App() {
   const dispatch = useDispatch();
@@ -17,6 +18,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchUsers());
     dispatch(fetchReviews());
+    dispatch(fetchBusinesses());
   }, []);
 
   return (

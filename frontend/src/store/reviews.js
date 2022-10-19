@@ -19,12 +19,18 @@ export const removeReview = (reviewId) => ({
   payload: reviewId,
 });
 
-export const getReviews = ({ reviews }) =>
-  reviews ? Object.values(reviews) : [];
+export const getReviews = (state) => {
+  return Object.values(state.reviews);
+};
 export const getReview =
   (reviewId) =>
   ({ reviews }) =>
     reviews ? reviews(reviewId) : null;
+export const getReviewsByBusinessId =
+  (businessId) =>
+  ({ reviews }) => {
+    return reviews.businessId === businessId ? reviews : null;
+  };
 
 export const createReview = (review) => async (dispatch) => {
   const res = await csrfFetch("/api/reviews", {
