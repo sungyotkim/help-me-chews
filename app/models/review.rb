@@ -6,9 +6,6 @@
 #  text           :text             not null
 #  food_rating    :integer          not null
 #  service_rating :integer          not null
-#  useful         :boolean          default(FALSE), not null
-#  funny          :boolean          default(FALSE), not null
-#  cool           :boolean          default(FALSE), not null
 #  image_url      :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
