@@ -18,7 +18,7 @@ const LandingPage = () => {
   useEffect(() => {
     if (businesses) {
       // shuffleArray(businesses);
-      // console.log(businesses);
+      console.log(businesses);
     }
   }, [businesses]);
 

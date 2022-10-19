@@ -21,7 +21,22 @@ const Business = () => {
   const currentYelpBusiness = location.state.result;
   const yelpBusinessReviews = (location.state.reviewArr ||= []);
   const [databaseReviews, setDatabaseReviews] = useState([]);
-  console.log(business);
+  if (currentYelpBusiness.fromDatabase) {
+    currentYelpBusiness.display_phone = currentYelpBusiness.displayPhone;
+    currentYelpBusiness.hours[0].is_open_now =
+      currentYelpBusiness.hours[0].isOpenNow;
+    currentYelpBusiness.is_claimed = currentYelpBusiness.isClaimed;
+    currentYelpBusiness.location.display_address =
+      currentYelpBusiness.location.displayAddress;
+    currentYelpBusiness.review_count = currentYelpBusiness.reviewCount;
+  }
+  if (yelpBusinessReviews[0].fromDatabase) {
+    yelpBusinessReviews.forEach((review) => {
+      review.time_created = review.timeCreated;
+    });
+  }
+  console.log(currentYelpBusiness);
+  console.log(yelpBusinessReviews);
 
   useEffect(() => {
     let firstPhoto = currentYelpBusiness.photos[0];
