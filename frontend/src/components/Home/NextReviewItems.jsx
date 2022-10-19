@@ -2,6 +2,7 @@ import "./NextReviewItems.css";
 import NextReviewStars from "../ReviewStars/NextReviewStars";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
+import { useState } from "react";
 
 const CustomToolTip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -25,16 +26,18 @@ const NextReviewItems = ({
   nextReviewRestaurants,
   setNextReviewRestaurants,
 }) => {
-  let arr = nextReviewRestaurants.slice(0, 6);
+  const [arr, setArr] = useState(nextReviewRestaurants.slice(0, 6));
 
   return (
     <>
       {arr.length > 0 &&
         arr.map((restaurant, i) => {
+          let yelpInfo = restaurant.yelpInfo;
+          let yelpReviews = restaurant.yelpInfo.yelpReviews;
           return (
             <div className="next-review-grid-item" key={i}>
               <div className="next-review-grid-item-photo-container">
-                <img src={restaurant.photo} alt={restaurant.id} />
+                <img src={restaurant.photo} alt={restaurant.name} />
               </div>
 
               <div className="next-review-grid-item-text-container">
@@ -58,8 +61,8 @@ const NextReviewItems = ({
 
                 <NextReviewStars
                   business={restaurant}
-                  currentYelpBusiness={[]}
-                  reviewArr={[]}
+                  currentYelpBusiness={yelpInfo}
+                  reviewArr={yelpReviews}
                 />
               </div>
             </div>

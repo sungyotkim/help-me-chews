@@ -19,7 +19,9 @@ export const getBusinesses = (state) => {
 export const getBusiness =
   (yelpId) =>
   ({ businesses }) => {
-    return businesses.yelpId === yelpId ? businesses : null;
+    return Object.values(businesses).filter((business) => {
+      return business.yelpId === yelpId;
+    })[0];
   };
 
 export const createBusiness = (business) => async (dispatch) => {
@@ -46,7 +48,7 @@ const businessesReducer = (state = {}, action) => {
     case SET_BUSINESSES:
       return { ...state, ...action.payload };
     case SET_BUSINESS:
-      return { ...state, ...action.payload };
+      return { ...state, [action.payload.id]: action.payload };
     default:
       return state;
   }

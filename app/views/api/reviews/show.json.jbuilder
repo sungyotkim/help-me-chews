@@ -1,11 +1,11 @@
 json.review do 
-      json.merge! review.attributes
+      json.merge! @review.attributes
 
       json.user do
-            json.extract! review.author, :id, :first_name, :last_name, :city, :state, :image_url, :not_yelp_user
+            json.extract! @review.author, :id, :first_name, :last_name, :city, :state, :image_url, :not_yelp_user
       end
 
       json.business do
-            json.extract! review.business, :photo, :name
+            json.extract! @review.business, :photo, :name
       end
 end

@@ -81,7 +81,7 @@ const reviewsReducer = (state = {}, action) => {
     case SET_REVIEWS:
       return { ...state, ...action.payload };
     case SET_REVIEW:
-      return { ...state, ...action.payload };
+      return { ...state, [action.payload.id]: action.payload };
     case REMOVE_REVIEW:
       const nextState = { ...state };
       delete nextState[action.payload];
