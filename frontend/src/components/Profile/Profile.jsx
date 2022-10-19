@@ -25,7 +25,6 @@ import { useLocation } from "react-router-dom";
 import { getUser } from "../../store/users";
 
 const Profile = () => {
-  // const currentUser = useSelector((state) => state.session.user);
   const location = useLocation();
   const profileId = location.pathname.slice(9);
   const [userId, setUserId] = useState();

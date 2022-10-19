@@ -4,6 +4,7 @@ import { styled } from "@mui/material/styles";
 import { useDispatch, useSelector } from "react-redux";
 import "./HeaderLoggedIn.css";
 import * as sessionActions from "../../store/session";
+import { Link } from "react-router-dom";
 
 const CustomToolTip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -144,12 +145,15 @@ const HeaderLoggedIn = ({ styleBlack, hideOptions }) => {
         {showProfileMenu && (
           <div className="hidden-profile-menu" ref={node}>
             <div className="hidden-profile-menu-top">
-              <div className="profile-menu-item-container">
+              <Link
+                to={{ pathname: `/profile/${sessionUser.id}` }}
+                className="profile-menu-item-container"
+              >
                 <svg width={24} height={24}>
                   <path d="M12 1a11 11 0 1011 11A11.012 11.012 0 0012 1zm0 2a8.985 8.985 0 017.791 13.485 14.142 14.142 0 00-3.056-1.47 5.286 5.286 0 00.622-2.452V10.57a5.357 5.357 0 10-10.714 0v1.993a5.29 5.29 0 00.62 2.45 14.125 14.125 0 00-3.054 1.474A8.985 8.985 0 0112 3zm-3.357 9.563V10.57a3.357 3.357 0 016.714 0v1.993a3.358 3.358 0 11-6.714 0zM12 21a8.968 8.968 0 01-6.604-2.906 12.19 12.19 0 013.227-1.406 5.241 5.241 0 006.758-.003c1.137.31 2.223.785 3.224 1.408A8.969 8.969 0 0112 21z"></path>
                 </svg>
                 <div className="profile-menu-text">About Me</div>
-              </div>
+              </Link>
               <div className="profile-menu-item-container">
                 <svg width={24} height={24}>
                   <path d="M18.061 12.777a13.339 13.339 0 00-2.96-1.44 5.123 5.123 0 00.744-2.632v-1.95a5.181 5.181 0 10-10.364 0v1.95c.005.931.263 1.844.748 2.64a13.34 13.34 0 00-4.097 2.26 3.016 3.016 0 000 4.636 13.512 13.512 0 008.531 3.004c1.005 0 2.007-.109 2.988-.326a1 1 0 10-.433-1.953 11.74 11.74 0 01-9.82-2.274 1.018 1.018 0 010-1.538A11.358 11.358 0 017.74 12.98a5.153 5.153 0 005.852-.007c1.198.307 2.34.807 3.377 1.481a1 1 0 101.092-1.676zM7.481 8.705v-1.95a3.182 3.182 0 016.364 0v1.95a3.182 3.182 0 01-6.364 0zm14.473 9.222h-1.5v-1.5a1 1 0 10-2 0v1.5h-1.5a1 1 0 100 2h1.5v1.5a1 1 0 002 0v-1.5h1.5a1 1 0 000-2z"></path>
