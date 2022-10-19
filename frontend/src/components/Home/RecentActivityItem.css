@@ -3,6 +3,19 @@
   height: 376px;
   padding: 0 16px;
   margin-top: 32px;
+  opacity: 1;
+  animation: slide-up-fade-in 0.8s;
+}
+
+@keyframes slide-up-fade-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
 .recent-activity-item-inner-container {
@@ -26,6 +39,9 @@
 
 .recent-activity-item-profile-photo-container > img {
   border-radius: 50%;
+  width: 40px;
+  height: 44px;
+  object-position: center;
 }
 
 .recent-activity-item-title-container {
@@ -58,7 +74,7 @@
 
 .recent-activity-item-picture {
   flex: 1;
-  height: 93px;
+  height: 123px;
   margin: 14px -24px;
   background-position: center center;
   background-repeat: no-repeat;
@@ -83,10 +99,13 @@
 }
 
 .recent-activity-item-overall-review-rating {
-  height: 20px;
+  height: 45px;
   width: 100%;
   padding: 8px 0;
   margin-left: -1px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .recent-activity-item-review-summary-container {

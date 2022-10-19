@@ -1,6 +1,6 @@
 .recent-activity-main-container {
   width: 100%;
-  height: 1917px;
+  min-height: 752px;
   display: flex;
   justify-content: center;
 }
@@ -31,20 +31,21 @@
 
 .recent-activity-content-first-container {
   width: 100%;
-  height: 1632px;
+  min-height: 752px;
 }
 
 .recent-activity-content-second-container {
   width: 1176px;
-  height: 1632px;
+  min-height: 752px;
   margin: -32px -16px 0;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .recent-activity-see-more-container {
   width: 100%;
-  height: 120px;
-  padding: 48px 0;
+  height: 32px;
+  margin: 24px 0;
   display: flex;
   justify-content: center;
   text-align: center;

@@ -11,7 +11,7 @@ const YourNextReview = ({ businesses }) => {
 
   useEffect(() => {
     setNextReviewRestaurants(businesses.slice(0, 6));
-  }, []);
+  }, [businesses]);
 
   const handleClick = () => {
     let prevLength = nextReviewRestaurants.length;
