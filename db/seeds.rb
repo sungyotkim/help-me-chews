@@ -27,7 +27,7 @@ user16 = User.create( email: 'michael@user.io', password: 'password', first_name
 
 #businesses
 levain_bakery = Business.create( yelp_id: "H4jJ7XB3CetIr1pg56CczQ", photo: "https://s3-media3.fl.yelpcdn.com/bphoto/DH29qeTmPotJbCSzkjYJwg/o.jpg")
-7th_street_burger = Business.create( yelp_id: "8xpGj_YkI2X6QxqXUJPw7g", photo: "https://s3-media2.fl.yelpcdn.com/bphoto/GYqi52GZUNzGvDScteUQ8A/o.jpg")
+street_burger = Business.create( yelp_id: "8xpGj_YkI2X6QxqXUJPw7g", photo: "https://s3-media2.fl.yelpcdn.com/bphoto/GYqi52GZUNzGvDScteUQ8A/o.jpg")
 la_contenta = Business.create( yelp_id: "6Ct7OeTRn4caY9g0swFBsw", photo: "https://s3-media2.fl.yelpcdn.com/bphoto/FwZAyPgdKdPGQ8aAGKh3-w/o.jpg")
 benemon = Business.create( yelp_id: "axqp3pGJXnTLgq2QrPyDyQ", photo: "https://s3-media3.fl.yelpcdn.com/bphoto/5ZRHsFgkyoSzac8ofvhvvg/o.jpg")
 da_andrea = Business.create( yelp_id: "hdiuRS9sVZSMReZm4oV5SA", photo: "https://s3-media2.fl.yelpcdn.com/bphoto/ZbJxx7Rl8fUH7Pg4GU2p3g/o.jpg")
@@ -52,7 +52,7 @@ kann = Business.create( yelp_id: "pHO-ZgRRZR7FM_GkEpAASA", photo: "https://s3-me
 tito_and_pep = Business.create( yelp_id: "tkyHFPJ3dBsjE2hA_tk_sQ", photo: "https://s3-media4.fl.yelpcdn.com/bphoto/JZdDgPdOYdPziHRY1j1yWQ/o.jpg")
 locust = Business.create( yelp_id: "IWRClXjIBarIbY7WUWV-ug", photo: "https://s3-media2.fl.yelpcdn.com/bphoto/mY2Gb4A--GAQscRNqz25MA/o.jpg")
 kittys_cafe = Business.create( yelp_id: "HZ1IvAelEY5xnjBt9f5L2A", photo: "https://s3-media3.fl.yelpcdn.com/bphoto/5kiMZpIVfiOF4kpwgPOZeg/o.jpg")
-pemberton phx = Business.create( yelp_id: "FjaGfXVysSbOBnv0T41v3Q", photo: "https://s3-media2.fl.yelpcdn.com/bphoto/vLcWNaFWKH0GhLzYtrFL6Q/o.jpg")
+pemberton_phx = Business.create( yelp_id: "FjaGfXVysSbOBnv0T41v3Q", photo: "https://s3-media2.fl.yelpcdn.com/bphoto/vLcWNaFWKH0GhLzYtrFL6Q/o.jpg")
 neptune_oyster = Business.create( yelp_id: "y2w6rFaO0XEiG5mFfOsiFA", photo: "https://s3-media3.fl.yelpcdn.com/bphoto/ZVaN5dj-yCVIiPk7VtFhOw/o.jpg")
 freya = Business.create( yelp_id: "d-5lyKTcTy10JSrBnR3q0A", photo: "https://s3-media3.fl.yelpcdn.com/bphoto/f7paso4_IHY5oNFO-HTJ6A/o.jpg")
 brennans = Business.create( yelp_id: "ku8cAVBLaF_4rI-yK6gNnQ", photo: "https://s3-media3.fl.yelpcdn.com/bphoto/c1YZ71bFC6sJdKDxzNvbGg/o.jpg")
@@ -82,7 +82,7 @@ review20 = Review.create( text: "I enjoyed the program very much. It was well pa
 review21 = Review.create( text: "The food is good but the counter service was really bad.", food_rating: 5, service_rating: 1, author_id: 9, business_id: 21)
 review22 = Review.create( text: "I REALLY wanted to love Abaca, but I just didn't. We ordered a variety of dishes, but only loved 1 or 2 of them. Everything else was just meh. And for the price point, meh is just not good enough.", food_rating: 3, service_rating: 5, author_id: 10, business_id: 22)
 review23 = Review.create( text: "This was an absolutely incredible experience, start to finish. It was an incredible meal. I am scheming about how to go back!", food_rating: 5, service_rating: 5, author_id: 11, business_id: 23)
-review24 = Review.create( text: "Firstly, the staff and drinks were great, no complaints there.  We shared the grilled octopus which was very nice, flavorful, and cooked well. Unfortunately our mains were very disappointing; gulf stripped bass, vegetarian pozole verde, and the shrimp "Sea of Cortez" were all very bland and unmemorable. ", food_rating: 3, service_rating: 5, author_id: 12, business_id: 24)
+review24 = Review.create( text: 'Firstly, the staff and drinks were great, no complaints there.  We shared the grilled octopus which was very nice, flavorful, and cooked well. Unfortunately our mains were very disappointing; gulf stripped bass, vegetarian pozole verde, and the shrimp "Sea of Cortez" were all very bland and unmemorable.', food_rating: 3, service_rating: 5, author_id: 12, business_id: 24)
 review25 = Review.create( text: "Complimentary sea snail tea at the start of the meal--I've never had a drink with quite the same flavor and though it wasn't a hit for everyone at the table it's definitely worth trying.", food_rating: 5, service_rating: 5, author_id: 13, business_id: 25)
 review26 = Review.create( text: "The pork tenderloin was right up with the best I've ever had. The homemade hot sauce was a great dressing for the sandwich. Note it's cash only", food_rating: 5, service_rating: 5, author_id: 14, business_id: 26)
 review27 = Review.create( text: "This place is so gosh darn cute! There are local clothing vendors, crafts, incredible music and delicious food!!", food_rating: 5, service_rating: 5, author_id: 15, business_id: 27)
