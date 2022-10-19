@@ -69,20 +69,18 @@ const RestaurantDropDown = ({ styleBlack }) => {
       run = true;
     }
     setTerm(value);
+    setRadius("null");
+    setPrice([]);
+    setOpenNow("null");
+    setHotAndNew("null");
+    setWheelchairAccessible("null");
+    setGenderNeutralBathrooms("null");
     setCurrentBusinessResults([]);
     setResultReviews([]);
     setAllResultReviews([]);
     const emptyResults = {};
     setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
     setLoading(true);
-    setRadius("null");
-    setPrice([]);
-    setOpenNow("null");
-    setGenderNeutralBathrooms("null");
-    setWheelchairAccessible("null");
-    setLimit(2);
-    setOffset(0);
-    setHotAndNew("null");
     setSearchedTerm(value);
     setSearchedLocation(location);
 
@@ -91,6 +89,9 @@ const RestaurantDropDown = ({ styleBlack }) => {
     }
 
     if (history.location.pathname !== "/search") {
+      if (!run) {
+        fetchBusinessesUponFirstClick(value);
+      }
       let path = "/search";
       history.push(path);
     }

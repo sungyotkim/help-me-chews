@@ -26,6 +26,7 @@ const Business = () => {
     let firstPhoto = currentYelpBusiness.photos[0];
     let businessToMake = { yelpId: yelpId, photo: firstPhoto };
     dispatch(createBusiness(businessToMake));
+    console.log(businessToMake);
   }, [yelpId]);
 
   useEffect(() => {
