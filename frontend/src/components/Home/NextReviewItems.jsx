@@ -3,6 +3,7 @@ import NextReviewStars from "../ReviewStars/NextReviewStars";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CustomToolTip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -34,14 +35,29 @@ const NextReviewItems = ({
         arr.map((restaurant, i) => {
           let yelpInfo = restaurant.yelpInfo;
           let yelpReviews = restaurant.yelpInfo.yelpReviews;
+          console.log(restaurant);
           return (
             <div className="next-review-grid-item" key={i}>
-              <div className="next-review-grid-item-photo-container">
+              <Link
+                to={{
+                  pathname: `/business/${restaurant.yelpId}`,
+                  state: { result: yelpInfo, reviewArr: yelpReviews },
+                }}
+                className="next-review-grid-item-photo-container"
+              >
                 <img src={restaurant.photo} alt={restaurant.name} />
-              </div>
+              </Link>
 
               <div className="next-review-grid-item-text-container">
-                <div className="next-review-item-name">{restaurant.name}</div>
+                <Link
+                  to={{
+                    pathname: `/business/${restaurant.yelpId}`,
+                    state: { result: yelpInfo, reviewArr: yelpReviews },
+                  }}
+                  className="next-review-item-name"
+                >
+                  {restaurant.name}
+                </Link>
 
                 <CustomToolTip
                   title="Ignore this suggestion for a while"

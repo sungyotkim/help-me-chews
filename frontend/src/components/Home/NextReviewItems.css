@@ -10,6 +10,7 @@
   width: 200px;
   box-sizing: border-box;
   max-height: 206px;
+  cursor: pointer;
 }
 
 .next-review-grid-item-photo-container > img {
@@ -52,6 +53,11 @@
   white-space: nowrap;
   display: block;
   text-align: left;
+  cursor: pointer;
+}
+
+.next-review-item-name:hover {
+  text-decoration: underline;
 }
 
 .hide-next-review-suggestion-btn {
