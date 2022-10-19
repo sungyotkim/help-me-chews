@@ -84,3 +84,7 @@
   line-height: 24px;
   letter-spacing: 0;
 }
+
+.show-more-suggestions-text:hover {
+  text-decoration: underline;
+}

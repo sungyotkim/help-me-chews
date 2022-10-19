@@ -4,6 +4,19 @@
   border: 1px solid #ebebeb;
   display: flex;
   border-radius: 4px;
+  opacity: 1;
+  animation: slide-up-fade-in 0.8s;
+}
+
+@keyframes slide-up-fade-in {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
 .next-review-grid-item-photo-container {

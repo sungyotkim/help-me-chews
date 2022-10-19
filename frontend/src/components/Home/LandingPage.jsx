@@ -3,7 +3,7 @@ import RecentActivity from "./RecentActivity";
 import YourNextReview from "./YourNextReview";
 import { useSelector } from "react-redux";
 import { getBusinesses } from "../../store/businesses";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const LandingPage = () => {
   const sessionUser = useSelector((state) => state.session.user);
@@ -15,18 +15,12 @@ const LandingPage = () => {
     }
   }
 
-  useEffect(() => {
-    if (businesses) {
-      // shuffleArray(businesses);
-      // console.log(businesses);
-    }
-  }, [businesses]);
-
   if (sessionUser && businesses) {
+    let firstThirty = businesses.slice(0, 30);
     return (
       <>
         <HeroContainer />
-        <YourNextReview businesses={businesses} />
+        <YourNextReview businesses={firstThirty} />
         <RecentActivity />
       </>
     );
