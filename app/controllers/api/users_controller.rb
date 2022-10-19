@@ -11,6 +11,20 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.all
+    render :index
+  end
+
+  def show
+    @user = User.find(params[:id])
+    if @user
+      render :show
+    else
+      render json: {message: 'No user with that id'}
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:email, :password, :first_name, :last_name, :city, :state, :image_url, :not_yelp_user)

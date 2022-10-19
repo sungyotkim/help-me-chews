@@ -14,7 +14,7 @@ import {
   RiStarSmileLine,
 } from "react-icons/ri";
 import { FaUserCircle } from "react-icons/fa";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProfileOverview from "./ProfileOverview";
 import ProfileFriends from "./ProfileFriends";
 import ProfileReviews from "./ProfileReviews";
@@ -27,7 +27,13 @@ import { getUser } from "../../store/users";
 const Profile = () => {
   const currentUser = useSelector((state) => state.session.user);
   const location = useLocation();
-  const userId = location.pathname.slice(9);
+  // const userId = location.pathname.slice(9);
+  const [userId, setUserId] = useState();
+
+  useEffect(() => {
+    setUserId(currentUser.id);
+  }, [currentUser]);
+
   const user1 = useSelector(getUser(userId));
   console.log(user1);
   const user = currentUser;
@@ -100,7 +106,7 @@ const Profile = () => {
     }
     setOthersFalse(value);
   };
-  console.log(user);
+  // console.log(user);
 
   return (
     <>
