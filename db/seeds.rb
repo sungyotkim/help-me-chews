@@ -214,7 +214,7 @@ street_burger = Business.create( name: "7th Street Burger", yelp_id: "8xpGj_YkI2
   rating: 4.5,
   location: {
     address1: "91 E 7th St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10009",
@@ -560,7 +560,7 @@ benemon = Business.create( name: "Benemon", yelp_id: "axqp3pGJXnTLgq2QrPyDyQ", p
   rating: 4.5,
   location: {
     address1: "108 E 4th St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10003",
@@ -888,7 +888,7 @@ rosies = Business.create( name: "Rosie's", yelp_id: "9aJ1MVTthZw3QjqoG7mPjg", ph
   rating: 4,
   location: {
     address1: "29 E 2nd St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10003",
@@ -1052,7 +1052,7 @@ xing_fu_tang = Business.create( name: "Xing Fu Tang", yelp_id: "bVJQEeRNi34-3XN_
   location: {
     address1: "133 2nd Ave",
     address2: "",
-    address3: null,
+    address3: "",
     city: "New York",
     zip_code: "10003",
     country: "US",
@@ -1221,7 +1221,7 @@ joes_italian_deli = Business.create( name: "Joe's Italian Deli", yelp_id: "59hEs
   rating: 5,
   location: {
     address1: "685 E 187th St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "Bronx",
     zip_code: "10458",
@@ -1392,7 +1392,7 @@ tonchin = Business.create( name: "Tonchin", yelp_id: "OFfZUS-nu6NDnsWe1B2bUQ", p
   rating: 4.5,
   location: {
     address1: "13 W 36th St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10018",
@@ -1589,7 +1589,7 @@ domodomo = Business.create( name: "DOMODOMO - New York", yelp_id: "BPZfuPvSxCfop
   rating: 4,
   location: {
     address1: "140 W Houston St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10012",
@@ -1778,7 +1778,7 @@ the_uncommons = Business.create( name: "The Uncommons", yelp_id: "h6qbszNgXgjj9L
   rating: 4,
   location: {
     address1: "230 Thompson St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10012",
@@ -1942,7 +1942,7 @@ arabica = Business.create( name: "% Arabica", yelp_id: "ED7A7vDdg8yLNKJTSVHHmg",
   location: {
     address1: "20 Old Fulton St",
     address2: "",
-    address3: null,
+    address3: "",
     city: "Brooklyn",
     zip_code: "11201",
     country: "US",
@@ -2112,7 +2112,7 @@ sweet_moment = Business.create( name: "Sweet Moment", yelp_id: "UZViRVpxNZvOM5Ka
   rating: 4.5,
   location: {
     address1: "106 Mott St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10013",
@@ -2277,7 +2277,7 @@ lappartement_4f = Business.create( name: "L'appartement 4F", yelp_id: "zMzH5TN6u
   location: {
     address1: "115 Montague St",
     address2: "",
-    address3: null,
+    address3: "",
     city: "Brooklyn",
     zip_code: "11201",
     country: "US",
@@ -2446,7 +2446,7 @@ hakka_cuisine = Business.create( name: "Hakka Cuisine", yelp_id: "OXNPuN7KcjP9T5
   rating: 4,
   location: {
     address1: "11 Division St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10002",
@@ -2608,7 +2608,7 @@ house_of_joy = Business.create( name: "House of Joy", yelp_id: "9U5tPyF6QEiVntly
   rating: 4.5,
   location: {
     address1: "28 Pell St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10013",
@@ -2938,7 +2938,7 @@ okiboru_house_of_tsukemen = Business.create( name: "Okiboru House of Tsukemen", 
   rating: 4.5,
   location: {
     address1: "117 Orchard St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "New York",
     zip_code: "10002",
@@ -3130,7 +3130,7 @@ app_academy_nyc = Business.create( name: "App Academy NYC", yelp_id: "fRfkzhgwDj
   location: {
     address1: "90 5th Ave New York",
     address2: "",
-    address3: null,
+    address3: "",
     city: "New York",
     zip_code: "10011",
     country: "US",
@@ -3649,7 +3649,7 @@ kann = Business.create( name: "Kann", yelp_id: "pHO-ZgRRZR7FM_GkEpAASA", photo: 
   rating: 4.5,
   location: {
     address1: "548 SE Ash St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "Portland",
     zip_code: "97214",
@@ -3804,7 +3804,7 @@ tito_and_pep = Business.create( name: "Tito & Pep", yelp_id: "tkyHFPJ3dBsjE2hA_t
   location: {
     address1: "4122 E Speedway Blvd",
     address2: "",
-    address3: null,
+    address3: "",
     city: "Tucson",
     zip_code: "85712",
     country: "US",
@@ -3974,8 +3974,8 @@ locust = Business.create( name: "Locust", yelp_id: "IWRClXjIBarIbY7WUWV-ug", pho
   rating: 4.5,
   location: {
     address1: "2305 12th Ave S",
-    address2: null,
-    address3: null,
+    address2: "",
+    address3: "",
     city: "Nashville",
     zip_code: "37204",
     country: "US",
@@ -4295,7 +4295,7 @@ pemberton_phx = Business.create( name: "Pemberton PHX", yelp_id: "FjaGfXVysSbOBn
   rating: 4.5,
   location: {
     address1: "1121 N 2nd St",
-    address2: null,
+    address2: "",
     address3: "",
     city: "Phoenix",
     zip_code: "85004",
@@ -4625,7 +4625,7 @@ freya = Business.create( name: "Freya", yelp_id: "d-5lyKTcTy10JSrBnR3q0A", photo
   rating: 4.5,
   location: {
     address1: "2929 E Grand Blvd",
-    address2: null,
+    address2: "",
     address3: "",
     city: "Detroit",
     zip_code: "48202",
