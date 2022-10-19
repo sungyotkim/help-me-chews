@@ -50,7 +50,11 @@ const Business = () => {
   useEffect(() => {
     let firstPhoto = currentYelpBusiness.photos[0];
     let name = currentYelpBusiness.name;
-    let businessToMake = { yelpId: yelpId, photo: firstPhoto, name: name };
+    let businessToMake = {
+      yelpId: yelpId,
+      photo: firstPhoto,
+      name: name,
+    };
     dispatch(createBusiness(businessToMake));
   }, [yelpId]);
 

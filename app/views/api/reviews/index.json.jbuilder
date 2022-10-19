@@ -7,7 +7,7 @@
             end
 
             json.business do
-                  json.extract! review.business, :photo, :name, :yelp_info
+                  json.extract! review.business, :photo, :name, :yelp_info, :yelp_id
             end
       end
 end

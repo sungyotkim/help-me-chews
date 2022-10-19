@@ -1,5 +1,4 @@
 import { useContext, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
 import { BusinessSearchContext } from "../../contexts/BusinessSearchContext";
 import LoadingResults from "./LoadingResults";
 import SearchResult from "./SearchResult";

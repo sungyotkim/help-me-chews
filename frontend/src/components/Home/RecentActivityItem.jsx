@@ -1,10 +1,65 @@
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./RecentActivityItem.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const RecentActivityItem = ({ recentActivityData }) => {
-  let yelpInfo = recentActivityData.business.yelpInfo;
-  let yelpReviews = recentActivityData.business.yelpInfo.yelpReviews;
+  const [yelpInfo, setYelpInfo] = useState();
+  const [yelpReviews, setYelpReviews] = useState([]);
+  const history = useHistory();
+  const [notFromDatabase, setNotFromDatabase] = useState(false);
+
+  useEffect(() => {
+    if (Object.keys(recentActivityData.business.yelpInfo).length > 0) {
+      setYelpInfo(recentActivityData.business.yelpInfo);
+      setYelpReviews(recentActivityData.business.yelpInfo.yelpReviews);
+    } else {
+      setNotFromDatabase(true);
+    }
+  }, [recentActivityData]);
+  const [redirect, setRedirect] = useState(false);
+
+  const fetchResult = async (resultId) => {
+    const res = await fetch(`/search/businesses/${resultId}`);
+    const newResults = await res.json();
+    setYelpInfo(newResults);
+  };
+
+  const fetchReviews = async (resultId) => {
+    const res = await fetch(`/search/businesses/${resultId}/reviews`);
+    const newReviews = await res.json();
+    setYelpReviews((oldReviews) => [...oldReviews, ...newReviews.reviews]);
+  };
+
+  const handleClick = () => {
+    if (!yelpInfo || !yelpReviews) {
+      fetchResult(recentActivityData.business.yelpId);
+      fetchReviews(recentActivityData.business.yelpId);
+    } else {
+      setRedirect(true);
+    }
+  };
+
+  useEffect(() => {
+    if (redirect) {
+      setRedirect(false);
+      history.push({
+        pathname: `/business/${yelpInfo.id}`,
+        state: {
+          result: yelpInfo,
+          reviewArr: yelpReviews,
+          goToReviews: true,
+        },
+      });
+    }
+  }, [redirect]);
+
+  useEffect(() => {
+    if (yelpInfo && yelpReviews && notFromDatabase) {
+      setRedirect(true);
+    }
+  }, [yelpInfo, yelpReviews]);
+
   return (
     <div className="recent-activity-item-container">
       <div className="recent-activity-item-inner-container">
@@ -38,15 +93,12 @@ const RecentActivityItem = ({ recentActivityData }) => {
             backgroundImage: `url(${recentActivityData.business.photo})`,
           }}
         ></div>
-        <Link
-          to={{
-            pathname: `/business/${yelpInfo.id}`,
-            state: { result: yelpInfo, reviewArr: yelpReviews },
-          }}
+        <div
+          onClick={handleClick}
           className="recent-activity-item-restaurant-name-container"
         >
           {recentActivityData.business.name}
-        </Link>
+        </div>
         <div className="recent-activity-item-overall-review-rating">
           <ReviewStars
             starCount={recentActivityData.foodRating}
@@ -62,19 +114,12 @@ const RecentActivityItem = ({ recentActivityData }) => {
         </div>
         <div className="recent-activity-item-review-summary-container">
           <p>{recentActivityData.text}</p>
-          <Link
-            to={{
-              pathname: `/business/${yelpInfo.id}`,
-              state: {
-                result: yelpInfo,
-                reviewArr: yelpReviews,
-                goToReviews: true,
-              },
-            }}
+          <div
             className="recent-activity-item-continue-btn"
+            onClick={handleClick}
           >
             Continue reading
-          </Link>
+          </div>
         </div>
         {/* <div className="recent-activity-item-icon-container">
           <CustomToolTip title="Useful" arrow placement="bottom">
