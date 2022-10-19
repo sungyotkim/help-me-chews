@@ -47,13 +47,13 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setHoverStyle();
   };
 
-  const fetchBusinessesUponFirstClick = async () => {
+  const fetchBusinessesUponFirstClick = async (value) => {
     let priceString = "null";
     if (price.length > 0) {
       priceString = price.join(", ");
     }
     const res = await fetch(
-      `/search/businesses/${term}/${location}/${radius}/${priceString}/${openNow}/${genderNeutralBathrooms}/${wheelchairAccessible}/${limit}/${offset}/${hotAndNew}`
+      `/search/businesses/${value}/${location}/${radius}/${priceString}/${openNow}/${genderNeutralBathrooms}/${wheelchairAccessible}/${limit}/${offset}/${hotAndNew}`
     );
     const newBusinesses = await res.json();
     setBusinessResults((businessResults) => ({
@@ -87,7 +87,7 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setSearchedLocation(location);
 
     if (run) {
-      fetchBusinessesUponFirstClick();
+      fetchBusinessesUponFirstClick(value);
     }
 
     if (history.location.pathname !== "/search") {

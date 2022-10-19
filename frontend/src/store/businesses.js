@@ -41,15 +41,6 @@ export const fetchBusinesses = () => async (dispatch) => {
   }
 };
 
-export const fetchBusiness = (yelpId, firstPhoto) => async (dispatch) => {
-  const res = await csrfFetch(`/api/businesses/${yelpId}/${firstPhoto}`);
-  if (res.ok) {
-    const data = await res.json();
-    dispatch(setBusiness(data));
-    return data;
-  }
-};
-
 const businessesReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_BUSINESSES:
