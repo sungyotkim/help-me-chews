@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_14_010055) do
   create_table "businesses", force: :cascade do |t|
     t.string "yelp_id", null: false
     t.string "photo", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["yelp_id"], name: "index_businesses_on_yelp_id", unique: true

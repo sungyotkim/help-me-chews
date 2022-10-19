@@ -10,6 +10,7 @@
 #
 class Business < ApplicationRecord
   validates :yelp_id, presence: true, uniqueness: true
+  validates :photo, :name, presence: true
   
   has_many :reviews,
   foreign_key: :business_id,

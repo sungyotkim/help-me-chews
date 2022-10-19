@@ -7,7 +7,7 @@
             end
 
             json.business do
-                  json.extract! review.business, :photo
+                  json.extract! review.business, :photo, :name
             end
       end
 end

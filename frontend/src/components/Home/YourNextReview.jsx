@@ -1,11 +1,13 @@
-import React from "react";
-import { nextReviewRestaurants } from "./next-review-placeholder";
+import React, { useState } from "react";
 import NextReviewItems from "./NextReviewItems";
 import "./YourNextReview.css";
 import nextReviewNoSuggestionsPhoto from "../../assets/next-review-no-suggestions.svg";
 
-const YourNextReview = () => {
-  // let nextReviewRestaurants = [];
+const YourNextReview = ({ businesses }) => {
+  const [nextReviewRestaurants, setNextReviewRestaurants] = useState(
+    businesses.slice()
+  );
+
   if (nextReviewRestaurants.length > 0) {
     return (
       <div className="next-review-main-container">
@@ -15,7 +17,10 @@ const YourNextReview = () => {
           </div>
           <div className="next-review-bottom">
             <div className="next-review-grid">
-              <NextReviewItems />
+              <NextReviewItems
+                nextReviewRestaurants={nextReviewRestaurants}
+                setNextReviewRestaurants={setNextReviewRestaurants}
+              />
             </div>
             <div className="next-review-see-more-footer">
               <svg width={24} height={24}>

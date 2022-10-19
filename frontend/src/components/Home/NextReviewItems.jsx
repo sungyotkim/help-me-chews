@@ -1,4 +1,3 @@
-import { nextReviewRestaurants } from "./next-review-placeholder";
 import "./NextReviewItems.css";
 import NextReviewStars from "../ReviewStars/NextReviewStars";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
@@ -22,7 +21,10 @@ const CustomToolTip = styled(({ className, ...props }) => (
   },
 }));
 
-const NextReviewItems = () => {
+const NextReviewItems = ({
+  nextReviewRestaurants,
+  setNextReviewRestaurants,
+}) => {
   let arr = nextReviewRestaurants.slice(0, 6);
 
   return (
@@ -32,7 +34,7 @@ const NextReviewItems = () => {
           return (
             <div className="next-review-grid-item" key={i}>
               <div className="next-review-grid-item-photo-container">
-                <img src={restaurant.image} alt={restaurant.name} />
+                <img src={restaurant.photo} alt={restaurant.id} />
               </div>
 
               <div className="next-review-grid-item-text-container">
