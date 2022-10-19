@@ -20,6 +20,7 @@ const Business = () => {
   const business = useSelector(getBusiness(yelpId));
   const currentYelpBusiness = location.state.result;
   const yelpBusinessReviews = (location.state.reviewArr ||= []);
+  const goToReviews = location.state.goToReviews;
   const [databaseReviews, setDatabaseReviews] = useState([]);
   if (currentYelpBusiness.fromDatabase) {
     currentYelpBusiness.display_phone = currentYelpBusiness.displayPhone;
@@ -30,14 +31,20 @@ const Business = () => {
       currentYelpBusiness.location.displayAddress;
     currentYelpBusiness.review_count = currentYelpBusiness.reviewCount;
   }
-  if (yelpBusinessReviews[0].fromDatabase) {
+  if (yelpBusinessReviews.length > 0) {
     yelpBusinessReviews.forEach((review) => {
-      review.time_created = review.timeCreated;
+      if (review.timeCreated) {
+        review.time_created = review.timeCreated;
+      }
     });
   }
 
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    if (goToReviews) {
+      window.scrollTo({ top: 1088, left: 0, behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
   }, []);
 
   useEffect(() => {

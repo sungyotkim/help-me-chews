@@ -1,44 +1,32 @@
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./RecentActivityItem.css";
-import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
-import { styled } from "@mui/material/styles";
-
-const CustomToolTip = styled(({ className, ...props }) => (
-  <Tooltip {...props} classes={{ popper: className }} />
-))(() => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: "#2d2e2f",
-    fontSize: 12,
-    boxShadow: "rgb(0 0 0 / 15%) 0 0 18px",
-    borderRadius: "4px",
-    padding: "12px 16px",
-    position: "relative",
-    top: -8,
-    fontFamily: "'Poppins', Arial, Helvetica, sans-serif;",
-  },
-  [`& .${tooltipClasses.arrow}`]: {
-    color: "#2d2e2f",
-  },
-}));
+import { Link } from "react-router-dom";
 
 const RecentActivityItem = ({ recentActivityData }) => {
-  console.log(recentActivityData);
+  let yelpInfo = recentActivityData.business.yelpInfo;
+  let yelpReviews = recentActivityData.business.yelpInfo.yelpReviews;
   return (
     <div className="recent-activity-item-container">
       <div className="recent-activity-item-inner-container">
         <div className="recent-activity-item-header">
-          <div className="recent-activity-item-profile-photo-container">
+          <Link
+            to={{ pathname: `/profile/${recentActivityData.user.id}` }}
+            className="recent-activity-item-profile-photo-container"
+          >
             <img
               src={recentActivityData.user.imageUrl}
               alt={recentActivityData.user.imageUrl}
             />
-          </div>
+          </Link>
           <div className="recent-activity-item-title-container">
-            <div className="recent-activity-item-username">
+            <Link
+              to={{ pathname: `/profile/${recentActivityData.user.id}` }}
+              className="recent-activity-item-username"
+            >
               {`${
                 recentActivityData.user.firstName
               } ${recentActivityData.user.lastName.slice(0, 1)}.`}
-            </div>
+            </Link>
             <div className="recent-activity-item-activity-description">
               Wrote a review
             </div>
@@ -50,9 +38,15 @@ const RecentActivityItem = ({ recentActivityData }) => {
             backgroundImage: `url(${recentActivityData.business.photo})`,
           }}
         ></div>
-        <div className="recent-activity-item-restaurant-name-container">
+        <Link
+          to={{
+            pathname: `/business/${yelpInfo.id}`,
+            state: { result: yelpInfo, reviewArr: yelpReviews },
+          }}
+          className="recent-activity-item-restaurant-name-container"
+        >
           {recentActivityData.business.name}
-        </div>
+        </Link>
         <div className="recent-activity-item-overall-review-rating">
           <ReviewStars
             starCount={recentActivityData.foodRating}
@@ -68,9 +62,19 @@ const RecentActivityItem = ({ recentActivityData }) => {
         </div>
         <div className="recent-activity-item-review-summary-container">
           <p>{recentActivityData.text}</p>
-          <div className="recent-activity-item-continue-btn">
+          <Link
+            to={{
+              pathname: `/business/${yelpInfo.id}`,
+              state: {
+                result: yelpInfo,
+                reviewArr: yelpReviews,
+                goToReviews: true,
+              },
+            }}
+            className="recent-activity-item-continue-btn"
+          >
             Continue reading
-          </div>
+          </Link>
         </div>
         {/* <div className="recent-activity-item-icon-container">
           <CustomToolTip title="Useful" arrow placement="bottom">
