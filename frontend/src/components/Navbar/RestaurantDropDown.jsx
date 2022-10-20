@@ -113,11 +113,14 @@ const RestaurantDropDown = ({ styleBlack }) => {
       {isHovering && (
         <div className="restaurants-dropdown-revealed">
           <div className="restaurants-left-dropdown">
-            <div className="restaurants-left-dropdown-option">
+            <div
+              className="restaurants-left-dropdown-option"
+              onClick={(e) => handleClick(e, "Bars")}
+            >
               <svg>
-                <path d="M23.596 17a4.97 4.97 0 00-1.836-3.839L17.753 4.77a1.114 1.114 0 00-.464-.53.983.983 0 00-.432-.124c-.013 0-.023-.008-.036-.008h-4.843a1 1 0 000 2h1.656a3.534 3.534 0 00-.09 3.006l1.817 4.107A5.018 5.018 0 0013.703 16H9.748a2.537 2.537 0 01-1.488-2.107c0-1.486 1.971-1.895 2.05-1.91a1 1 0 00.815-.983V9a.998.998 0 00-1-1h-2.03V5a3.003 3.003 0 00-3-3H1.38a1 1 0 00-1 1v8a1 1 0 001 1h.28a6.56 6.56 0 00-1.115 5.203.99.99 0 00.807.77c0 .01-.005.017-.005.027a4.056 4.056 0 108.11 0h5.06a4.055 4.055 0 108.109 0l-.001-.006a.996.996 0 00.97-.994zM9.125 10v.249a3.987 3.987 0 00-2.865 3.644A3.909 3.909 0 006.86 16H2.405a4.571 4.571 0 011.621-3.646 1 1 0 00-.079-1.587L2.832 10h6.293zM2.38 4h2.715a1 1 0 011 1v3H2.832c-.153.007-.305.03-.452.072V4zM5.4 20.056A2.058 2.058 0 013.347 18h4.11a2.058 2.058 0 01-2.056 2.056zM21.425 16h-5.658a3.001 3.001 0 015.658 0zm-5.93-9.182c.175-.273.431-.484.732-.603l2.783 5.827c-.14-.012-.272-.042-.414-.042-.502.007-1 .09-1.477.248l-1.744-3.943a1.54 1.54 0 01.12-1.487zm3.076 13.238A2.058 2.058 0 0116.517 18h4.109a2.058 2.058 0 01-2.055 2.056z"></path>
+                <path d="M20 7a3 3 0 013 3v5a3 3 0 01-3 3h-1v1a4 4 0 01-4 4H3a1 1 0 01-.99-.89l-1-9a1 1 0 01.24-.78A1 1 0 012 12h4V3a1 1 0 011-1h11a1 1 0 011 1v4h1zm-3-3H8v3h9V4zM9.88 14H3.12l.22 2h6.32l.22-2zm-6 7H9.1l.34-3h-5.9l.34 3zM15 21a2 2 0 002-2V9H8v3h3a1 1 0 01.76.33 1 1 0 01.24.78L11.12 21H15zm6-6v-5a1 1 0 00-1-1h-1v7h1a1 1 0 001-1z"></path>
               </svg>
-              <div>Delivery</div>
+              <div>Bars</div>
             </div>
             <div
               className="restaurants-left-dropdown-option"
@@ -148,13 +151,14 @@ const RestaurantDropDown = ({ styleBlack }) => {
             </div>
           </div>
           <div className="restaurants-right-dropdown">
-            <div className="restaurants-right-dropdown-option">
+            <div
+              className="restaurants-right-dropdown-option"
+              onClick={(e) => handleClick(e, "Nightlife")}
+            >
               <svg>
-                <path d="M18 20h-4a.998.998 0 01-1-1v-4a.998.998 0 011-1h4a.998.998 0 011 1v4a.998.998 0 01-1 1zm-3-2h2v-2h-2v2z"></path>
-
-                <path d="M21 3h-4V2a1 1 0 00-2 0v1H9V2a1 1 0 00-2 0v1H3a1 1 0 00-1 1v16a3.003 3.003 0 003 3h14a3.004 3.004 0 003-3V4a.998.998 0 00-1-1zm-1 17a1 1 0 01-1 1H5a1 1 0 01-1-1v-9h16v9zm0-11H4V5h3v1a1 1 0 002 0V5h6v1a1 1 0 002 0V5h3v4z"></path>
+                <path d="M17 .723A5.507 5.507 0 0011.642 5H2.5a1 1 0 00-.768 1.64l5.962 7.157v-.001a2.98 2.98 0 001.306.89V18.2A2.805 2.805 0 016.2 21a1 1 0 000 2h7.6a1 1 0 000-2 2.805 2.805 0 01-2.8-2.8v-3.513a2.981 2.981 0 001.305-.89l2.222-2.666A5.498 5.498 0 1017 .723zm-6.232 11.794a1 1 0 01-1.537 0v-.001L7.969 11h4.063l-1.263 1.517zM13.698 9H6.302L4.635 7h10.73l-1.667 2zM17 9.723c-.388 0-.773-.066-1.14-.192l2.409-2.89A1 1 0 0017.5 5h-3.768A3.494 3.494 0 1117 9.723z"></path>
               </svg>
-              <div>Reservations</div>
+              <div>Nightlife</div>
             </div>
             <div
               className="restaurants-right-dropdown-option"
