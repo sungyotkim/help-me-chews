@@ -250,7 +250,7 @@
 
 .profile-options-container {
   width: 742px;
-  height: 569px;
+  min-height: 569px;
   padding: 0 15px;
   box-sizing: border-box;
   display: flex;

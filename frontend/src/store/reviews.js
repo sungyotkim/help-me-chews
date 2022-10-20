@@ -31,6 +31,13 @@ export const getReviewsByBusinessId =
   ({ reviews }) => {
     return reviews.businessId === businessId ? reviews : null;
   };
+export const getReviewsByAuthorId =
+  (authorId) =>
+  ({ reviews }) => {
+    return Object.values(reviews).filter((review) => {
+      return review.authorId === authorId;
+    });
+  };
 
 export const createReview = (review) => async (dispatch) => {
   const res = await csrfFetch("/api/reviews", {

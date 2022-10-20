@@ -2,7 +2,7 @@ import Header from "../Header/Header";
 import "./Profile.css";
 import friendIconUrl from "../../assets/profile-friend-icon.PNG";
 import reviewIconUrl from "../../assets/profile-review-icon.PNG";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import addPhotoIconUrl from "../../assets/add_photo_icon.PNG";
 import updateProfileIconUrl from "../../assets/update_profile_icon.PNG";
 import findFriendsIconUrl from "../../assets/find_friends_icon.PNG";
@@ -23,9 +23,15 @@ import ProfileFollowers from "./ProfileFollowers";
 import ProfileFollowing from "./ProfileFollowing";
 import { useLocation } from "react-router-dom";
 import { getUser } from "../../store/users";
+import {
+  fetchReviews,
+  getReviews,
+  getReviewsByAuthorId,
+} from "../../store/reviews";
 
 const Profile = () => {
   const location = useLocation();
+  const dispatch = useDispatch();
   const profileId = location.pathname.slice(9);
   const [userId, setUserId] = useState();
   const [overviewSelected, setOverviewSelected] = useState(true);
@@ -34,12 +40,25 @@ const Profile = () => {
   const [bookmarksSelected, setBookmarksSelected] = useState(false);
   const [followingSelected, setFollowingSelected] = useState(false);
   const [followersSelected, setFollowersSelected] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  const [recentReviews, setRecentReviews] = useState([]);
 
   useEffect(() => {
     setUserId(profileId);
+    dispatch(fetchReviews());
   }, [profileId]);
 
   const user = useSelector(getUser(userId));
+  const allReviews = useSelector(getReviewsByAuthorId(parseInt(profileId)));
+
+  useEffect(() => {
+    if (user) {
+      let userReviews = allReviews.slice();
+      setReviews([...userReviews]);
+      const lastFive = userReviews.reverse().slice(0, 5);
+      setRecentReviews([...lastFive]);
+    }
+  }, [allReviews]);
 
   if (user) {
     const name = `${user.firstName} ${user.lastName.slice(0, 1)}.`;
@@ -64,8 +83,6 @@ const Profile = () => {
     ];
     const userMonth = months[parseInt(user.createdAt.slice(5, 7))];
     const userYear = user.createdAt.slice(0, 4);
-    const reviews = user.reviews;
-    const recentReviews = user.reviews.reverse().slice(0, 5);
 
     const setOthersFalse = (selected) => {
       if (selected !== "overview") {
