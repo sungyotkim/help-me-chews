@@ -17,11 +17,9 @@ const HeroContainer = () => {
   const [heroBarThree, setHeroBarThree] = useState(0);
   const [heroBarFour, setHeroBarFour] = useState(0);
   const [clicked, setClicked] = useState(false);
-  // const [opacity, setOpacity] = useState(0.7);
   let tracker = 0;
   let i = 0;
   const [newIndex, setNewIndex] = useState();
-  // let heroBarOne = 10;
   if (newIndex) {
     i = newIndex;
   }
@@ -50,54 +48,74 @@ const HeroContainer = () => {
   }, [clicked]);
 
   useEffect(() => {
-    tracker = 0;
     setHeroBarOne(0);
     setHeroBarTwo(0);
     setHeroBarThree(0);
     setHeroBarFour(0);
+    tracker = 0;
+    let firstSlideInterval = setInterval(() => {
+      setHeroBarOne((old) => old + 1);
+      tracker++;
+      if (tracker === 100) {
+        clearInterval(firstSlideInterval);
+        tracker = 0;
+      }
+    }, 57);
+    let secondSlideInterval = setInterval(() => {
+      setHeroBarTwo((old) => old + 1);
+      tracker++;
+      if (tracker === 100) {
+        clearInterval(secondSlideInterval);
+        tracker = 0;
+      }
+    }, 57);
+    let thirdSlideInterval = setInterval(() => {
+      setHeroBarThree((old) => old + 1);
+      tracker++;
+      if (tracker === 100) {
+        clearInterval(thirdSlideInterval);
+        tracker = 0;
+      }
+    }, 57);
+    let fourthSlideInterval = setInterval(() => {
+      setHeroBarFour((old) => old + 1);
+      tracker++;
+      if (tracker === 100) {
+        clearInterval(fourthSlideInterval);
+        tracker = 0;
+      }
+    }, 57);
+
     if (displaySlide === 0) {
-      let firstSlideInterval = setInterval(() => {
-        setHeroBarOne((old) => old + 1);
-        tracker++;
-        if (tracker === 100) {
-          clearInterval(firstSlideInterval);
-          tracker = 0;
-        }
-      }, 57);
+      clearInterval(secondSlideInterval);
+      clearInterval(thirdSlideInterval);
+      clearInterval(fourthSlideInterval);
     } else if (displaySlide === 1) {
-      let secondSlideInterval = setInterval(() => {
-        setHeroBarOne(100);
-        setHeroBarTwo((old) => old + 1);
-        tracker++;
-        if (tracker === 100) {
-          clearInterval(secondSlideInterval);
-          tracker = 0;
-        }
-      }, 57);
+      setHeroBarOne(100);
+      clearInterval(firstSlideInterval);
+      clearInterval(thirdSlideInterval);
+      clearInterval(fourthSlideInterval);
     } else if (displaySlide === 2) {
-      let thirdSlideInterval = setInterval(() => {
-        setHeroBarOne(100);
-        setHeroBarTwo(100);
-        setHeroBarThree((old) => old + 1);
-        tracker++;
-        if (tracker === 100) {
-          clearInterval(thirdSlideInterval);
-          tracker = 0;
-        }
-      }, 57);
+      setHeroBarOne(100);
+      setHeroBarTwo(100);
+      clearInterval(firstSlideInterval);
+      clearInterval(secondSlideInterval);
+      clearInterval(fourthSlideInterval);
     } else if (displaySlide === 3) {
-      let fourthSlideInterval = setInterval(() => {
-        setHeroBarOne(100);
-        setHeroBarTwo(100);
-        setHeroBarThree(100);
-        setHeroBarFour((old) => old + 1);
-        tracker++;
-        if (tracker === 100) {
-          clearInterval(fourthSlideInterval);
-          tracker = 0;
-        }
-      }, 57);
+      setHeroBarOne(100);
+      setHeroBarTwo(100);
+      setHeroBarThree(100);
+      clearInterval(firstSlideInterval);
+      clearInterval(secondSlideInterval);
+      clearInterval(thirdSlideInterval);
     }
+
+    return () => {
+      clearInterval(firstSlideInterval);
+      clearInterval(secondSlideInterval);
+      clearInterval(thirdSlideInterval);
+      clearInterval(fourthSlideInterval);
+    };
   }, [displaySlide]);
 
   const handleClick = (e, index) => {
@@ -107,6 +125,10 @@ const HeroContainer = () => {
     setDisplaySlide(index);
     setClicked(true);
     tracker = 100;
+    setHeroBarOne(0);
+    setHeroBarTwo(0);
+    setHeroBarThree(0);
+    setHeroBarFour(0);
   };
 
   return (
@@ -122,7 +144,7 @@ const HeroContainer = () => {
           fromSearch={{ fromSearch: false }}
           fromBusiness={{ fromBusiness: false }}
         />
-        <div className="hero-slide-1">
+        <div className="hero-slide">
           <div className="hero-bars">
             <div
               className="hero-bar-clickable"
