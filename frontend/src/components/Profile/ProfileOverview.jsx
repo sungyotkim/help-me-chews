@@ -1,6 +1,7 @@
+import ReviewStars from "../ReviewStars/ReviewStars";
 import "./ProfileOverview.css";
 
-const ProfileOverview = () => {
+const ProfileOverview = ({ reviews }) => {
   return (
     <>
       <div className="profile-overview-container">
@@ -9,9 +10,47 @@ const ProfileOverview = () => {
           No new friend requests at this time. (coming soon)
         </div>
         <div className="profile-recent-activity-header">Recent Activity</div>
-        <div className="profile-recent-activity-content">
-          We don't have any recent activity for you right now.
-        </div>
+        {reviews.length === 0 && (
+          <div className="profile-recent-activity-content">
+            We don't have any recent activity for you right now.
+          </div>
+        )}
+        {reviews.length > 0 &&
+          reviews.map((review, i) => {
+            let year = review.updatedAt.slice(0, 4);
+            let month = review.updatedAt.slice(5, 7);
+            let day = review.updatedAt.slice(8, 10);
+            return (
+              <div className="profile-review-container" key={i}>
+                <div className="profile-review-header">
+                  <img
+                    src={review.business.photo}
+                    alt={review.business.photo}
+                  />
+                  <div>
+                    {review.business.name}
+                    <div className="profile-review-stars">
+                      <ReviewStars
+                        starCount={review.foodRating}
+                        size={20}
+                        starContainer={"tiny-review-star-container"}
+                      />
+                      <ReviewStars
+                        starCount={review.serviceRating}
+                        size={20}
+                        starContainer={"tiny-review-star-container"}
+                        blueStars={true}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div className="profile-review-body">
+                  <div>{`${month}/${day}/${year}`}</div>
+                  <div>{review.text}</div>
+                </div>
+              </div>
+            );
+          })}
       </div>
     </>
   );

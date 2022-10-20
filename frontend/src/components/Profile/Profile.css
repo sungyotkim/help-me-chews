@@ -1,6 +1,6 @@
 .profile-page-container {
   width: 1903px;
-  height: 900px;
+  min-height: 900px;
   display: flex;
   flex-direction: column;
 }
@@ -171,7 +171,7 @@
 
 .profile-content-container {
   width: 990px;
-  height: 670px;
+  min-height: 670px;
   box-sizing: border-box;
   padding: 24px 15px 36px;
   display: flex;

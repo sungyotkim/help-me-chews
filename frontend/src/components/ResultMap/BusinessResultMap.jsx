@@ -1,7 +1,6 @@
 import { GoogleMap, Marker } from "@react-google-maps/api";
 
 const BusinessResultMap = ({ center }) => {
-  console.log(center);
   return (
     <GoogleMap
       center={center}

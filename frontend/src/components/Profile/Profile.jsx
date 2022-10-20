@@ -65,7 +65,7 @@ const Profile = () => {
     const userMonth = months[parseInt(user.createdAt.slice(5, 7))];
     const userYear = user.createdAt.slice(0, 4);
     const reviews = user.reviews;
-    console.log(reviews);
+    const recentReviews = user.reviews.reverse().slice(0, 5);
 
     const setOthersFalse = (selected) => {
       if (selected !== "overview") {
@@ -192,7 +192,7 @@ const Profile = () => {
                 >
                   <FaUserCircle className="column-nav-icon" /> Profile Overview
                 </div>
-                <div
+                {/* <div
                   className={
                     friendsSelected
                       ? "column-nav-row column-nav-selected"
@@ -208,7 +208,7 @@ const Profile = () => {
                   }
                 >
                   <Diversity1Icon className="column-nav-icon" /> Friends
-                </div>
+                </div> */}
                 <div
                   className={
                     reviewsSelected
@@ -280,8 +280,10 @@ const Profile = () => {
               </div>
 
               <div className="profile-center-column">
-                {overviewSelected && <ProfileOverview />}
-                {friendsSelected && <ProfileFriends />}
+                {overviewSelected && (
+                  <ProfileOverview reviews={recentReviews} />
+                )}
+                {/* {friendsSelected && <ProfileFriends />} */}
                 {reviewsSelected && <ProfileReviews reviews={reviews} />}
                 {/* {bookmarksSelected && <ProfileBookmarks />}
                 {followingSelected && <ProfileFollowing />}
