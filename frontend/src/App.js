@@ -12,6 +12,7 @@ import { fetchUsers } from "./store/users";
 import { fetchReviews } from "./store/reviews";
 import { fetchBusinesses } from "./store/businesses";
 import WriteAReviewSuggestionPage from "./components/WriteAReview/WriteAReviewSuggestionPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ function App() {
           <Profile />
         </Route>
       </Switch>
+      <Footer />
     </>
   );
 }
