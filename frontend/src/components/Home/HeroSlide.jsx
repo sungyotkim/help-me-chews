@@ -1,9 +1,14 @@
 import "./HeroSlide.css";
 
 const HeroSlide = ({ displaySlide }) => {
-  const content = ["slide 1", "slide 2", "slide 3", "Like animals?"];
-  const btn = ["1", "2", "3", "Take me to the app!"];
-  const width = ["100px", "125px", "77px", "158px"];
+  const content = [
+    "Explore the nightlife",
+    "Find that perfect date night",
+    "Get that (coffee) grind",
+    "Like animals?",
+  ];
+  const btn = ["Nightlife", "Date night", "Cafe's", "Take me to the app!"];
+  const width = ["95px", "114px", "77px", "158px"];
 
   return (
     <div className="hero-slide-content">
