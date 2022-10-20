@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Marker } from "@react-google-maps/api";
 
-const ResultMapMarker = ({ center, result, index }) => {
+const ResultMapMarker = ({ center, index }) => {
   const [fillColor, setFillColor] = useState("#f40707");
   const [reverseFillColor, setReverseFillColor] = useState("white");
   const markerLabels = "12345";

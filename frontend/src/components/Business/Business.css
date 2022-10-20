@@ -292,7 +292,7 @@
   flex-direction: column;
 }
 
-.business-map-container > img {
+.business-map-container {
   width: 315px;
   height: 150px;
 }

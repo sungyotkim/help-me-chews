@@ -9,6 +9,8 @@ import BusinessReviewsOverallRatings from "./BusinessReviewsOverallRatings";
 import BusinessReviewSort from "./BusinessReviewsSort";
 import { createBusiness, getBusiness } from "../../store/businesses";
 import { Link, useLocation } from "react-router-dom";
+import BusinessResultMap from "../ResultMap/BusinessResultMap";
+import ResultMap from "../ResultMap/ResultMap";
 
 const Business = () => {
   const dispatch = useDispatch();
@@ -38,6 +40,7 @@ const Business = () => {
       }
     });
   }
+  const [center, setCenter] = useState();
 
   useEffect(() => {
     if (goToReviews) {
@@ -45,6 +48,9 @@ const Business = () => {
     } else {
       window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
+    const lat = currentYelpBusiness.coordinates.latitude;
+    const lng = currentYelpBusiness.coordinates.longitude;
+    setCenter({ lat: lat, lng: lng });
   }, []);
 
   useEffect(() => {
@@ -376,10 +382,11 @@ const Business = () => {
                 <div className="location-and-hours-details-container">
                   <div className="location-details-container">
                     <div className="business-map-container">
-                      <img
+                      {/* <img
                         src="https://maps.googleapis.com/maps/api/staticmap?size=315x150&sensor=false&client=gme-yelp&language=en&scale=1&zoom=15&center=40.760990%2C-73.827853&markers=scale%3A1%7Cicon%3Ahttps%3A%2F%2Fyelp-images.s3.amazonaws.com%2Fassets%2Fmap-markers%2Fannotation_32x43.png%7C40.760990%2C-73.827853&signature=LDLuyWIcYm0iJpInkEw-tTNsXe4="
                         alt="business-map"
-                      />
+                      /> */}
+                      <ResultMap miniMap={center} />
                     </div>
                     <div className="business-directions-container">
                       <div>

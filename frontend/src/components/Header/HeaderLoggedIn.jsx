@@ -41,8 +41,8 @@ const HeaderLoggedIn = ({ styleBlack, hideOptions }) => {
       "https://s3-media0.fl.yelpcdn.com/assets/public/user_small_square.yji-02e48b9cc7aa959e66ab.png";
   }
 
-  if (sessionUser.img) {
-    profileAvatar = sessionUser.img;
+  if (sessionUser.imageUrl) {
+    profileAvatar = sessionUser.imageUrl;
   }
 
   const handleOpenToolTip = () => {

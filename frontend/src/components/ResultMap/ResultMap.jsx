@@ -1,5 +1,5 @@
 import "./ResultMap.css";
-import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
+import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 import ResultMapMarker from "./ResultMapMarker";
 import { useRef } from "react";
 import { useContext, useState } from "react";
@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 const libraries = ["places"];
 
-const ResultMap = () => {
+const ResultMap = ({ miniMap }) => {
   const { currentBusinessResults, radius } = useContext(BusinessSearchContext);
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
@@ -46,6 +46,34 @@ const ResultMap = () => {
     }
   }, [radius]);
 
+  if (miniMap && isLoaded) {
+    return (
+      <GoogleMap
+        center={miniMap}
+        zoom={15}
+        mapContainerStyle={{ width: "100%", height: "100%" }}
+        options={{
+          streetViewControl: false,
+          mapTypeControl: false,
+          fullscreenControl: false,
+          draggable: false,
+          zoomControl: false,
+          scrollwheel: false,
+          disableDoubleClickZoom: true,
+        }}
+        mapTypeId={"aada71b9e77315ab"}
+      >
+        <Marker
+          position={miniMap}
+          icon={{
+            url: require("../../assets/marker.png"),
+            scaledSize: { width: 50, height: 50 },
+          }}
+        />
+      </GoogleMap>
+    );
+  }
+
   return isLoaded ? (
     <GoogleMap
       center={center}
@@ -57,7 +85,6 @@ const ResultMap = () => {
         fullscreenControl: false,
       }}
       mapTypeId={"aada71b9e77315ab"}
-      defaultMapTypeId={"aada71b9e77315ab"}
     >
       {currentBusinessResults.length > 0 && (
         <>
