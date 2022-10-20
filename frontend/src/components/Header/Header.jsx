@@ -181,9 +181,9 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
           <div className="header-business-container">
             <div style={styleBlack}>For Businesses</div>
           </div>
-          <div className="header-review-container">
+          <Link to="/suggestedReviews" className="header-review-container">
             <div style={styleBlack}>Write a Review</div>
-          </div>
+          </Link>
           {sessionUser && <HeaderLoggedIn styleBlack={styleBlack} />}
           {!sessionUser && (
             <HeaderLoggedOut

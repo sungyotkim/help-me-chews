@@ -3,14 +3,26 @@ import NextReviewItems from "./NextReviewItems";
 import "./YourNextReview.css";
 import nextReviewNoSuggestionsPhoto from "../../assets/next-review-no-suggestions.svg";
 
-const YourNextReview = ({ businesses }) => {
+const YourNextReview = ({ businesses, suggested }) => {
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  const [shuffledBusinesses, setshuffledBusinesses] = useState(
+    shuffleArray(businesses.slice())
+  );
   const [nextReviewRestaurants, setNextReviewRestaurants] = useState(
-    businesses.slice(0, 6)
+    shuffledBusinesses.slice(0, 6)
   );
   const [showBtn, setShowBtn] = useState(true);
 
   useEffect(() => {
-    setNextReviewRestaurants(businesses.slice(0, 6));
+    // setshuffledBusinesses(shuffleArray(businesses.slice()));
+    setNextReviewRestaurants(shuffledBusinesses.slice(0, 6));
   }, [businesses]);
 
   const handleClick = () => {
@@ -18,7 +30,7 @@ const YourNextReview = ({ businesses }) => {
 
     for (let i = 0; i <= prevLength + 6; i++) {
       setNextReviewRestaurants([]);
-      let newArr = businesses.slice(0, i);
+      let newArr = shuffledBusinesses.slice(0, i);
       setNextReviewRestaurants((oldArr) => [...oldArr, ...newArr]);
       if (newArr.length === 30) {
         setShowBtn(false);
@@ -31,7 +43,13 @@ const YourNextReview = ({ businesses }) => {
       <div className="next-review-main-container">
         <div className="next-review-page-wrapper">
           <div className="next-review-top-header">
-            <div className="next-review-title">Your Next Review Awaits</div>
+            {suggested ? (
+              <div className="next-review-title">
+                Have you been to any of these places?
+              </div>
+            ) : (
+              <div className="next-review-title">Your Next Review Awaits</div>
+            )}
           </div>
           <div className="next-review-bottom">
             <div className="next-review-grid">

@@ -10,12 +10,6 @@ const LandingPage = () => {
   const businesses = useSelector((state) => getBusinesses(state));
   const allReviews = useSelector((state) => getReviews(state));
   const recentReviews = allReviews.reverse();
-  // function shuffleArray(array) {
-  //   for (let i = array.length - 1; i > 0; i--) {
-  //     const j = Math.floor(Math.random() * (i + 1));
-  //     [array[i], array[j]] = [array[j], array[i]];
-  //   }
-  // }
 
   if (sessionUser && businesses) {
     let firstThirty = businesses.slice(0, 30);

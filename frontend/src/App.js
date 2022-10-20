@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { fetchUsers } from "./store/users";
 import { fetchReviews } from "./store/reviews";
 import { fetchBusinesses } from "./store/businesses";
+import WriteAReviewSuggestionPage from "./components/WriteAReview/WriteAReviewSuggestionPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <Route path="/writeareview">
           <WriteAReview />
+        </Route>
+        <Route path="/suggestedReviews">
+          <WriteAReviewSuggestionPage />
         </Route>
         <Route path="/profile">
           <Profile />

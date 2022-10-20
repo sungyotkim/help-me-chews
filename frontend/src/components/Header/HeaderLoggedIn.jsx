@@ -93,7 +93,7 @@ const HeaderLoggedIn = ({ styleBlack, hideOptions }) => {
     <>
       {!hideOptions && (
         <>
-          <CustomToolTip title="Messages" arrow>
+          <CustomToolTip title="Messages - coming soon" arrow>
             <div className="header-messages-container">
               <div>
                 <svg className="svg-icon" style={styleBlack}>
@@ -107,7 +107,7 @@ const HeaderLoggedIn = ({ styleBlack, hideOptions }) => {
               )}
             </div>
           </CustomToolTip>
-          <CustomToolTip title="Notifications" arrow>
+          <CustomToolTip title="Notifications - coming soon" arrow>
             <div className="header-notifications-container">
               <div>
                 <svg className="svg-icon" style={styleBlack}>
