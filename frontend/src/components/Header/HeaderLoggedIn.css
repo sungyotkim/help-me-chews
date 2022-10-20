@@ -9,7 +9,7 @@
   margin-right: 8px;
   position: relative;
   border-radius: 50%;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .header-messages-container:hover {
@@ -36,6 +36,7 @@
   font-size: 10px;
   color: rgba(255, 255, 255, 1);
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  cursor: default;
 }
 
 .header-notifications-container {
@@ -48,7 +49,7 @@
   box-sizing: border-box;
   position: relative;
   border-radius: 50%;
-  cursor: pointer;
+  /* cursor: pointer; */
 }
 
 .header-notifications-container:hover {
@@ -86,7 +87,7 @@
   top: 42px;
   z-index: 100;
   width: 226px;
-  height: 193px;
+  max-height: 193px;
   padding: 16px;
   background-color: #fff;
   border-radius: 4px;
@@ -99,7 +100,7 @@
 
 .hidden-profile-menu-top {
   width: 100%;
-  height: 120px;
+  max-height: 120px;
 }
 
 .profile-menu-item-container {

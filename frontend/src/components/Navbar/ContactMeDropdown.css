@@ -90,3 +90,7 @@
   font-family: "Open Sans", Arial, Helvetica, sans-serif;
   color: black;
 }
+
+.no-cursor {
+  cursor: default;
+}
