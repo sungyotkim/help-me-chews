@@ -69,7 +69,6 @@ const HeroSlide = ({ displaySlide }) => {
       let path = "/search";
       history.push(path);
     }
-    console.log(searchTerm);
   };
 
   return (

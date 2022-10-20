@@ -11,6 +11,7 @@ const RestaurantDropDown = ({ styleBlack }) => {
     currentBusinessResults,
     setTerm,
     location,
+    setLocation,
     setBusinessResults,
     setCurrentBusinessResults,
     setLoading,
@@ -22,12 +23,9 @@ const RestaurantDropDown = ({ styleBlack }) => {
     setOpenNow,
     setGenderNeutralBathrooms,
     setWheelchairAccessible,
-    setLimit,
-    setOffset,
     setHotAndNew,
     setAllResultReviews,
     price,
-    term,
     radius,
     openNow,
     genderNeutralBathrooms,
@@ -69,6 +67,7 @@ const RestaurantDropDown = ({ styleBlack }) => {
       run = true;
     }
     setTerm(value);
+    setLocation(location);
     setRadius("null");
     setPrice([]);
     setOpenNow("null");

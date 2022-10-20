@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Header.css";
 import logoImg from "../../assets/help-logo.png";
 import HeaderNavBar from "../Navbar/HeaderNavBar";
@@ -142,6 +142,10 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
       }
     }
   };
+
+  useEffect(() => {
+    setTempTerm(term);
+  }, [term]);
 
   return (
     <div className="header" style={sticky}>
