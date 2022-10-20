@@ -2,14 +2,19 @@ import React, { useEffect, useState } from "react";
 import "./Hero.css";
 import Header from "../Header/Header";
 import HeroSlide from "./HeroSlide";
-// import FirstSlide from "../../assets/sample-background.jpg";
-const bogliasco = "https://i.imgur.com/Gu5Cznz.jpg";
-const giauPass = "https://i.imgur.com/8IuucQZ.jpg";
-const countyClare = "https://i.imgur.com/idjXzVQ.jpg";
-const craterRock = "https://i.imgur.com/8DYumaY.jpg";
+import firstSlideBG from "../../assets/hero-background-image-1.jpg";
+import secondSlideBG from "../../assets/hero-background-image-2.jpg";
+import thirdSlideBG from "../../assets/hero-background-image-3.jpg";
+import fourthSlideBG from "../../assets/pet-app-background.PNG";
 
 const HeroContainer = () => {
-  let backgroundImages = [bogliasco, giauPass, countyClare, craterRock];
+  const backgroundImages = [
+    firstSlideBG,
+    secondSlideBG,
+    thirdSlideBG,
+    fourthSlideBG,
+  ];
+  const backgroundPos = ["center", "center", "center", ""];
   const [displayImage, setDisplayImage] = useState(backgroundImages[0]);
   const [displaySlide, setDisplaySlide] = useState(0);
   const [heroBarOne, setHeroBarOne] = useState(0);
@@ -62,6 +67,7 @@ const HeroContainer = () => {
       }
     }, 57);
     let secondSlideInterval = setInterval(() => {
+      setHeroBarOne(100);
       setHeroBarTwo((old) => old + 1);
       tracker++;
       if (tracker === 100) {
@@ -70,6 +76,8 @@ const HeroContainer = () => {
       }
     }, 57);
     let thirdSlideInterval = setInterval(() => {
+      setHeroBarOne(100);
+      setHeroBarTwo(100);
       setHeroBarThree((old) => old + 1);
       tracker++;
       if (tracker === 100) {
@@ -78,6 +86,9 @@ const HeroContainer = () => {
       }
     }, 57);
     let fourthSlideInterval = setInterval(() => {
+      setHeroBarOne(100);
+      setHeroBarTwo(100);
+      setHeroBarThree(100);
       setHeroBarFour((old) => old + 1);
       tracker++;
       if (tracker === 100) {
@@ -137,7 +148,7 @@ const HeroContainer = () => {
         className="hero-container"
         style={{
           backgroundImage: `url(${displayImage})`,
-          // opacity: `${opacity}`,
+          backgroundPosition: `${backgroundPos[displaySlide]}`,
         }}
       >
         <Header

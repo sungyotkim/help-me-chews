@@ -12,6 +12,10 @@
   fill: white;
 }
 
+.hero-slide-content > div:first-child {
+  margin: 8px 0 24px;
+}
+
 .hero-slide-btn {
   min-width: 77px;
   max-width: 177px;
@@ -31,4 +35,8 @@
 
 .hero-slide-btn:hover {
   background-color: rgb(244, 13, 21);
+}
+
+.hero-slide-btn > a {
+  color: white;
 }
