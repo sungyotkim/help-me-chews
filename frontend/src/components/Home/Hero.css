@@ -5,6 +5,8 @@
   background-image: url(../../assets/sample-background.jpg);
   position: relative;
   z-index: -1;
+  opacity: 1;
+  transition: all ease-in 1s;
 }
 
 .hero-container-2 {
@@ -14,4 +16,45 @@
   background-image: url(https://i.imgur.com/Gu5Cznz.jpg);
   position: relative;
   z-index: -1;
+}
+
+.hero-slide-1 {
+  width: 1144px;
+  height: 552px;
+  box-sizing: border-box;
+  padding: 64px 0 200px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  gap: 24px;
+}
+
+.hero-bars {
+  width: 24px;
+  height: 288px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.hero-bar-clickable {
+  width: 20px;
+  height: 64.5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-bar {
+  width: 10px;
+  height: 64.5px;
+  background-color: #ffffff80;
+  border-radius: 5px;
+}
+
+.hero-bar-fill {
+  width: 10px;
+  background: #fff;
+  border-radius: 5px;
 }

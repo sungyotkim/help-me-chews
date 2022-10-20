@@ -186,9 +186,9 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
         </div>
         {emptyDiv}
         <div className={headerOptionsName}>
-          <div className="header-business-container">
+          {/* <div className="header-business-container">
             <div style={styleBlack}>For Businesses</div>
-          </div>
+          </div> */}
           <Link to="/" className="header-review-container">
             <div style={styleBlack}>Write a Review</div>
           </Link>
