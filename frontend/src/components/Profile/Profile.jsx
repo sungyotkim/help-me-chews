@@ -64,6 +64,8 @@ const Profile = () => {
     ];
     const userMonth = months[parseInt(user.createdAt.slice(5, 7))];
     const userYear = user.createdAt.slice(0, 4);
+    const reviews = user.reviews;
+    console.log(reviews);
 
     const setOthersFalse = (selected) => {
       if (selected !== "overview") {
@@ -139,7 +141,7 @@ const Profile = () => {
                   </div>
                 </div>
               </div>
-              <div className="profile-actions-container">
+              {/* <div className="profile-actions-container">
                 <div className="profile-actions-inner-container">
                   <div className="profile-action-btn">
                     <div className="profile-action-icon">
@@ -163,7 +165,7 @@ const Profile = () => {
                     Find Friends
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 
@@ -224,7 +226,7 @@ const Profile = () => {
                 >
                   <RiStarSmileLine className="column-nav-icon" /> Reviews
                 </div>
-                <div
+                {/* <div
                   className={
                     bookmarksSelected
                       ? "column-nav-row column-nav-selected"
@@ -274,16 +276,16 @@ const Profile = () => {
                   }
                 >
                   <RiUserReceivedLine className="column-nav-icon" /> Followers
-                </div>
+                </div> */}
               </div>
 
               <div className="profile-center-column">
                 {overviewSelected && <ProfileOverview />}
                 {friendsSelected && <ProfileFriends />}
-                {reviewsSelected && <ProfileReviews />}
-                {bookmarksSelected && <ProfileBookmarks />}
+                {reviewsSelected && <ProfileReviews reviews={reviews} />}
+                {/* {bookmarksSelected && <ProfileBookmarks />}
                 {followingSelected && <ProfileFollowing />}
-                {followersSelected && <ProfileFollowers />}
+                {followersSelected && <ProfileFollowers />} */}
               </div>
 
               {overviewSelected && (

@@ -6,7 +6,7 @@ const ProfileOverview = () => {
       <div className="profile-overview-container">
         <div className="profile-overview-header">Friend requests</div>
         <div className="profile-overview-header-content">
-          No new friend requests at this time.
+          No new friend requests at this time. (coming soon)
         </div>
         <div className="profile-recent-activity-header">Recent Activity</div>
         <div className="profile-recent-activity-content">

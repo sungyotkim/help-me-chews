@@ -1,5 +1,4 @@
 import "./RecentActivity.css";
-import { recentActivityPlaceholder } from "./recent-activity-placeholder";
 import RecentActivityItem from "./RecentActivityItem";
 import { useEffect, useState } from "react";
 

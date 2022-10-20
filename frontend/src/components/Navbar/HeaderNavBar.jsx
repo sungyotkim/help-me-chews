@@ -11,7 +11,7 @@ const HeaderNavBar = (props) => {
       <div className="navbar-left"></div>
       <div className="navbar-right">
         <RestaurantDropDown styleBlack={styleBlack} />
-        <ReviewsDropDown styleBlack={styleBlack} />
+        {/* <ReviewsDropDown styleBlack={styleBlack} /> */}
         <ContactMeDropdown styleBlack={styleBlack} />
       </div>
     </div>
