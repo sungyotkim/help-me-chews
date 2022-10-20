@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Header.css";
 import logoImg from "../../assets/help-logo.png";
 import HeaderNavBar from "../Navbar/HeaderNavBar";
@@ -41,6 +41,8 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
     setResultReviews,
     setAllResultReviews,
   } = useContext(BusinessSearchContext);
+  const [tempTerm, setTempTerm] = useState(term);
+  const [tempLocation, setTempLocation] = useState(location);
 
   let emptyDiv;
   let headerOptionsName;
@@ -59,7 +61,7 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
       priceString = price.join(", ");
     }
     const res = await fetch(
-      `/search/businesses/${term}/${location}/${radius}/${priceString}/${openNow}/${genderNeutralBathrooms}/${wheelchairAccessible}/${limit}/${offset}/${hotAndNew}`
+      `/search/businesses/${tempTerm}/${tempLocation}/${radius}/${priceString}/${openNow}/${genderNeutralBathrooms}/${wheelchairAccessible}/${limit}/${offset}/${hotAndNew}`
     );
     const newBusinesses = await res.json();
     setBusinessResults((businessResults) => ({
@@ -77,8 +79,10 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
     setBusinessResults((oldResults) => ({ ...oldResults, ...emptyResults }));
     setLoading(true);
     fetchBusinesses();
-    setSearchedTerm(term);
-    setSearchedLocation(location);
+    setTerm(tempTerm);
+    setLocation(tempLocation);
+    setSearchedTerm(tempTerm);
+    setSearchedLocation(tempLocation);
 
     if (history.location.pathname !== "/search") {
       let path = "/search";
@@ -89,6 +93,8 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
   const resetFiltersOnClick = () => {
     setTerm("null");
     setLocation("New York, NY");
+    setTempTerm("null");
+    setTempLocation("New York, NY");
     setSearchedTerm("null");
     setSearchedLocation("New York, NY");
     setRadius("null");
@@ -104,14 +110,14 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
   const { ref } = usePlacesWidget({
     apiKey: process.env.REACT_APP_MAPS_API_KEY,
     onPlaceSelected: (place) => {
-      setLocation(place.name);
+      setTempLocation(place.name);
     },
     options: {
       componentRestrictions: { country: ["us", "ca"] },
       types: [
         "locality",
         "sublocality",
-        "street_address",
+        "administrative_area_level_1",
         "postal_code",
         "neighborhood",
       ],
@@ -125,8 +131,10 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
       setResultReviews([]);
       setAllResultReviews([]);
       fetchBusinesses();
-      setSearchedTerm(term);
-      setSearchedLocation(location);
+      setSearchedTerm(tempTerm);
+      setSearchedLocation(tempLocation);
+      setTerm(tempTerm);
+      setLocation(tempLocation);
 
       if (history.location.pathname !== "/search") {
         let path = "/search";
@@ -151,8 +159,8 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
                 type="text"
                 className="header-search-bar-left"
                 placeholder="tacos, cheap dinner, Max's"
-                value={term === "null" ? "" : term}
-                onChange={(e) => setTerm(e.target.value)}
+                value={tempTerm === "null" ? "" : tempTerm}
+                onChange={(e) => setTempTerm(e.target.value)}
                 onClick={(e) => e.target.select()}
                 onKeyDown={(e) => handleKeyDown(e)}
               />
@@ -162,8 +170,8 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
               <input
                 type="text"
                 className="header-search-bar-right"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                value={tempLocation}
+                onChange={(e) => setTempLocation(e.target.value)}
                 ref={ref}
                 onClick={(e) => e.target.select()}
                 onKeyDown={(e) => handleKeyDown(e)}
@@ -181,7 +189,7 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
           <div className="header-business-container">
             <div style={styleBlack}>For Businesses</div>
           </div>
-          <Link to="/suggestedReviews" className="header-review-container">
+          <Link to="/" className="header-review-container">
             <div style={styleBlack}>Write a Review</div>
           </Link>
           {sessionUser && <HeaderLoggedIn styleBlack={styleBlack} />}
