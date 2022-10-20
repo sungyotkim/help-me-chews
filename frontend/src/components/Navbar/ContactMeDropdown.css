@@ -81,6 +81,8 @@
 .contact-me-right-dropdown-option > svg {
   width: 24px;
   height: 24px;
+  color: black;
+  text-decoration: none;
 }
 
 .contact-me-right-dropdown-option > div {

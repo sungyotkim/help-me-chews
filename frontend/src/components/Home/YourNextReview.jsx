@@ -21,9 +21,14 @@ const YourNextReview = ({ businesses, suggested }) => {
   const [showBtn, setShowBtn] = useState(true);
 
   useEffect(() => {
-    // setshuffledBusinesses(shuffleArray(businesses.slice()));
-    setNextReviewRestaurants(shuffledBusinesses.slice(0, 6));
+    setshuffledBusinesses(shuffleArray(businesses.slice()));
   }, [businesses]);
+
+  useEffect(() => {
+    let slice = shuffledBusinesses.slice(0, 6);
+    setNextReviewRestaurants([]);
+    setNextReviewRestaurants((oldArr) => [...oldArr, ...slice]);
+  }, [shuffledBusinesses]);
 
   const handleClick = () => {
     let prevLength = nextReviewRestaurants.length;

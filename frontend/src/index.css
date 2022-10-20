@@ -21,6 +21,7 @@ button:hover {
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 #root {
