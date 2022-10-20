@@ -193,7 +193,7 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
           {/* <div className="header-business-container">
             <div style={styleBlack}>For Businesses</div>
           </div> */}
-          <Link to="/" className="header-review-container">
+          <Link to="/suggestedReviews" className="header-review-container">
             <div style={styleBlack}>Write a Review</div>
           </Link>
           {sessionUser && <HeaderLoggedIn styleBlack={styleBlack} />}
