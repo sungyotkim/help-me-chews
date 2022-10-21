@@ -1,4 +1,4 @@
-json.review do 
+# json.review do 
       json.merge! @review.attributes
 
       json.user do
@@ -6,6 +6,6 @@ json.review do
       end
 
       json.business do
-            json.extract! @review.business, :photo, :name
+            json.extract! @review.business, :photo, :name, :yelp_info, :yelp_id
       end
-end
+# end
