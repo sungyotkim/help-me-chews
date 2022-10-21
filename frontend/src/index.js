@@ -30,7 +30,7 @@ function Root() {
   const [wheelchairAccessible, setWheelchairAccessible] = useState("null");
   const [businessId, setBusinessId] = useState("");
   const [businessResults, setBusinessResults] = useState({});
-  const [limit, setLimit] = useState(2);
+  const [limit, setLimit] = useState(5);
   const [offset, setOffset] = useState(0);
   const [hotAndNew, setHotAndNew] = useState("null");
   const [currentBusinessResults, setCurrentBusinessResults] = useState([]);

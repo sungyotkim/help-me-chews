@@ -102,7 +102,7 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
     setOpenNow("null");
     setGenderNeutralBathrooms("null");
     setWheelchairAccessible("null");
-    setLimit(2);
+    setLimit(5);
     setOffset(0);
     setHotAndNew("null");
   };
