@@ -1,8 +1,11 @@
 # Help Me Chews - Yelp Review clone
 
+Home page sample
 ![project-snippet](https://github.com/sungyotkim/help-me-chews/blob/main/github_assets/snippet.PNG)
+Search page sample
 ![project-snippet-2](https://github.com/sungyotkim/help-me-chews/blob/main/github_assets/snippet-2.PNG)
 
+Want to see more?
 ## [Link to live version](https://help-me-chews.herokuapp.com/) 
 
 ## Technologies/APIs used
