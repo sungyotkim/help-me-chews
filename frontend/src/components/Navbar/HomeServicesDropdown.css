@@ -1,15 +1,16 @@
 .homeservices-dropdown-container {
-  width: 138px;
+  width: 156px;
   position: relative;
 }
 
 .homeservices-dropdown {
-  width: 124px;
-  height: 18px;
+  width: 156px;
+  height: 54px;
   display: flex;
   padding: 16px 16px 20px;
   position: relative;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .navbar-span {

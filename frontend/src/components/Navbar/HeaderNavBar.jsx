@@ -1,8 +1,8 @@
+import AutoServicesDropdown from "./AutoServicesDropdown";
 import ContactMeDropdown from "./ContactMeDropDown";
 import "./HeaderNavBar.css";
 import HomeServicesDropdown from "./HomeServicesDropdown";
 import RestaurantDropDown from "./RestaurantDropDown";
-import ReviewsDropDown from "./ReviewsDropDown";
 
 const HeaderNavBar = (props) => {
   const { styleBlack } = props;
@@ -12,8 +12,8 @@ const HeaderNavBar = (props) => {
       <div className="navbar-left"></div>
       <div className="navbar-right">
         <RestaurantDropDown styleBlack={styleBlack} />
-        {/* <ReviewsDropDown styleBlack={styleBlack} /> */}
         <HomeServicesDropdown styleBlack={styleBlack} />
+        <AutoServicesDropdown styleBlack={styleBlack} />
         <ContactMeDropdown styleBlack={styleBlack} />
       </div>
     </div>

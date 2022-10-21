@@ -1,19 +1,25 @@
-.reviews-dropdown-container {
-  width: 112px;
+.autoservices-dropdown-container {
+  width: 146px;
+  position: relative;
 }
 
-.reviews-dropdown {
-  width: 112px;
-  height: 58px;
+.autoservices-dropdown {
+  width: 146px;
+  height: 54px;
   display: flex;
   padding: 16px 16px 20px;
-  box-sizing: border-box;
   position: relative;
   cursor: pointer;
+  box-sizing: border-box;
 }
 
-.reviews-dropdown-revealed {
-  width: 254.5px;
+.navbar-span {
+  position: relative;
+  top: 1px;
+}
+
+.autoservices-dropdown-revealed {
+  width: 299.5px;
   height: 160px;
   background-color: #fff;
   position: relative;
@@ -26,42 +32,45 @@
   display: flex;
 }
 
-.reviews-left-dropdown {
+.autoservices-left-dropdown {
   padding-right: 4px;
-  width: 111.25px;
+  width: 150px;
   height: 160px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.reviews-right-dropdown {
+.autoservices-right-dropdown {
   padding-left: 4px;
-  width: 143.25px;
+  width: 136.5px;
   height: 160px;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
-.reviews-left-dropdown-option {
+.autoservices-left-dropdown-option {
   display: flex;
   flex-flow: row nowrap;
   cursor: pointer;
   padding: 8px;
   height: 40px;
   gap: 12px;
+  position: relative;
   border-radius: 4px;
 }
 
-.reviews-left-dropdown-option:hover {
+.autoservices-left-dropdown-option:hover {
   background-color: #ebebeb;
 }
 
-.reviews-left-dropdown-option > svg {
+.autoservices-left-dropdown-option > svg {
   width: 24px;
   height: 24px;
 }
 
-.reviews-left-dropdown-option > div {
+.autoservices-left-dropdown-option > div {
   line-height: 24px;
   font-size: 14px;
   font-weight: 600;
@@ -69,7 +78,7 @@
   color: black;
 }
 
-.reviews-right-dropdown-option {
+.autoservices-right-dropdown-option {
   display: flex;
   flex-flow: row nowrap;
   cursor: pointer;
@@ -77,18 +86,19 @@
   height: 40px;
   gap: 12px;
   border-radius: 4px;
+  position: relative;
 }
 
-.reviews-right-dropdown-option:hover {
+.autoservices-right-dropdown-option:hover {
   background-color: #ebebeb;
 }
 
-.reviews-right-dropdown-option > svg {
+.autoservices-right-dropdown-option > svg {
   width: 24px;
   height: 24px;
 }
 
-.reviews-right-dropdown-option > div {
+.autoservices-right-dropdown-option > div {
   line-height: 24px;
   font-size: 14px;
   font-weight: 600;
