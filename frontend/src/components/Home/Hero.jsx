@@ -150,6 +150,7 @@ const HeroContainer = () => {
           backgroundImage: `url(${displayImage})`,
           backgroundPosition: `${backgroundPos[displaySlide]}`,
         }}
+        key={displaySlide}
       >
         <Header
           fromSearch={{ fromSearch: false }}
