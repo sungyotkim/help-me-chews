@@ -18,7 +18,6 @@ const RecentActivityItem = ({ recentActivityData }) => {
     }
   }, [recentActivityData]);
   const [redirect, setRedirect] = useState(false);
-  console.log(recentActivityData);
 
   const fetchResult = async (resultId) => {
     const res = await fetch(`/search/businesses/${resultId}`);

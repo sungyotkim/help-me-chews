@@ -111,6 +111,7 @@ function Header({ styleBlack, fromSearch, fromBusiness, sticky }) {
     apiKey: process.env.REACT_APP_MAPS_API_KEY,
     onPlaceSelected: (place) => {
       setTempLocation(place.name);
+      setLocation(place.name);
     },
     options: {
       componentRestrictions: { country: ["us", "ca"] },
