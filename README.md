@@ -1,6 +1,6 @@
 # Help Me Chews - Yelp Review clone
 
-![project-demo](https://github.com/sungyotkim/Dif-fur-ent-Oppawtunity-Pet-Adoptions-And-Fosters/blob/main/github-assets/projectDemo.gif)
+![project-snippet]([https://github.com/sungyotkim/Dif-fur-ent-Oppawtunity-Pet-Adoptions-And-Fosters/blob/main/github-assets/projectDemo.gif](https://github.com/sungyotkim/help-me-chews/blob/main/github_assets/snippet.PNG))
 
 ## [Link to live version](https://help-me-chews.herokuapp.com/) 
 
