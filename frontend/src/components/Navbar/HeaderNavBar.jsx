@@ -1,5 +1,6 @@
 import ContactMeDropdown from "./ContactMeDropDown";
 import "./HeaderNavBar.css";
+import HomeServicesDropdown from "./HomeServicesDropdown";
 import RestaurantDropDown from "./RestaurantDropDown";
 import ReviewsDropDown from "./ReviewsDropDown";
 
@@ -12,6 +13,7 @@ const HeaderNavBar = (props) => {
       <div className="navbar-right">
         <RestaurantDropDown styleBlack={styleBlack} />
         {/* <ReviewsDropDown styleBlack={styleBlack} /> */}
+        <HomeServicesDropdown styleBlack={styleBlack} />
         <ContactMeDropdown styleBlack={styleBlack} />
       </div>
     </div>

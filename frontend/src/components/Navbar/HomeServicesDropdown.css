@@ -1,0 +1,106 @@
+.homeservices-dropdown-container {
+  width: 138px;
+  position: relative;
+}
+
+.homeservices-dropdown {
+  width: 124px;
+  height: 18px;
+  display: flex;
+  padding: 16px 16px 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.navbar-span {
+  position: relative;
+  top: 1px;
+}
+
+.homeservices-dropdown-revealed {
+  width: 299.5px;
+  height: 160px;
+  background-color: #fff;
+  position: relative;
+  border-color: #ebebeb;
+  box-shadow: 0 0 18px #00000026;
+  padding: 20px 12px;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  z-index: 999;
+  display: flex;
+}
+
+.homeservices-left-dropdown {
+  padding-right: 4px;
+  width: 155px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.homeservices-right-dropdown {
+  padding-left: 4px;
+  width: 136.5px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.homeservices-left-dropdown-option {
+  display: flex;
+  flex-flow: row nowrap;
+  cursor: pointer;
+  padding: 8px;
+  height: 40px;
+  gap: 12px;
+  position: relative;
+  border-radius: 4px;
+}
+
+.homeservices-left-dropdown-option:hover {
+  background-color: #ebebeb;
+}
+
+.homeservices-left-dropdown-option > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.homeservices-left-dropdown-option > div {
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.homeservices-right-dropdown-option {
+  display: flex;
+  flex-flow: row nowrap;
+  cursor: pointer;
+  padding: 8px;
+  height: 40px;
+  gap: 12px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.homeservices-right-dropdown-option:hover {
+  background-color: #ebebeb;
+}
+
+.homeservices-right-dropdown-option > svg {
+  width: 24px;
+  height: 24px;
+}
+
+.homeservices-right-dropdown-option > div {
+  line-height: 24px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  color: black;
+}
