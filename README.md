@@ -1,6 +1,7 @@
 # Help Me Chews - Yelp Review clone
 
 ![project-snippet](https://github.com/sungyotkim/help-me-chews/blob/main/github_assets/snippet.PNG)
+![project-snippet-2](https://github.com/sungyotkim/help-me-chews/blob/main/github_assets/snippet-2.PNG)
 
 ## [Link to live version](https://help-me-chews.herokuapp.com/) 
 
@@ -11,7 +12,7 @@
 - Yelp API
 - Google Maps API
 
-##Features
+## Features
 - Full searching functionality of businesses in the yelp database
 - CRUD reviews for businesses, added simulated blue stars to separate food and service ratings
 - User profiles/personalization
@@ -58,9 +59,47 @@ Which would then be directed to the rails backend controller that fetches the bu
   end
 ```
 
-```javascript
+**One of the difficulties faced**
+One of the hardest aspects of this project was connecting all of the different components that are nested under different components in order to perform the appropriate search function. The approach I took to solve it was to set up a context variable to allow access for all the components in different page renders to access the needed variables to perform the search. Since Yelp allows for multiple search queries with only location being required, I chose to include all terms possible in the project in each fetch call, passing in specific and appropriate "null" attributes if the user did not opt to search for a specific query. Though this made the code a bit verbose, it allowed for all the logic to be performed in one controller for the fetch request by checking to see which values were passed or not passed and submitting the request to the Yelp api as needed. Specific care was taken in the search requests to limit requests to the Yelp API as much as possible since the yelp requests are daily limited.
 
+sample fetch request to the backend:
+``` javascript
+  const fetchBusinesses = async () => {
+    let priceString = "null";
+    if (price.length > 0) {
+      priceString = price.join(", ");
+    }
+    const res = await fetch(
+      `/search/businesses/${tempTerm}/${tempLocation}/${radius}/${priceString}/${openNow}/${genderNeutralBathrooms}/${wheelchairAccessible}/${limit}/${offset}/${hotAndNew}`
+    );
+    const newBusinesses = await res.json();
+    setBusinessResults((businessResults) => ({
+      ...businessResults,
+      ...newBusinesses,
+    }));
+  };
 ```
+Request handling in the backend:
+``` ruby
+  def get_businesses
+    key = yelp_api_key_goes_here
+    url = "https://api.yelp.com/v3/businesses/search?"
+    if params[:term] != "null" then url += "term=#{params[:term]}&" end
+    if params[:location] != "null" then url += "location=#{params[:location]}&" end
+    if params[:radius] != "null" then url += "radius=#{params[:radius]}&" end
+    if params[:price] != "null" then url += "price=#{params[:price]}&" end
+    if params[:open_now] != "null" then url += "open_now=true&" end
+    if params[:gender_neutral_bathrooms] != "null" then url += "attributes=gender_neutral_bathrooms&" end
+    if params[:wheelchair_accessible] != "null" then url += "attributes=wheelchair_accessible&" end
+    if params[:limit] != "null" then url += "limit=#{params[:limit]}&" end
+    if params[:offset] != "null" then url += "offset=#{params[:offset]}&" end
+    if params[:hot_and_new] != "null" then url += "attributes=hot_and_new&" end
+    url[-1] = '' #remove the & from the last query
+    response = HTTParty.get(url, headers: {"Authorization" => "Bearer #{key}"}).parsed_response
+    render json: response
+  end
+```
+
 
 ## TODO's / Future Features
 - Adding friends
