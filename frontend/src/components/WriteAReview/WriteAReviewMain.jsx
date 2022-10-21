@@ -4,6 +4,26 @@ import { Redirect } from "react-router-dom";
 import { createReview, updateReview } from "../../store/reviews";
 import NextReviewStars from "../ReviewStars/NextReviewStars";
 import "./WriteAReviewMain.css";
+import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
+import { styled } from "@mui/material/styles";
+
+const CustomToolTip = styled(({ className, ...props }) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(() => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "#2d2e2f",
+    fontSize: 12,
+    boxShadow: "rgb(0 0 0 / 15%) 0 0 18px",
+    borderRadius: "4px",
+    padding: "12px 16px",
+    position: "relative",
+    top: -8,
+    fontFamily: "'Poppins', Arial, Helvetica, sans-serif;",
+  },
+  [`& .${tooltipClasses.arrow}`]: {
+    color: "#2d2e2f",
+  },
+}));
 
 const WriteAReviewMain = ({
   business,
@@ -196,11 +216,13 @@ const WriteAReviewMain = ({
           </div>
           <div className="attach-photo-container">
             <div className="attach-photo-header">Attach Photos</div>
-            <div className="photo-input-container">
-              <svg width={24} height={24}>
-                <path d="M16 2a1 1 0 011 .68L17.72 5H20a3 3 0 013 3v11a3 3 0 01-3 3H4a3 3 0 01-3-3V8a3 3 0 013-3h2.28L7 2.68A1 1 0 018 2zm-.72 2H8.72L8 6.32A1 1 0 017 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1h-3a1 1 0 01-.95-.68L15.28 4zM12 9a1 1 0 011 1v2.5h2.5a1 1 0 110 2H13V17a1 1 0 11-2 0v-2.5H8.5a1 1 0 110-2H11V10a1 1 0 011-1z"></path>
-              </svg>
-            </div>
+            <CustomToolTip title="Coming soon!" arrow>
+              <div className="photo-input-container">
+                <svg width={24} height={24}>
+                  <path d="M16 2a1 1 0 011 .68L17.72 5H20a3 3 0 013 3v11a3 3 0 01-3 3H4a3 3 0 01-3-3V8a3 3 0 013-3h2.28L7 2.68A1 1 0 018 2zm-.72 2H8.72L8 6.32A1 1 0 017 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1h-3a1 1 0 01-.95-.68L15.28 4zM12 9a1 1 0 011 1v2.5h2.5a1 1 0 110 2H13V17a1 1 0 11-2 0v-2.5H8.5a1 1 0 110-2H11V10a1 1 0 011-1z"></path>
+                </svg>
+              </div>
+            </CustomToolTip>
           </div>
           <div className="post-review-btn-container">
             <input type="submit" value="Post Review" id="post-review-btn" />

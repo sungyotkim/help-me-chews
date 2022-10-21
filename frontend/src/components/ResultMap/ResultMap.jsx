@@ -17,6 +17,7 @@ const ResultMap = ({ miniMap }) => {
   });
   const [center, setCenter] = useState({ lat: 40.7459, lng: -73.9911 });
   const [zoom, setZoom] = useState(10);
+  const [bounds, setBounds] = useState([]);
 
   const isInitialMount = useRef(true);
 
@@ -25,12 +26,23 @@ const ResultMap = ({ miniMap }) => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      if (currentBusinessResults.length > 0) {
-        newCenter.lat = currentBusinessResults[0].coordinates.latitude;
-        newCenter.lng = currentBusinessResults[0].coordinates.longitude;
+      if (currentBusinessResults.region) {
+        newCenter.lat = currentBusinessResults.region.center.latitude;
+        newCenter.lng = currentBusinessResults.region.center.longitude;
       }
       setCenter({});
       setCenter((oldCenter) => ({ ...oldCenter, ...newCenter }));
+    }
+
+    if (currentBusinessResults.length > 0) {
+      const boundCoords = currentBusinessResults.map((result) => {
+        let coords = {
+          lat: result.coordinates.latitude,
+          lng: result.coordinates.longitude,
+        };
+        return coords;
+      });
+      setBounds([...boundCoords]);
     }
   }, [currentBusinessResults]);
 
@@ -41,8 +53,10 @@ const ResultMap = ({ miniMap }) => {
       setZoom(13);
     } else if (radius === "3216") {
       setZoom(14);
-    } else {
+    } else if (radius === "1609" || radius === "800") {
       setZoom(15);
+    } else {
+      setZoom(13);
     }
   }, [radius]);
 
@@ -84,6 +98,7 @@ const ResultMap = ({ miniMap }) => {
         mapTypeControl: false,
         fullscreenControl: false,
       }}
+      bounds={bounds}
       mapTypeId={"aada71b9e77315ab"}
     >
       {currentBusinessResults.length > 0 && (

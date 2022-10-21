@@ -41,7 +41,10 @@
   width: 217px;
   height: 217px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-photo-container > img {

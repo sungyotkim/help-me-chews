@@ -33,7 +33,8 @@ function LoginFormPage() {
 
   const handleDemoLogin = (e) => {
     e.preventDefault();
-    const demoEmail = Array.from("demo@user.io");
+    // const demoEmail = Array.from("demo@user.io");
+    const demoEmail = Array.from("HireMe@YourCompany.pls");
     const demoPassword = Array.from("password");
     setEmail("");
     setPassword("");
