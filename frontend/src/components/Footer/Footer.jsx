@@ -7,10 +7,10 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-inner-container">
           <div className="footer-left-container">
-            <div>
+            <a href="https://www.yelp.com/" target="_blank" rel="noreferrer">
               Powered by React, HTML, CSS, Rails, and
               <img src={yelpLogo} alt="Yelp" id="yelp-logo" />
-            </div>
+            </a>
             <div>Developed by Sungyo (Tommy) Kim</div>
           </div>
           <div className="footer-right-container">

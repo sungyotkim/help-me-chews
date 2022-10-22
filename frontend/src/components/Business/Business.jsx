@@ -584,9 +584,14 @@ const Business = () => {
             <div className="business-page-right-container">
               <div className="business-page-right-inner-container">
                 <div className="business-website-container">
-                  <div className="business-website">
+                  <a
+                    href={`${currentYelpBusiness.url}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="business-website"
+                  >
                     {currentYelpBusiness.url}
-                  </div>
+                  </a>
                   <div>
                     <svg width={24} height={24}>
                       <path d="M20.47 3.07a.5.5 0 01.53.46v6a.5.5 0 01-.39.49.58.58 0 01-.19 0 .47.47 0 01-.35-.15L17.8 7.6l-5 5a1 1 0 01-1.41 0 1 1 0 010-1.41l5-5-2.27-2.27a.5.5 0 01.35-.85h6zM20 21H4a1 1 0 01-1-1V4a1 1 0 011-1h6a1 1 0 010 2H5v14h14v-5a1 1 0 012 0v6a1 1 0 01-1 1z"></path>
