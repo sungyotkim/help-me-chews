@@ -2,6 +2,7 @@ import "./ContactMeDropdown.css";
 import { useState } from "react";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
 import { styled } from "@mui/material/styles";
+import { SiAngellist } from "react-icons/si";
 
 const CustomToolTip = styled(({ className, ...props }) => (
   <Tooltip {...props} classes={{ popper: className }} />
@@ -51,14 +52,15 @@ const ContactMeDropdown = ({ styleBlack }) => {
       {isHovering && (
         <div className="contact-me-dropdown-revealed">
           <div className="contact-me-left-dropdown">
-            <CustomToolTip title="sungyotkim@gmail.com" arrow placement="left">
-              <div className="contact-me-left-dropdown-option no-cursor">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm-.67,2L12,10.75,5.67,6ZM19,18H5a1,1,0,0,1-1-1V7.25l7.4,5.55a1,1,0,0,0,.6.2,1,1,0,0,0,.6-.2L20,7.25V17A1,1,0,0,1,19,18Z" />
-                </svg>
-                <div>Email</div>
-              </div>
-            </CustomToolTip>
+            <a
+              href="https://tommykim.me"
+              target={"_blank"}
+              rel="noreferrer"
+              className="contact-me-left-dropdown-option"
+            >
+              <div className="website-logo-link"></div>
+              <div>Website</div>
+            </a>
             <a
               href="https://github.com/sungyotkim"
               target={"_blank"}
@@ -70,15 +72,28 @@ const ContactMeDropdown = ({ styleBlack }) => {
               </svg>
               <div>Github</div>
             </a>
+            <a
+              href="https://angel.co/u/sungyo-tommy-kim"
+              target={"_blank"}
+              rel="noreferrer"
+              className="contact-me-left-dropdown-option"
+            >
+              <SiAngellist />
+              <div>Angel List</div>
+            </a>
           </div>
           <div className="contact-me-right-dropdown">
-            <CustomToolTip title="718-702-2156" arrow placement="right">
-              <div className="contact-me-right-dropdown-option no-cursor">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                  <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />{" "}
-                  <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+            <CustomToolTip title="sungyotkim@gmail.com" arrow placement="right">
+              <div
+                className="contact-me-left-dropdown-option"
+                onClick={() =>
+                  (window.location = "mailto:sungyotkim@gmail.com")
+                }
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path d="M19,4H5A3,3,0,0,0,2,7V17a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V7A3,3,0,0,0,19,4Zm-.67,2L12,10.75,5.67,6ZM19,18H5a1,1,0,0,1-1-1V7.25l7.4,5.55a1,1,0,0,0,.6.2,1,1,0,0,0,.6-.2L20,7.25V17A1,1,0,0,1,19,18Z" />
                 </svg>
-                <div>Phone</div>
+                <div>Email</div>
               </div>
             </CustomToolTip>
             <a
@@ -105,6 +120,15 @@ const ContactMeDropdown = ({ styleBlack }) => {
               </svg>
               <div>LinkedIn</div>
             </a>
+            <CustomToolTip title="718-702-2156" arrow placement="right">
+              <div className="contact-me-right-dropdown-option no-cursor">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                  <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z" />{" "}
+                  <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
+                </svg>
+                <div>Phone</div>
+              </div>
+            </CustomToolTip>
           </div>
         </div>
       )}

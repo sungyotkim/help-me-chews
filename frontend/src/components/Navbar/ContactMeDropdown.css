@@ -9,8 +9,8 @@
 }
 
 .contact-me-dropdown-revealed {
-  width: 240px;
-  height: 80px;
+  width: 245px;
+  height: 115px;
   background-color: #fff;
   position: relative;
   border-color: #ebebeb;
@@ -24,7 +24,7 @@
 
 .contact-me-left-dropdown {
   padding-right: 4px;
-  width: 108px;
+  width: 118px;
   height: 80px;
   display: flex;
   flex-direction: column;
@@ -95,4 +95,13 @@
 
 .no-cursor {
   cursor: default;
+}
+
+.website-logo-link {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../assets/website-logo.PNG");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
