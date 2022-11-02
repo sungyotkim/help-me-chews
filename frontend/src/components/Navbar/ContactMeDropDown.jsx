@@ -97,7 +97,7 @@ const ContactMeDropdown = ({ styleBlack }) => {
               </div>
             </CustomToolTip>
             <a
-              href="https://www.linkedin.com/in/sungyo-kim-ab7a30163/"
+              href="https://www.linkedin.com/in/sungyotkim/"
               target={"_blank"}
               rel="noreferrer"
               className="contact-me-right-dropdown-option"
