@@ -8,6 +8,8 @@ body {
   font: inherit;
   vertical-align: baseline;
   height: auto;
+  position: relative;
+  z-index: -1;
 }
 
 ol,
