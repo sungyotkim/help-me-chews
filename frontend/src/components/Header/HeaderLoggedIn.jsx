@@ -25,8 +25,8 @@ const CustomToolTip = styled(({ className, ...props }) => (
 }));
 
 const HeaderLoggedIn = ({ styleBlack, hideOptions }) => {
-  let messageNotifications = 5;
-  let notificationNotifications = 0;
+  // let messageNotifications = 5;
+  // let notificationNotifications = 0;
   const [open, setOpen] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const sessionUser = useSelector((state) => state.session.user);
@@ -91,7 +91,7 @@ const HeaderLoggedIn = ({ styleBlack, hideOptions }) => {
 
   return (
     <>
-      {!hideOptions && (
+      {/* {!hideOptions && (
         <>
           <CustomToolTip title="Messages - coming soon" arrow>
             <div className="header-messages-container">
@@ -122,7 +122,7 @@ const HeaderLoggedIn = ({ styleBlack, hideOptions }) => {
             </div>
           </CustomToolTip>
         </>
-      )}
+      )} */}
       <div className="header-profile-container">
         <CustomToolTip
           title={username}

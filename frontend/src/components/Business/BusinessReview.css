@@ -274,3 +274,23 @@
   background-color: #ebf6ff;
   font-weight: 700;
 }
+
+.review-photos-container {
+  width: 632px;
+  height: 241px;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.review-photo-container {
+  width: 300px;
+  height: 225px;
+  padding-right: 16px;
+  margin-top: 8px;
+}
+
+.review-photo-container > img {
+  width: 300px;
+  height: 225px;
+  border-radius: 4px;
+}

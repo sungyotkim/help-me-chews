@@ -249,6 +249,17 @@ const BusinessReview = ({
         </div>
       </div>
       <div className="user-review-text">{review.text}</div>
+      {review.photos && (
+        <div className="review-photos-container">
+          {review.photos.map((photo) => {
+            return (
+              <div className="review-photo-container" key={photo.url}>
+                <img src={photo.url} />
+              </div>
+            );
+          })}
+        </div>
+      )}
       {!review.yelpReview && (
         <div className="review-react-btns-container">
           <div

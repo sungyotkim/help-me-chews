@@ -49,10 +49,17 @@
   color: #666666;
 }
 
+.profile-review-photos-container {
+  width: 350px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
 .profile-review-photo {
   width: 300px;
   height: 300px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
 }
 
 .profile-review-photo > img {

@@ -5,10 +5,10 @@ const ProfileOverview = ({ reviews }) => {
   return (
     <>
       <div className="profile-overview-container">
-        <div className="profile-overview-header">Friend requests</div>
+        {/* <div className="profile-overview-header">Friend requests</div>
         <div className="profile-overview-header-content">
           No new friend requests at this time. (coming soon)
-        </div>
+        </div> */}
         <div className="profile-recent-activity-header">Recent Activity</div>
         {reviews.length === 0 && (
           <div className="profile-recent-activity-content">
@@ -48,14 +48,17 @@ const ProfileOverview = ({ reviews }) => {
                   <div>{`${month}/${day}/${year}`}</div>
                   <div>{review.text}</div>
                 </div>
-                {review.photos &&
-                  review.photos.map((photo) => {
-                    return (
-                      <div className="profile-review-photo" key={photo.url}>
-                        <img src={photo.url} />
-                      </div>
-                    );
-                  })}
+                {review.photos && (
+                  <div className="profile-review-photos-container">
+                    {review.photos.map((photo) => {
+                      return (
+                        <div className="profile-review-photo" key={photo.url}>
+                          <img src={photo.url} />
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
             );
           })}
