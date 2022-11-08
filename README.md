@@ -22,6 +22,7 @@ Want to see more?
 
 ## Development
 **Fetching from yelp database while simultaneously saving into the rails database for businesses**
+<br>
 One of the pitfalls of using yelp's database was the inability to create and add user's reviews to the business page of the business itself. In order to work around this, I first saved the businesses' key information including name, photo and the yelpId (to track the business via yelpId on subsequent fetches) and then directed user review creation to the rails backend business page instead. This allows for users to create, edit, and destroy reviews for a given website. 
 
 Upon fetching business info from the Yelp database
@@ -63,6 +64,7 @@ Which would then be directed to the rails backend controller that fetches the bu
 ```
 
 **One of the difficulties faced**
+<br>
 One of the hardest aspects of this project was connecting all of the different components that are nested under different components in order to perform the appropriate search function. The approach I took to solve it was to set up a context variable to allow access for all the components in different page renders to access the needed variables to perform the search. Since Yelp allows for multiple search queries with only location being required, I chose to include all terms possible in the project in each fetch call, passing in specific and appropriate "null" attributes if the user did not opt to search for a specific query. Though this made the code a bit verbose, it allowed for all the logic to be performed in one controller for the fetch request by checking to see which values were passed or not passed and submitting the request to the Yelp api as needed. Specific care was taken in the search requests to limit requests to the Yelp API as much as possible since the yelp requests are daily limited.
 
 sample fetch request to the backend:
