@@ -42,3 +42,9 @@
   color: #333333;
   padding: 35px 0;
 }
+
+.profile-overview-review-container {
+  width: 465px;
+  min-height: 100px;
+  border-bottom: 1px solid #e6e6e6;
+}

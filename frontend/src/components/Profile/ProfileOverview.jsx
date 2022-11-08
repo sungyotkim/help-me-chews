@@ -21,7 +21,7 @@ const ProfileOverview = ({ reviews }) => {
             let month = review.updatedAt.slice(5, 7);
             let day = review.updatedAt.slice(8, 10);
             return (
-              <div className="profile-review-container" key={i}>
+              <div className="profile-overview-review-container" key={i}>
                 <div className="profile-review-header">
                   <img
                     src={review.business.photo}
@@ -48,6 +48,14 @@ const ProfileOverview = ({ reviews }) => {
                   <div>{`${month}/${day}/${year}`}</div>
                   <div>{review.text}</div>
                 </div>
+                {review.photos &&
+                  review.photos.map((photo) => {
+                    return (
+                      <div className="profile-review-photo" key={photo.url}>
+                        <img src={photo.url} />
+                      </div>
+                    );
+                  })}
               </div>
             );
           })}

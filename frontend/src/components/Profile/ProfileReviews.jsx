@@ -57,6 +57,14 @@ const ProfileReviews = ({ reviews }) => {
                   <div>{`${month}/${day}/${year}`}</div>
                   <div>{review.text}</div>
                 </div>
+                {review.photos &&
+                  review.photos.map((photo) => {
+                    return (
+                      <div className="profile-review-photo" key={photo.url}>
+                        <img src={photo.url} />
+                      </div>
+                    );
+                  })}
               </div>
             );
           })}

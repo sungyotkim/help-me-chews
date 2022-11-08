@@ -15,7 +15,6 @@
 }
 
 .profile-review-header {
-  width: 712px;
   height: 80px;
   display: flex;
   gap: 12px;
@@ -48,4 +47,16 @@
 
 .profile-review-body > div:first-child {
   color: #666666;
+}
+
+.profile-review-photo {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+.profile-review-photo > img {
+  width: 300px;
+  height: 300px;
+  border-radius: 4px;
 }

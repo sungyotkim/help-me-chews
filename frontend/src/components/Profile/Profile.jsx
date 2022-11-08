@@ -52,13 +52,14 @@ const Profile = () => {
   const allReviews = useSelector(getReviewsByAuthorId(parseInt(profileId)));
 
   useEffect(() => {
-    if (user) {
+    if (user && allReviews) {
       let userReviews = allReviews.slice();
-      setReviews([...userReviews]);
+      setReviews(allReviews.slice());
       const lastFive = userReviews.reverse().slice(0, 5);
       setRecentReviews([...lastFive]);
+      console.log(lastFive);
     }
-  }, [allReviews]);
+  }, [user]);
 
   if (user) {
     const name = `${user.firstName} ${user.lastName.slice(0, 1)}.`;
