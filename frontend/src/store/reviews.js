@@ -39,20 +39,26 @@ export const getReviewsByAuthorId =
     });
   };
 
-export const createReview = (review) => async (dispatch) => {
-  const res = await csrfFetch("/api/reviews", {
+export const createReview = (formData) => async (dispatch) => {
+  const res = await fetch("/api/reviews", {
+    headers: {
+      "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token"),
+    },
     method: "POST",
-    body: JSON.stringify(review),
+    body: formData,
   });
   const data = await res.json();
   dispatch(setReview(data));
   return data;
 };
 
-export const updateReview = (review) => async (dispatch) => {
-  const res = await csrfFetch(`/api/reviews/${review.id}`, {
+export const updateReview = (formData, id) => async (dispatch) => {
+  const res = await fetch(`/api/reviews/${id}`, {
+    headers: {
+      "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token"),
+    },
     method: "PUT",
-    body: JSON.stringify(review),
+    body: formData,
   });
   const data = await res.json();
   dispatch(setReview(data));

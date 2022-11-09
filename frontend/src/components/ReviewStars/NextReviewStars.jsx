@@ -291,13 +291,13 @@ const NextReviewStars = ({
 
     if (hideToolTip) {
       if (foodValue && !foodValueSelected) {
-        setFoodValue("Select your rating");
+        setFoodValue("Select your food rating");
       } else if (foodValue && foodValueSelected) {
         setFoodValue(foodValueSelected);
       }
 
       if (serviceValue && !serviceValueSelected) {
-        setServiceValue("Select your rating");
+        setServiceValue("Select your service rating");
       } else if (serviceValue && serviceValueSelected) {
         setServiceValue(serviceValueSelected);
       }

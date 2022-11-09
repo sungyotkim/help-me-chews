@@ -40,9 +40,11 @@ const WriteAReviewMain = ({
   ];
 
   const [placeHolderText, setPlaceHolderText] = useState("");
-  const [foodValue, setFoodValue] = useState("Select your rating");
+  const [foodValue, setFoodValue] = useState("Select your food rating");
   const [foodValueSelected, setFoodValueSelected] = useState(false);
-  const [serviceValue, setServiceValue] = useState("Select your rating");
+  const [serviceValue, setServiceValue] = useState(
+    "Select your service rating"
+  );
   const [serviceValueSelected, setServiceValueSelected] = useState(false);
   const [redirect, setRedirect] = useState(false);
   let starValues = [
@@ -56,6 +58,7 @@ const WriteAReviewMain = ({
   const [reviewText, setReviewText] = useState("");
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
+  const [files, setFiles] = useState([]);
 
   useEffect(() => {
     setPlaceHolderText(placeHolderTextOptions[Math.floor(Math.random() * 2)]);
@@ -84,6 +87,25 @@ const WriteAReviewMain = ({
       authorId: authorId,
       businessId: businessId,
     };
+    const formData = new FormData();
+    formData.append("review[text]", reviewText);
+    formData.append(
+      "review[foodRating]",
+      starValues.indexOf(foodValueSelected)
+    );
+    formData.append(
+      "review[serviceRating]",
+      starValues.indexOf(serviceValueSelected)
+    );
+    formData.append("review[authorId]", authorId);
+    formData.append("review[businessId]", businessId);
+    if (files.length > 0) {
+      // formData.append("review[photos]", JSON.stringify(files));
+      files.forEach((file) => {
+        formData.append("review[photos][]", file);
+      });
+    }
+
     setErrors([]);
 
     if (review.foodRating === -1) {
@@ -96,34 +118,40 @@ const WriteAReviewMain = ({
     }
 
     if (action === "create") {
-      return dispatch(createReview(review))
-        .catch(async (res) => {
-          let data;
-          try {
-            data = await res.clone().json();
-          } catch {
-            data = await res.text();
-          }
-          if (data?.errors) setErrors(data.errors);
-          else if (data) setErrors([data]);
-          else setErrors([res.statusText]);
-        })
-        .then(setRedirect(true));
+      return (
+        // dispatch(createReview(review))
+        dispatch(createReview(formData))
+          .catch(async (res) => {
+            let data;
+            try {
+              data = await res.clone().json();
+            } catch {
+              data = await res.text();
+            }
+            if (data?.errors) setErrors(data.errors);
+            else if (data) setErrors([data]);
+            else setErrors([res.statusText]);
+          })
+          .then(setRedirect(true))
+      );
     } else if (action === "edit") {
-      review.id = currentReview.id;
-      return dispatch(updateReview(review))
-        .catch(async (res) => {
-          let data;
-          try {
-            data = await res.clone().json();
-          } catch {
-            data = await res.text();
-          }
-          if (data?.errors) setErrors(data.errors);
-          else if (data) setErrors([data]);
-          else setErrors([res.statusText]);
-        })
-        .then(setRedirect(true));
+      // review.id = currentReview.id;
+      return (
+        // dispatch(updateReview(review))
+        dispatch(updateReview(formData, currentReview.id))
+          .catch(async (res) => {
+            let data;
+            try {
+              data = await res.clone().json();
+            } catch {
+              data = await res.text();
+            }
+            if (data?.errors) setErrors(data.errors);
+            else if (data) setErrors([data]);
+            else setErrors([res.statusText]);
+          })
+          .then(setRedirect(true))
+      );
     }
   };
 
@@ -163,6 +191,18 @@ const WriteAReviewMain = ({
     setErrors([]);
   };
 
+  const handleFile = () => {
+    document.getElementById("upload-file").click();
+  };
+
+  const selectFile = () => {
+    const currentFiles = document.getElementById("upload-file").files;
+    const filesList = [];
+    for (let i = 0; i < currentFiles.length; i++) {
+      filesList.push(currentFiles[i]);
+    }
+    setFiles(filesList);
+  };
   return (
     <>
       <div className="signup-alert-container">
@@ -180,6 +220,7 @@ const WriteAReviewMain = ({
         <form id="review-form" onSubmit={handleSubmit}>
           <div className="top-form-container">
             <div className="food-star-container">
+              Food rating:
               <NextReviewStars
                 hideToolTip={true}
                 foodValue={foodValue}
@@ -192,6 +233,7 @@ const WriteAReviewMain = ({
               {foodValue}
             </div>
             <div className="service-star-container">
+              Service rating:
               <NextReviewStars
                 hideToolTip={true}
                 serviceValue={serviceValue}
@@ -216,13 +258,35 @@ const WriteAReviewMain = ({
           </div>
           <div className="attach-photo-container">
             <div className="attach-photo-header">Attach Photos</div>
-            <CustomToolTip title="Coming soon!" arrow>
-              <div className="photo-input-container">
-                <svg width={24} height={24}>
-                  <path d="M16 2a1 1 0 011 .68L17.72 5H20a3 3 0 013 3v11a3 3 0 01-3 3H4a3 3 0 01-3-3V8a3 3 0 013-3h2.28L7 2.68A1 1 0 018 2zm-.72 2H8.72L8 6.32A1 1 0 017 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1h-3a1 1 0 01-.95-.68L15.28 4zM12 9a1 1 0 011 1v2.5h2.5a1 1 0 110 2H13V17a1 1 0 11-2 0v-2.5H8.5a1 1 0 110-2H11V10a1 1 0 011-1z"></path>
-                </svg>
+            <div className="photo-input-container" onClick={handleFile}>
+              <svg width={24} height={24}>
+                <path d="M16 2a1 1 0 011 .68L17.72 5H20a3 3 0 013 3v11a3 3 0 01-3 3H4a3 3 0 01-3-3V8a3 3 0 013-3h2.28L7 2.68A1 1 0 018 2zm-.72 2H8.72L8 6.32A1 1 0 017 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1h-3a1 1 0 01-.95-.68L15.28 4zM12 9a1 1 0 011 1v2.5h2.5a1 1 0 110 2H13V17a1 1 0 11-2 0v-2.5H8.5a1 1 0 110-2H11V10a1 1 0 011-1z"></path>
+              </svg>
+            </div>
+            {files.length > 0 && files.length < 3 && (
+              <div className="file-name-container">
+                {files.map((file, i) => {
+                  return (
+                    <div className="file-name" key={file.name}>
+                      {i !== 0 ? ", " : ""} {file.name}
+                    </div>
+                  );
+                })}
               </div>
-            </CustomToolTip>
+            )}
+            {files.length > 2 && (
+              <div className="file-name-container">
+                <div className="file-name">{files.length} Files</div>
+              </div>
+            )}
+            <input
+              type="file"
+              id="upload-file"
+              style={{ display: "none" }}
+              onChange={selectFile}
+              accept="image/png, image/jpg, image/jpeg"
+              multiple
+            />
           </div>
           <div className="post-review-btn-container">
             <input type="submit" value="Post Review" id="post-review-btn" />
