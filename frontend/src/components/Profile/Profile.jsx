@@ -50,14 +50,12 @@ const Profile = () => {
 
   const user = useSelector(getUser(userId));
   const allReviews = useSelector(getReviewsByAuthorId(parseInt(profileId)));
-
   useEffect(() => {
     if (user && allReviews) {
       let userReviews = allReviews.slice();
       setReviews(allReviews.slice());
       const lastFive = userReviews.reverse().slice(0, 5);
       setRecentReviews([...lastFive]);
-      console.log(lastFive);
     }
   }, [user]);
 

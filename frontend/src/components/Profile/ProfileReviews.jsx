@@ -1,8 +1,40 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "./ProfileReviews.css";
 import yelpReviewHero from "../../assets/yelp-review-hero.PNG";
 import ReviewStars from "../ReviewStars/ReviewStars";
 
 const ProfileReviews = ({ reviews }) => {
+  const [redirect, setRedirect] = useState(false);
+  const [selectedBusiness, setSelectedBusiness] = useState();
+  const history = useHistory();
+
+  const handleClick = (e, business) => {
+    e.preventDefault();
+    setRedirect(true);
+    setSelectedBusiness(business);
+  };
+
+  useEffect(() => {
+    if (redirect) {
+      setRedirect(false);
+      history.push({
+        pathname: `/business/${selectedBusiness.yelpInfo.id}`,
+        state: {
+          result: selectedBusiness.yelpInfo,
+          reviewArr: selectedBusiness.yelpReviews,
+          goToReviews: true,
+        },
+      });
+    }
+
+    return () => {
+      setRedirect(true);
+      setSelectedBusiness();
+    };
+  }, [redirect]);
+
   if (reviews && reviews.length === 0) {
     return (
       <>
@@ -37,7 +69,12 @@ const ProfileReviews = ({ reviews }) => {
                     alt={review.business.photo}
                   />
                   <div>
-                    {review.business.name}
+                    <div
+                      className="review-business-name-container"
+                      onClick={(e) => handleClick(e, review.business)}
+                    >
+                      {review.business.name}
+                    </div>
                     <div className="profile-review-stars">
                       <ReviewStars
                         starCount={review.foodRating}
