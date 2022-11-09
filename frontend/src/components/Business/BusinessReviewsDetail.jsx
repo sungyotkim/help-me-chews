@@ -1,12 +1,13 @@
+import { useContext } from "react";
+import { ReviewsContext } from "../../contexts/ReviewsContext";
 import BusinessReview from "./BusinessReview";
 const BusinessReviewsDetail = ({
-  databaseReviews,
   location,
   business,
   currentYelpBusiness,
-  setDatabaseReviews,
   yelpBusinessReviews,
 }) => {
+  const { databaseReviews } = useContext(ReviewsContext);
   return (
     <>
       {databaseReviews.map((review, i) => {
@@ -17,8 +18,6 @@ const BusinessReviewsDetail = ({
             location={location}
             business={business}
             currentYelpBusiness={currentYelpBusiness}
-            databaseReviews={databaseReviews}
-            setDatabaseReviews={setDatabaseReviews}
             yelpBusinessReviews={yelpBusinessReviews}
           />
         );

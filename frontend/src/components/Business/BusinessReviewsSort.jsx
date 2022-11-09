@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import "./BusinessReviewSort.css";
+import "./BusinessReviewsSort.css";
 
 const BusinessReviewSort = () => {
   const [searchReviewsAnimate, setSearchReviewsAnimate] = useState(false);

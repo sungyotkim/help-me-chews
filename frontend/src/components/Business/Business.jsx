@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../Header/Header";
 import NextReviewStars from "../ReviewStars/NextReviewStars";
@@ -10,6 +10,7 @@ import BusinessReviewSort from "./BusinessReviewsSort";
 import { createBusiness, getBusiness } from "../../store/businesses";
 import { Link, useLocation } from "react-router-dom";
 import ResultMap from "../ResultMap/ResultMap";
+import { ReviewsContext } from "../../contexts/ReviewsContext";
 
 const Business = () => {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ const Business = () => {
   const currentYelpBusiness = location.state.result;
   const yelpBusinessReviews = (location.state.reviewArr ||= []);
   const goToReviews = location.state.goToReviews;
-  const [databaseReviews, setDatabaseReviews] = useState([]);
+  const { setDatabaseReviews } = useContext(ReviewsContext);
   if (currentYelpBusiness.fromDatabase) {
     currentYelpBusiness.display_phone = currentYelpBusiness.displayPhone;
     currentYelpBusiness.hours[0].is_open_now =
@@ -564,18 +565,14 @@ const Business = () => {
                   </>
                 )}
 
-                <BusinessReviewsOverallRatings
-                  databaseReviews={databaseReviews}
-                />
+                <BusinessReviewsOverallRatings />
 
                 <BusinessReviewSort />
 
                 <BusinessReviewsDetail
-                  databaseReviews={databaseReviews}
                   location={businessLocation}
                   business={business}
                   currentYelpBusiness={currentYelpBusiness}
-                  setDatabaseReviews={setDatabaseReviews}
                   yelpBusinessReviews={yelpBusinessReviews}
                 />
               </div>

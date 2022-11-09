@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { ReviewsContext } from "../../contexts/ReviewsContext";
 import { deleteReview } from "../../store/reviews";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./BusinessReview.css";
@@ -10,8 +11,6 @@ const BusinessReview = ({
   location,
   business,
   currentYelpBusiness,
-  databaseReviews,
-  setDatabaseReviews,
   yelpBusinessReviews,
 }) => {
   const [usefulBtnClicked, setUsefulBtnClicked] = useState(false);
@@ -22,6 +21,7 @@ const BusinessReview = ({
   const sessionUser = useSelector((state) => state.session.user);
   const node = useRef();
   const dispatch = useDispatch();
+  const { databaseReviews, setDatabaseReviews } = useContext(ReviewsContext);
 
   useEffect(() => {
     if (review.photos) {

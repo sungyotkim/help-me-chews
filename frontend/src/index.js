@@ -8,6 +8,7 @@ import configureStore from "./store";
 import csrfFetch from "./store/csrf";
 import * as sessionActions from "./store/session";
 import { BusinessSearchProvider } from "./contexts/BusinessSearchContext";
+import { ReviewsProvider } from "./contexts/ReviewsContext";
 
 const store = configureStore();
 
@@ -21,9 +22,11 @@ function Root() {
   return (
     <Provider store={store}>
       <BusinessSearchProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
+        <ReviewsProvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </ReviewsProvider>
       </BusinessSearchProvider>
     </Provider>
   );

@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { ReviewsContext } from "../../contexts/ReviewsContext";
 import ReviewStars from "../ReviewStars/ReviewStars";
 import "./BusinessReviewsOverallRatings.css";
 
-const BusinessReviewsOverallRatings = ({ databaseReviews }) => {
+const BusinessReviewsOverallRatings = () => {
+  const { databaseReviews } = useContext(ReviewsContext);
   let ratingsTotal = databaseReviews.length;
 
   let foodRatingFive = 0;
