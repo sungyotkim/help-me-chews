@@ -4,26 +4,6 @@ import { Redirect } from "react-router-dom";
 import { createReview, updateReview } from "../../store/reviews";
 import NextReviewStars from "../ReviewStars/NextReviewStars";
 import "./WriteAReviewMain.css";
-import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
-import { styled } from "@mui/material/styles";
-
-const CustomToolTip = styled(({ className, ...props }) => (
-  <Tooltip {...props} classes={{ popper: className }} />
-))(() => ({
-  [`& .${tooltipClasses.tooltip}`]: {
-    backgroundColor: "#2d2e2f",
-    fontSize: 12,
-    boxShadow: "rgb(0 0 0 / 15%) 0 0 18px",
-    borderRadius: "4px",
-    padding: "12px 16px",
-    position: "relative",
-    top: -8,
-    fontFamily: "'Poppins', Arial, Helvetica, sans-serif;",
-  },
-  [`& .${tooltipClasses.arrow}`]: {
-    color: "#2d2e2f",
-  },
-}));
 
 const WriteAReviewMain = ({
   business,
@@ -59,6 +39,8 @@ const WriteAReviewMain = ({
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([]);
   const [files, setFiles] = useState([]);
+  const [tooManyPhotos, setTooManyPhotos] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setPlaceHolderText(placeHolderTextOptions[Math.floor(Math.random() * 2)]);
@@ -100,7 +82,6 @@ const WriteAReviewMain = ({
     formData.append("review[authorId]", authorId);
     formData.append("review[businessId]", businessId);
     if (files.length > 0) {
-      // formData.append("review[photos]", JSON.stringify(files));
       files.forEach((file) => {
         formData.append("review[photos][]", file);
       });
@@ -119,7 +100,6 @@ const WriteAReviewMain = ({
 
     if (action === "create") {
       return (
-        // dispatch(createReview(review))
         dispatch(createReview(formData))
           .catch(async (res) => {
             let data;
@@ -132,12 +112,11 @@ const WriteAReviewMain = ({
             else if (data) setErrors([data]);
             else setErrors([res.statusText]);
           })
-          .then(setRedirect(true))
+          // .then(setRedirect(true));
+          .then(setLoading(true))
       );
     } else if (action === "edit") {
-      // review.id = currentReview.id;
       return (
-        // dispatch(updateReview(review))
         dispatch(updateReview(formData, currentReview.id))
           .catch(async (res) => {
             let data;
@@ -150,7 +129,8 @@ const WriteAReviewMain = ({
             else if (data) setErrors([data]);
             else setErrors([res.statusText]);
           })
-          .then(setRedirect(true))
+          // .then(setRedirect(true));
+          .then(setLoading(true))
       );
     }
   };
@@ -161,10 +141,37 @@ const WriteAReviewMain = ({
   ];
   let msg = msgOptions[0];
 
+  useEffect(() => {
+    let timer;
+    if (loading) {
+      switch (files.length) {
+        case 0:
+          timer = 200;
+          break;
+        case 1:
+          timer = 1000;
+          break;
+        case 2:
+          timer = 2000;
+          break;
+        case 3:
+          timer = 3000;
+          break;
+        default:
+          timer = 200;
+          break;
+      }
+      setTimeout(() => {
+        setRedirect(true);
+      }, timer);
+    }
+  }, [loading]);
+
   if (redirect) {
     if (action === "edit") {
       msg = msgOptions[1];
     }
+
     return (
       <Redirect
         to={{
@@ -202,7 +209,13 @@ const WriteAReviewMain = ({
       filesList.push(currentFiles[i]);
     }
     setFiles(filesList);
+    if (filesList.length > 3) {
+      setTooManyPhotos(true);
+    } else {
+      setTooManyPhotos(false);
+    }
   };
+
   return (
     <>
       <div className="signup-alert-container">
@@ -257,13 +270,13 @@ const WriteAReviewMain = ({
             ></textarea>
           </div>
           <div className="attach-photo-container">
-            <div className="attach-photo-header">Attach Photos</div>
+            <div className="attach-photo-header">Attach Photos (up to 3)</div>
             <div className="photo-input-container" onClick={handleFile}>
               <svg width={24} height={24}>
                 <path d="M16 2a1 1 0 011 .68L17.72 5H20a3 3 0 013 3v11a3 3 0 01-3 3H4a3 3 0 01-3-3V8a3 3 0 013-3h2.28L7 2.68A1 1 0 018 2zm-.72 2H8.72L8 6.32A1 1 0 017 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1h-3a1 1 0 01-.95-.68L15.28 4zM12 9a1 1 0 011 1v2.5h2.5a1 1 0 110 2H13V17a1 1 0 11-2 0v-2.5H8.5a1 1 0 110-2H11V10a1 1 0 011-1z"></path>
               </svg>
             </div>
-            {files.length > 0 && files.length < 3 && (
+            {files.length > 0 && files.length < 4 && (
               <div className="file-name-container">
                 {files.map((file, i) => {
                   return (
@@ -274,9 +287,9 @@ const WriteAReviewMain = ({
                 })}
               </div>
             )}
-            {files.length > 2 && (
+            {files.length > 3 && (
               <div className="file-name-container">
-                <div className="file-name">{files.length} Files</div>
+                <div className="file-name">Please select up to 3 photos</div>
               </div>
             )}
             <input
@@ -289,7 +302,12 @@ const WriteAReviewMain = ({
             />
           </div>
           <div className="post-review-btn-container">
-            <input type="submit" value="Post Review" id="post-review-btn" />
+            <input
+              type="submit"
+              value={loading ? "Submitting..." : "Post Review"}
+              id="post-review-btn"
+              disabled={tooManyPhotos ? true : false}
+            />
           </div>
         </form>
       </div>

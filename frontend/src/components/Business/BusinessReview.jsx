@@ -18,9 +18,20 @@ const BusinessReview = ({
   const [funnyBtnClicked, setFunnyBtnClicked] = useState(false);
   const [coolBtnClicked, setCoolBtnClicked] = useState(false);
   const [showReviewMenu, setShowReviewMenu] = useState(false);
+  const [photos, setPhotos] = useState([]);
   const sessionUser = useSelector((state) => state.session.user);
   const node = useRef();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (review.photos) {
+      setPhotos(review.photos);
+    }
+
+    return () => {
+      setPhotos([]);
+    };
+  }, [review]);
 
   let month = review.time_created
     ? review.time_created.slice(5, 7)
@@ -249,9 +260,20 @@ const BusinessReview = ({
         </div>
       </div>
       <div className="user-review-text">{review.text}</div>
-      {review.photos && (
+      {/* {review.photos && (
         <div className="review-photos-container">
           {review.photos.map((photo) => {
+            return (
+              <div className="review-photo-container" key={photo.url}>
+                <img src={photo.url} />
+              </div>
+            );
+          })}
+        </div>
+      )} */}
+      {review.photos && (
+        <div className="review-photos-container">
+          {photos.map((photo) => {
             return (
               <div className="review-photo-container" key={photo.url}>
                 <img src={photo.url} />
