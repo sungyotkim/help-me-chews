@@ -57,11 +57,25 @@ const ProfileReviews = ({ reviews }) => {
                   <div>{`${month}/${day}/${year}`}</div>
                   <div>{review.text}</div>
                 </div>
-                {review.photos && (
+                {review.photos && review.photos.length < 3 && (
                   <div className="profile-review-photos-container">
                     {review.photos.map((photo) => {
                       return (
                         <div className="profile-review-photo" key={photo.url}>
+                          <img src={photo.url} />
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+                {review.photos && review.photos.length > 2 && (
+                  <div className="profile-review-photos-container-small">
+                    {review.photos.map((photo) => {
+                      return (
+                        <div
+                          className="profile-review-photo-small"
+                          key={photo.url}
+                        >
                           <img src={photo.url} />
                         </div>
                       );

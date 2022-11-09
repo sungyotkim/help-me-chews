@@ -67,3 +67,23 @@
   height: 300px;
   border-radius: 4px;
 }
+
+.profile-review-photos-container-small {
+  width: 376px;
+  min-height: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.profile-review-photo-small {
+  width: 180px;
+  height: 180px;
+  margin-bottom: 16px;
+}
+
+.profile-review-photo-small > img {
+  width: 180px;
+  height: 180px;
+  border-radius: 4px;
+}

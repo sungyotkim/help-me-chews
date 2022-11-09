@@ -294,3 +294,23 @@
   height: 225px;
   border-radius: 4px;
 }
+
+.review-photos-container-small {
+  width: 632px;
+  height: 148px;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.review-photo-container-small {
+  width: 174px;
+  height: 132px;
+  padding-right: 16px;
+  margin-top: 8px;
+}
+
+.review-photo-container-small > img {
+  width: 174px;
+  height: 132px;
+  border-radius: 4px;
+}

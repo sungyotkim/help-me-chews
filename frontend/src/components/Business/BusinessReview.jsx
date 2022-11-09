@@ -260,9 +260,9 @@ const BusinessReview = ({
         </div>
       </div>
       <div className="user-review-text">{review.text}</div>
-      {/* {review.photos && (
+      {review.photos && photos.length < 3 && (
         <div className="review-photos-container">
-          {review.photos.map((photo) => {
+          {photos.map((photo) => {
             return (
               <div className="review-photo-container" key={photo.url}>
                 <img src={photo.url} />
@@ -270,12 +270,12 @@ const BusinessReview = ({
             );
           })}
         </div>
-      )} */}
-      {review.photos && (
-        <div className="review-photos-container">
+      )}
+      {review.photos && photos.length > 2 && (
+        <div className="review-photos-container-small">
           {photos.map((photo) => {
             return (
-              <div className="review-photo-container" key={photo.url}>
+              <div className="review-photo-container-small" key={photo.url}>
                 <img src={photo.url} />
               </div>
             );

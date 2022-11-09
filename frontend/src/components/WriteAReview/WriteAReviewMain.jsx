@@ -157,6 +157,9 @@ const WriteAReviewMain = ({
         case 3:
           timer = 3000;
           break;
+        case 4:
+          timer = 4000;
+          break;
         default:
           timer = 200;
           break;
@@ -209,7 +212,7 @@ const WriteAReviewMain = ({
       filesList.push(currentFiles[i]);
     }
     setFiles(filesList);
-    if (filesList.length > 3) {
+    if (filesList.length > 4) {
       setTooManyPhotos(true);
     } else {
       setTooManyPhotos(false);
@@ -270,13 +273,13 @@ const WriteAReviewMain = ({
             ></textarea>
           </div>
           <div className="attach-photo-container">
-            <div className="attach-photo-header">Attach Photos (up to 3)</div>
+            <div className="attach-photo-header">Attach Photos (up to 4)</div>
             <div className="photo-input-container" onClick={handleFile}>
               <svg width={24} height={24}>
                 <path d="M16 2a1 1 0 011 .68L17.72 5H20a3 3 0 013 3v11a3 3 0 01-3 3H4a3 3 0 01-3-3V8a3 3 0 013-3h2.28L7 2.68A1 1 0 018 2zm-.72 2H8.72L8 6.32A1 1 0 017 7H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1h-3a1 1 0 01-.95-.68L15.28 4zM12 9a1 1 0 011 1v2.5h2.5a1 1 0 110 2H13V17a1 1 0 11-2 0v-2.5H8.5a1 1 0 110-2H11V10a1 1 0 011-1z"></path>
               </svg>
             </div>
-            {files.length > 0 && files.length < 4 && (
+            {files.length > 0 && !tooManyPhotos && (
               <div className="file-name-container">
                 {files.map((file, i) => {
                   return (
@@ -287,9 +290,9 @@ const WriteAReviewMain = ({
                 })}
               </div>
             )}
-            {files.length > 3 && (
+            {!tooManyPhotos && (
               <div className="file-name-container">
-                <div className="file-name">Please select up to 3 photos</div>
+                <div className="file-name">Please select up to 4 photos</div>
               </div>
             )}
             <input
