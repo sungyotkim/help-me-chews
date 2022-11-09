@@ -290,7 +290,7 @@ const WriteAReviewMain = ({
                 })}
               </div>
             )}
-            {!tooManyPhotos && (
+            {tooManyPhotos && (
               <div className="file-name-container">
                 <div className="file-name">Please select up to 4 photos</div>
               </div>
