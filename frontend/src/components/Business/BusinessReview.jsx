@@ -46,7 +46,7 @@ const BusinessReview = ({
   if (day[0] === "0") day = day[1];
   let date = month + "/" + day + "/" + year;
 
-  let userProfilePhoto = (review.user.image_url ||=
+  let userProfilePhoto = (review.user.imageUrl ||=
     "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/514f6997a318/assets/img/default_avatars/user_60_square.png");
 
   let userFriends = (review.user.friends ||= 0);
