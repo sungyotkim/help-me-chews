@@ -14,11 +14,14 @@ const BusinessReviewsDetail = ({
     sortedDatabaseReviews,
     filteredDatabaseReviews,
     noMatches,
+    reviewTextSearchResults,
   } = useContext(ReviewsContext);
   const [reviews, setReviews] = useState(databaseReviews);
 
   useEffect(() => {
-    if (sortedDatabaseReviews.length > 0) {
+    if (reviewTextSearchResults.length > 0 || noMatches) {
+      setReviews(reviewTextSearchResults);
+    } else if (sortedDatabaseReviews.length > 0) {
       setReviews(sortedDatabaseReviews);
     } else if (filteredDatabaseReviews.length > 0 || noMatches) {
       setReviews(filteredDatabaseReviews);
@@ -29,7 +32,7 @@ const BusinessReviewsDetail = ({
     return () => {
       setReviews(databaseReviews);
     };
-  }, [sortedDatabaseReviews, filteredDatabaseReviews]);
+  }, [sortedDatabaseReviews, filteredDatabaseReviews, reviewTextSearchResults]);
 
   return (
     <>

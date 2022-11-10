@@ -14,6 +14,7 @@ const BusinessReviewSort = () => {
     filteredDatabaseReviews,
     setFilteredDatabaseReviews,
     setNoMatches,
+    setReviewTextSearchResults,
   } = useContext(ReviewsContext);
   const ref = useRef(null);
   const node = useRef();
@@ -38,6 +39,7 @@ const BusinessReviewSort = () => {
   const [serviceFilterOne, setServiceFilterOne] = useState(false);
   const [foodValues, setFoodValues] = useState([]);
   const [serviceValues, setServiceValues] = useState([]);
+  const [query, setQuery] = useState("");
 
   const reviewSortSetters = [
     setNewestSortSelected,
@@ -86,10 +88,12 @@ const BusinessReviewSort = () => {
   useEffect(() => {
     setSortedDatabaseReviews([]);
     setFilteredDatabaseReviews([]);
+    setReviewTextSearchResults([]);
 
     return () => {
       setSortedDatabaseReviews([]);
       setFilteredDatabaseReviews([]);
+      setReviewTextSearchResults([]);
     };
   }, [databaseReviews]);
 
@@ -110,14 +114,61 @@ const BusinessReviewSort = () => {
 
   const handleFocus = () => {
     setSearchReviewsAnimate(!searchReviewsAnimate);
+
+    if (ref.current.value) {
+      setSearchReviewsAnimate(true);
+    }
   };
 
-  const handleChange = (e) => {
-    e.preventDefault();
+  const searchReviews = (term) => {
+    if (!term) {
+      setReviewTextSearchResults([]);
+      setNoMatches(false);
+      return;
+    }
+
+    term = term.toLowerCase();
+
+    let results;
+
+    if (filteredDatabaseReviews.length > 0) {
+      results = filteredDatabaseReviews.filter((review) => {
+        return review.text.toLowerCase().indexOf(term) !== -1;
+      });
+    } else if (sortedDatabaseReviews.length > 0) {
+      results = sortedDatabaseReviews.filter((review) => {
+        return review.text.toLowerCase().indexOf(term) !== -1;
+      });
+    } else {
+      results = databaseReviews.filter((review) => {
+        return review.text.toLowerCase().indexOf(term) !== -1;
+      });
+    }
+
+    setReviewTextSearchResults(results);
+    if (results.length === 0) {
+      setNoMatches(true);
+    } else {
+      setNoMatches(false);
+    }
+  };
+
+  const handleChange = (term) => {
+    setQuery(term);
   };
 
   const handlePlaceholderClick = () => {
     ref.current.focus();
+  };
+
+  const handleSearchClick = () => {
+    searchReviews(query);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      searchReviews(query);
+    }
   };
 
   const handleHelpSortClick = () => {
@@ -493,8 +544,10 @@ const BusinessReviewSort = () => {
           type="text"
           ref={ref}
           onFocus={handleFocus}
-          onChange={(e) => handleChange(e)}
+          onChange={(e) => handleChange(e.target.value)}
+          onKeyDown={(e) => handleKeyDown(e)}
           onBlur={handleFocus}
+          value={query}
         />
         <div
           className={
@@ -506,7 +559,7 @@ const BusinessReviewSort = () => {
         >
           Search reviews
         </div>
-        <div className="review-search-icon">
+        <div className="review-search-icon" onClick={handleSearchClick}>
           <svg width={16} height={16}>
             <path d="M14.448 13.388l-2.171-2.172A6.215 6.215 0 002.989 2.99a6.215 6.215 0 008.227 9.288l2.171 2.171a.75.75 0 001.06-1.06zM4.049 10.72a4.718 4.718 0 113.336 1.381 4.683 4.683 0 01-3.336-1.381z"></path>
           </svg>

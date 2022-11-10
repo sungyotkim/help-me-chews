@@ -7,6 +7,7 @@ export const ReviewsProvider = ({ children }) => {
   const [sortedDatabaseReviews, setSortedDatabaseReviews] = useState([]);
   const [filteredDatabaseReviews, setFilteredDatabaseReviews] = useState([]);
   const [noMatches, setNoMatches] = useState(false);
+  const [reviewTextSearchResults, setReviewTextSearchResults] = useState([]);
 
   return (
     <>
@@ -20,6 +21,8 @@ export const ReviewsProvider = ({ children }) => {
           setFilteredDatabaseReviews,
           noMatches,
           setNoMatches,
+          reviewTextSearchResults,
+          setReviewTextSearchResults,
         }}
       >
         {children}
