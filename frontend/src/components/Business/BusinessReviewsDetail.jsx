@@ -7,23 +7,43 @@ const BusinessReviewsDetail = ({
   currentYelpBusiness,
   yelpBusinessReviews,
 }) => {
-  const { databaseReviews } = useContext(ReviewsContext);
-  return (
-    <>
-      {databaseReviews.map((review, i) => {
-        return (
-          <BusinessReview
-            review={review}
-            key={i}
-            location={location}
-            business={business}
-            currentYelpBusiness={currentYelpBusiness}
-            yelpBusinessReviews={yelpBusinessReviews}
-          />
-        );
-      })}
-    </>
-  );
+  const { databaseReviews, sortedDatabaseReviews } = useContext(ReviewsContext);
+
+  if (sortedDatabaseReviews.length > 0) {
+    return (
+      <>
+        {sortedDatabaseReviews.map((review, i) => {
+          return (
+            <BusinessReview
+              review={review}
+              key={i}
+              location={location}
+              business={business}
+              currentYelpBusiness={currentYelpBusiness}
+              yelpBusinessReviews={yelpBusinessReviews}
+            />
+          );
+        })}
+      </>
+    );
+  } else {
+    return (
+      <>
+        {databaseReviews.map((review, i) => {
+          return (
+            <BusinessReview
+              review={review}
+              key={i}
+              location={location}
+              business={business}
+              currentYelpBusiness={currentYelpBusiness}
+              yelpBusinessReviews={yelpBusinessReviews}
+            />
+          );
+        })}
+      </>
+    );
+  }
 };
 
 export default BusinessReviewsDetail;

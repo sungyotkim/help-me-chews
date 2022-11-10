@@ -4,6 +4,7 @@ export const ReviewsContext = createContext({});
 
 export const ReviewsProvider = ({ children }) => {
   const [databaseReviews, setDatabaseReviews] = useState([]);
+  const [sortedDatabaseReviews, setSortedDatabaseReviews] = useState([]);
 
   return (
     <>
@@ -11,6 +12,8 @@ export const ReviewsProvider = ({ children }) => {
         value={{
           databaseReviews,
           setDatabaseReviews,
+          sortedDatabaseReviews,
+          setSortedDatabaseReviews,
         }}
       >
         {children}

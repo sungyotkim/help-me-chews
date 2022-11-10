@@ -49,7 +49,9 @@
 
 .help-sort-dropdown {
   width: 139px;
+  width: 149px;
   height: 212px;
+  height: 284px;
   box-sizing: border-box;
   padding: 16px;
   color: rgb(45, 46, 47);
@@ -67,6 +69,7 @@
 
 .help-sort-dropdown > div {
   width: 110px;
+  width: 120px;
   height: 36px;
   box-sizing: border-box;
   padding: 8px;
