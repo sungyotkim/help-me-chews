@@ -89,12 +89,14 @@
 
 .filter-by-rating-sort {
   width: 138px;
+  width: 178px;
   height: 40px;
   position: relative;
 }
 
 .filter-by-rating-sort-btn {
   width: 132px;
+  width: 172px;
   height: 32px;
   box-sizing: border-box;
   padding: 6px 12px;
@@ -107,6 +109,10 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+}
+
+.rating-sort-service {
+  width: 182px;
 }
 
 .filter-by-rating-sort-btn:hover {
@@ -129,6 +135,7 @@
   box-shadow: 0 0 18px #00000026;
   position: relative;
   z-index: 10;
+  left: 10px;
 }
 
 .rating-sort-dropdown > div {

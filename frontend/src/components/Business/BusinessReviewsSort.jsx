@@ -5,11 +5,13 @@ import "./BusinessReviewsSort.css";
 const BusinessReviewSort = () => {
   const [searchReviewsAnimate, setSearchReviewsAnimate] = useState(false);
   const [showHelpSort, setShowHelpSort] = useState(false);
-  const [showRatingSort, setShowRatingSort] = useState(false);
+  const [showFoodRatingSort, setShowFoodRatingSort] = useState(false);
+  const [showServiceRatingSort, setShowServiceRatingSort] = useState(false);
   const { databaseReviews, setSortedDatabaseReviews } =
     useContext(ReviewsContext);
   const ref = useRef(null);
   const node = useRef();
+  const node2 = useRef();
   const [helpSortSelected, setHelpSortSelected] = useState(false);
   const [newestSortSelected, setNewestSortSelected] = useState(false);
   const [oldestSortSelected, setOldestSortSelected] = useState(false);
@@ -53,14 +55,23 @@ const BusinessReviewSort = () => {
       return;
     }
     setShowHelpSort(false);
-    setShowRatingSort(false);
+    setShowFoodRatingSort(false);
+    setShowServiceRatingSort(false);
   };
 
-  const handleRatingSortClick = () => {
-    if (showRatingSort) {
-      setShowRatingSort(false);
+  const handleFoodRatingSortClick = () => {
+    if (showFoodRatingSort) {
+      setShowFoodRatingSort(false);
     } else {
-      setShowRatingSort(true);
+      setShowFoodRatingSort(true);
+    }
+  };
+
+  const handleServiceRatingSortClick = () => {
+    if (showServiceRatingSort) {
+      setShowServiceRatingSort(false);
+    } else {
+      setShowServiceRatingSort(true);
     }
   };
 
@@ -69,7 +80,7 @@ const BusinessReviewSort = () => {
     return () => {
       document.removeEventListener("mousedown", clickOutside);
     };
-  }, [showHelpSort, showRatingSort]);
+  }, [showHelpSort, showFoodRatingSort, showServiceRatingSort]);
 
   const handleSort = (e, sort) => {
     e.preventDefault();
@@ -191,14 +202,35 @@ const BusinessReviewSort = () => {
         <div className="filter-by-rating-sort">
           <div
             className="filter-by-rating-sort-btn"
-            onClick={handleRatingSortClick}
+            onClick={handleFoodRatingSortClick}
           >
-            Filter by Rating
+            Filter by Food Rating
             <svg width={16} height={16}>
               <path d="M8 10.25a.746.746 0 01-.525-.215l-3.055-3a.75.75 0 011.05-1.07L8 8.449l2.53-2.484a.75.75 0 011.05 1.07l-3.055 3A.746.746 0 018 10.25z"></path>
             </svg>
           </div>
-          {showRatingSort && (
+          {showFoodRatingSort && (
+            <div className="rating-sort-dropdown" ref={node}>
+              <div className="active-rating-sort">5 stars</div>
+              <div>4 stars</div>
+              <div>3 stars</div>
+              <div>2 stars</div>
+              <div>1 star</div>
+              <div>All ratings</div>
+            </div>
+          )}
+        </div>
+        <div className="filter-by-rating-sort">
+          <div
+            className="filter-by-rating-sort-btn rating-sort-service"
+            onClick={handleServiceRatingSortClick}
+          >
+            Filter by Service Rating
+            <svg width={16} height={16}>
+              <path d="M8 10.25a.746.746 0 01-.525-.215l-3.055-3a.75.75 0 011.05-1.07L8 8.449l2.53-2.484a.75.75 0 011.05 1.07l-3.055 3A.746.746 0 018 10.25z"></path>
+            </svg>
+          </div>
+          {showServiceRatingSort && (
             <div className="rating-sort-dropdown" ref={node}>
               <div className="active-rating-sort">5 stars</div>
               <div>4 stars</div>
