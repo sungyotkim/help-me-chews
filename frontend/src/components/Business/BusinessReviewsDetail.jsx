@@ -1,3 +1,4 @@
+import { dividerClasses } from "@mui/material";
 import { useState } from "react";
 import { useContext, useEffect } from "react";
 import { ReviewsContext } from "../../contexts/ReviewsContext";
@@ -8,14 +9,18 @@ const BusinessReviewsDetail = ({
   currentYelpBusiness,
   yelpBusinessReviews,
 }) => {
-  const { databaseReviews, sortedDatabaseReviews, filteredDatabaseReviews } =
-    useContext(ReviewsContext);
+  const {
+    databaseReviews,
+    sortedDatabaseReviews,
+    filteredDatabaseReviews,
+    noMatches,
+  } = useContext(ReviewsContext);
   const [reviews, setReviews] = useState(databaseReviews);
 
   useEffect(() => {
     if (sortedDatabaseReviews.length > 0) {
       setReviews(sortedDatabaseReviews);
-    } else if (filteredDatabaseReviews.length > 0) {
+    } else if (filteredDatabaseReviews.length > 0 || noMatches) {
       setReviews(filteredDatabaseReviews);
     } else {
       setReviews(databaseReviews);
@@ -40,6 +45,11 @@ const BusinessReviewsDetail = ({
           />
         );
       })}
+      {noMatches && (
+        <div className="no-matching-reviews-notice">
+          No matching reviews, try adjusting your filters.
+        </div>
+      )}
     </>
   );
 };

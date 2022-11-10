@@ -13,6 +13,7 @@ const BusinessReviewSort = () => {
     sortedDatabaseReviews,
     filteredDatabaseReviews,
     setFilteredDatabaseReviews,
+    setNoMatches,
   } = useContext(ReviewsContext);
   const ref = useRef(null);
   const node = useRef();
@@ -269,6 +270,7 @@ const BusinessReviewSort = () => {
         setFoodValues(newValues);
         if (newValues.length === 0) {
           setFoodFilterSelected(false);
+          filterValues = [1, 2, 3, 4, 5];
         }
       }
     } else if (term === "serviceRating") {
@@ -301,6 +303,7 @@ const BusinessReviewSort = () => {
         serviceFilterSetters[val - 1](false);
         if (newValues.length === 0) {
           setServiceFilterSelected(false);
+          filterValues = [1, 2, 3, 4, 5];
         }
       }
     }
@@ -318,6 +321,11 @@ const BusinessReviewSort = () => {
 
     setSortedDatabaseReviews([]);
     setFilteredDatabaseReviews(filtered);
+    if (filtered.length === 0) {
+      setNoMatches(true);
+    } else {
+      setNoMatches(false);
+    }
   };
 
   return (

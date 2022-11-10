@@ -314,3 +314,16 @@
   height: 132px;
   border-radius: 4px;
 }
+
+.no-matching-reviews-notice {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 16px;
+  margin-bottom: 16px;
+}
