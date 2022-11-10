@@ -255,7 +255,7 @@ const Business = () => {
     let userFriends;
     let userReviews;
     if (sessionUser) {
-      userProfilePhoto = sessionUser.image_url ||=
+      userProfilePhoto = sessionUser.imageUrl ||=
         "https://s3-media0.fl.yelpcdn.com/assets/srv0/yelp_styleguide/514f6997a318/assets/img/default_avatars/user_60_square.png";
       userLocation = businessLocation;
       if (sessionUser.city && sessionUser.state) {
