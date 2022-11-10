@@ -88,14 +88,12 @@
 }
 
 .filter-by-rating-sort {
-  width: 138px;
   width: 178px;
   height: 40px;
   position: relative;
 }
 
 .filter-by-rating-sort-btn {
-  width: 132px;
   width: 172px;
   height: 32px;
   box-sizing: border-box;
@@ -139,7 +137,7 @@
 }
 
 .rating-sort-dropdown > div {
-  width: 80.5px;
+  width: 85.5px;
   height: 36px;
   box-sizing: border-box;
   padding: 8px;

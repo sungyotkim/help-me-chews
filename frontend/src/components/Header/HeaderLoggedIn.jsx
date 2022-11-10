@@ -63,8 +63,10 @@ const HeaderLoggedIn = ({ styleBlack, hideOptions }) => {
   };
 
   const clickOutside = (e) => {
-    if (node.current.contains(e.target)) {
-      return;
+    if (node.current) {
+      if (node.current.contains(e.target)) {
+        return;
+      }
     }
     setShowProfileMenu(false);
   };
