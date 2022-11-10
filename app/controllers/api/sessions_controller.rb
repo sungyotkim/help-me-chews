@@ -17,6 +17,7 @@ class Api::SessionsController < ApplicationController
     )
 
     if @user
+      @reviews = @user.reviews
       login(@user)
       render 'api/users/show'
     else

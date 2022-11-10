@@ -13,6 +13,12 @@ json.reviews do
 
         json.user do
             json.extract! review.author, :id, :first_name, :last_name, :city, :state, :image_url, :not_yelp_user
+
+            json.reviews do
+                json.array! review.author.reviews do |review|
+                    json.merge! review.attributes
+                end
+            end
         end
     end
 end
