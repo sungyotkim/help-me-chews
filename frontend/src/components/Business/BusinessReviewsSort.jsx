@@ -222,7 +222,11 @@ const BusinessReviewSort = () => {
     reviewSortSetters.forEach((setter) => {
       setter(false);
     });
-
+    setQuery("");
+    setReviewTextSearchResults([]);
+    if (searchReviewsAnimate) {
+      setSearchReviewsAnimate(false);
+    }
     const reviewTimeAdjusted = [];
 
     if (filteredDatabaseReviews.length > 0) {
@@ -290,6 +294,11 @@ const BusinessReviewSort = () => {
   const handleFilter = (e, term, val) => {
     e.preventDefault();
     let filterValues;
+    setQuery("");
+    setReviewTextSearchResults([]);
+    if (searchReviewsAnimate) {
+      setSearchReviewsAnimate(false);
+    }
 
     if (term === "foodRating") {
       setFoodFilterSelected(true);
